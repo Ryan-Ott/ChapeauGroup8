@@ -14,16 +14,16 @@ namespace Logic
 
         public List<MenuItem> GetAllItems()
         {
-            return bill_DAO.GetAllItems();
+            return bill_DAO.DB_GetAllItems();
         }
 
         public Order GetByID(int tableId)
         {
-            return bill_DAO.GetById(tableId);
+            return bill_DAO.DB_GetOrderById(tableId);
         }
-        public void AddToBill(Bill bill)
-        {
-            return bill_DAO.AddToBill(bill);
-        }
+        //public void AddToBill(Bill bill)
+        //{
+        //    return bill_DAO.AddToBill(bill);
+        //}
     }
 }
