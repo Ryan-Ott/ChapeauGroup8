@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{A68B1876-BC0C-48CB-A4B8-FAE6BEBB33F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{2BC4CD15-D8A9-461B-B490-0F95B8F2A365}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A68B1876-BC0C-48CB-A4B8-FAE6BEBB33F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A68B1876-BC0C-48CB-A4B8-FAE6BEBB33F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A68B1876-BC0C-48CB-A4B8-FAE6BEBB33F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC4CD15-D8A9-461B-B490-0F95B8F2A365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC4CD15-D8A9-461B-B490-0F95B8F2A365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC4CD15-D8A9-461B-B490-0F95B8F2A365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BC4CD15-D8A9-461B-B490-0F95B8F2A365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

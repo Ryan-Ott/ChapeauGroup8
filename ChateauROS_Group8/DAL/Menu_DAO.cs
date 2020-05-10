@@ -11,10 +11,10 @@ namespace DAL
 {
     public class Menu_DAO : DAOBase
     {
-        public List<Menu> GetAllMenus()
+        public List<Menu> DB_GetAllMenus()
         {
             OpenConnection();
-            SqlCommand queryGetAll = new SqlCommand("SELECT menuID, menuName, startTime, endTime FROM [Menus]");
+            SqlCommand queryGetAll = new SqlCommand("SELECT menuID, menuName, startTime, endTime FROM [Menus]", connection);
             SqlDataReader reader = queryGetAll.ExecuteReader();
             List<Menu> menus = new List<Menu>();
             while (reader.Read())
@@ -27,7 +27,7 @@ namespace DAL
             return menus;
         }
 
-        public Menu GetMenuByID(int id)
+        public Menu DB_GetMenuByID(int id)
         {
             OpenConnection();
             SqlCommand queryGetByID = new SqlCommand("SELECT menuID, menuName, startTime, endTime FROM [Menus] WHERE menuID = @id");
