@@ -30,7 +30,7 @@ namespace DAL
         public Menu DB_GetMenuByID(int id)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT menuID, menuName, startTime, endTime FROM [Menus] WHERE menuID = @id");
+            SqlCommand queryGetByID = new SqlCommand("SELECT menuID, menuName, startTime, endTime FROM [Menus] WHERE menuID = @id", connection);
             queryGetByID.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Menu menu = null;

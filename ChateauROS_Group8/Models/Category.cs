@@ -18,5 +18,10 @@ namespace Models
         public int CategoryID { get; set; }
         public int MenuID { get; set; }
         public string CategoryName { get; set; }
+
+        public override string ToString()
+        {
+            return $"{CategoryName} with ID: {CategoryID} and in menu {MenuID}";
+        }
     }
 }

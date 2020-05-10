@@ -29,7 +29,7 @@ namespace DAL
         public Category DB_GetCategoryByID(int id)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT categoryID, menuID, categoryName FROM [Categories] WHERE categoryID = @id");
+            SqlCommand queryGetByID = new SqlCommand("SELECT categoryID, menuID, categoryName FROM [Categories] WHERE categoryID = @id", connection);
             queryGetByID.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Category category = null;
