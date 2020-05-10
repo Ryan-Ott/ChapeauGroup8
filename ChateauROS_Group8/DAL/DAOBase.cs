@@ -12,12 +12,10 @@ namespace DAL
 {
     public abstract class DAOBase
     {
-        //private SqlDataAdapter adapter;
-        private SqlConnection connection;
+        protected SqlConnection connection;
 
         public DAOBase()
         {
-            //adapter = new SqlDataAdapter();
             connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString);
         }
 
@@ -32,27 +30,5 @@ namespace DAL
         {
             connection.Close();
         }
-
-        //protected void ExecuteEditQuery(string query, SqlParameter[] sqlParameters)
-        //{
-        //    SqlCommand command = new SqlCommand;
-        //    try
-        //    {
-        //        command.Connection = OpenConnection();
-        //        command.CommandText = query;
-        //        command.Parameters.AddRange(sqlParameters); //find out what this actually does!
-        //        adapter.InsertCommand = command;
-        //        command.ExecuteNonQuery();
-        //    }
-        //    catch (SqlException e)
-        //    {
-        //        MessageBox.Show(e.Message);
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        CloseConnection();
-        //    }
-        //}
     }
 }
