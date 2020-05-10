@@ -45,12 +45,12 @@ namespace DAL
 
         private Menu ReadMenu(SqlDataReader reader)
         {
-            int id = (int)reader["menuID"];
+            int menuID = (int)reader["menuID"];
             string menuName = (string)reader["menuName"];
             TimeSpan startTime = (TimeSpan)reader["startTime"];
             TimeSpan endTime = (TimeSpan)reader["endTime"];
 
-            return new Menu(id, menuName, startTime, endTime);
+            return new Menu(menuID, menuName, startTime, endTime);
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Models
 {
     public class OrderItem
     {
-        public OrderItem(int orderItemID, int orderID, int menuItemID, int quantity, string requests, string orderState, TimeSpan lastStateChange)
+        public OrderItem(int orderItemID, int orderID, MenuItem menuItem, int quantity, string requests, string orderState, TimeSpan lastStateChange)
         {
             OrderItemID = orderItemID;
             OrderID = orderID;
-            MenuItemID = menuItemID;
+            MenuItem = menuItem;
             Quantity = quantity;
             Requests = requests;
             OrderState = orderState;
@@ -21,7 +21,7 @@ namespace Models
 
         public int OrderItemID { get; set; }
         public int OrderID { get; set; }
-        public int MenuItemID { get; set; }
+        public MenuItem MenuItem { get; set; }
         public int Quantity { get; set; }
         public string Requests { get; set; } //any special requests that were added to the order (e.g. extra salt)
         public string OrderState { get; set; } //whether order is ordered, in kitchen/bar, ready or delivered

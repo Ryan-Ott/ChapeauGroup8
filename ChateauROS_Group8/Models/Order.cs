@@ -8,20 +8,21 @@ namespace Models
 {
     public class Order
     {
-        public Order(int orderID, int tableID, int billID, int employeeID, bool completed, string comment)
+        public Order(int orderID, Table table, int billID, Employee employee, bool completed, string comment)
         {
             OrderID = orderID;
-            TableID = tableID;
+            Table = table;
             BillID = billID;
-            EmployeeID = employeeID;
+            Employee = employee;
             Completed = completed;
             Comment = comment;
         }
 
+        //possibly List<OrderItem> orderItems ? (unsure about DB implementation)
         public int OrderID { get; set; }
-        public int TableID { get; set; } //from which restaurant table the order was taken
+        public Table Table { get; set; } //from which restaurant table the order was taken
         public int BillID { get; set; } //which bill is associated with the order
-        public int EmployeeID { get; set; } //which waiter is responsible for the order
+        public Employee Employee { get; set; } //which waiter is responsible for the order
         public bool Completed { get; set; } //whether the order is completely finished
         public string Comment { get; set; } //place where customer comments are stored
     }
