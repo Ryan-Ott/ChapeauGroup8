@@ -8,6 +8,16 @@ namespace Models
 {
     public class MenuItem
     {
+        public MenuItem(int menuItemID, int categoryID, string dishName, double price, int stock, bool alcoholic)
+        {
+            MenuItemID = menuItemID;
+            CategoryID = categoryID;
+            DishName = dishName;
+            Price = price;
+            Stock = stock;
+            Alcoholic = alcoholic;
+        }
+
         public int MenuItemID { get; set; }
         public int CategoryID { get; set; }
         public string DishName { get; set; }

@@ -8,6 +8,17 @@ namespace Models
 {
     public class OrderItem
     {
+        public OrderItem(int orderItemID, int orderID, int menuItemID, int quantity, string requests, string orderState, TimeSpan lastStateChange)
+        {
+            OrderItemID = orderItemID;
+            OrderID = orderID;
+            MenuItemID = menuItemID;
+            Quantity = quantity;
+            Requests = requests;
+            OrderState = orderState;
+            LastStateChange = lastStateChange;
+        }
+
         public int OrderItemID { get; set; }
         public int OrderID { get; set; }
         public int MenuItemID { get; set; }

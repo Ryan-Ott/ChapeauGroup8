@@ -8,6 +8,14 @@ namespace Models
 {
     public class Menu
     {
+        public Menu(int menuID, string menuName, TimeSpan startTime, TimeSpan endTime)
+        {
+            MenuID = menuID;
+            MenuName = menuName;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
+
         public int MenuID { get; set; }
         public string MenuName { get; set; }
         public TimeSpan StartTime { get; set; } //Time after which menu is planned to be offered

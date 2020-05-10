@@ -8,6 +8,13 @@ namespace Models
 {
     public class Category
     {
+        public Category(int categoryID, int menuID, string categoryName)
+        {
+            CategoryID = categoryID;
+            MenuID = menuID;
+            CategoryName = categoryName;
+        }
+
         public int CategoryID { get; set; }
         public int MenuID { get; set; }
         public string CategoryName { get; set; }

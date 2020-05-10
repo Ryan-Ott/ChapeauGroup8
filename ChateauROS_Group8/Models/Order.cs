@@ -8,6 +8,16 @@ namespace Models
 {
     public class Order
     {
+        public Order(int orderID, int tableID, int billID, int employeeID, bool completed, string comment)
+        {
+            OrderID = orderID;
+            TableID = tableID;
+            BillID = billID;
+            EmployeeID = employeeID;
+            Completed = completed;
+            Comment = comment;
+        }
+
         public int OrderID { get; set; }
         public int TableID { get; set; } //from which restaurant table the order was taken
         public int BillID { get; set; } //which bill is associated with the order
