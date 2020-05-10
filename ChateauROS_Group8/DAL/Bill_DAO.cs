@@ -11,22 +11,11 @@ namespace DAL
 {
     public class Bill_DAO : DAOBase
     {
-        public List<Order> Db_Get_All_Orders()
+        public List<MenuItem> GetAllItems()
         {
-            OpenConnection();
-            SqlCommand queryGetAll = new SqlCommand("SELECT orderID, taleID, billID, employeeID FROM Orders;", dbConnection);
-            SqlDataReader reader = queryGetAll.ExecuteReader();
-            List<Order> orders = new List<Order>();
-
-            while (reader.Read())
-            {
-                Order order = ReadOrder(reader);
-                orders.Add(order);
-            }
-            reader.Close();
-            CloseConnection();
-
-            return orders;
+            string query = "SELECT MenuItems.menuItemID, MenuItems.dishName, MenuItems.price, MenuItems.alcoholic FROM Orders JOIN OrderItems ON OrderItems.orderID = [Orders].orderID JOIN MenuItems ON OrderItems.menuItemID = MenuItems.menuItemID;";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Order GetById(int tableId)
@@ -58,6 +47,24 @@ namespace DAL
 
             return new Order(orderId, tableId, billId, employeeID, completed, comment);
         }
+
+        private List<MenuItem> ReadTables(DataTable dataTable)
+        {
+            List<MenuItem> items = new List<MenuItem>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                MenuItem item = new MenuItem()
+                {
+                    MenuItemID = (int)dr["menuItemID"],
+                    DishName = (string)dr["dishName"].ToString(),
+                    Price = (int)dr["price"],
+                    Alcoholic = (bool)dr["alcoholic"],
+                };
+                items.Add(item);
+            }
+            return items;
+        }
+
         public void AddToBill(Bill bill)
         {
             string query = "INSERT INTO Bills VALUES (" + bill.BillID + ",'" + bill.PaymentMethod + "'," + bill.Tax6 + "," + bill.Tax21 + "," + drink.VAT + "," + bill.Tip + "," + bill.Total + "); ";
