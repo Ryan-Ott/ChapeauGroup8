@@ -24,5 +24,10 @@ namespace Models
         public double Price { get; set; }
         public int Stock { get; set; }
         public bool Alcoholic { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {MenuItemID} - CatID: {CategoryID} - Name: {DishName} - {Price} - Stock: {Stock} - Alcoholic: {Alcoholic}";
+        }
     }
 }

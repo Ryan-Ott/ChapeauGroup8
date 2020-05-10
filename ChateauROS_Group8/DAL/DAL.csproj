@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Category_DAO.cs" />
     <Compile Include="DAOBase.cs" />
+    <Compile Include="MenuItem_DAO.cs" />
     <Compile Include="Menu_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
