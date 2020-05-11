@@ -40,8 +40,8 @@ namespace UserInterface
             //fill out bill information
             lbl_billID.Text = order.BillID.ToString();
             lbl_orderID.Text = order.OrderID.ToString();
-            lbl_tableID.Text = order.TableID.ToString();
-            lbl_emID.Text = order.EmployeeID.ToString();
+            lbl_tableID.Text = order.Table.TableID.ToString();
+            lbl_emID.Text = order.Employee.EmployeeID.ToString();
             lbl_Date.Text = DateTime.Now.ToString();
 
             //Get all items of each order to fill in the list view
@@ -67,7 +67,6 @@ namespace UserInterface
                 {
                     al_total += item.Price;
                 }
-
             }
 
             //fill out the summary of the order

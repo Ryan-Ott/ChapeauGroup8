@@ -29,6 +29,7 @@ namespace DAL
 
             return order;
         }
+        //Get all menu items of a specific order corresponding to the table for calculating the bill (necessary?)
         public List<MenuItem> DB_GetAllItems()
         {
             OpenConnection();
@@ -47,15 +48,15 @@ namespace DAL
         private Order ReadOrder(SqlDataReader reader)
         {
             int orderId = (int)reader["orderID"];
-            int tableId = (int)reader["tableID"];
+            Table table = (Table)reader["tableID"];
             int billId = (int)reader["billID"];
-            int employeeID = (int)reader["employeeID"];
+            Employee employee = (Employee)reader["employeeID"];
             bool completed = (bool)reader["completed"];
             string comment = (string)reader["comment"];
 
-            return new Order(orderId, tableId, billId, employeeID, completed, comment);
+            return new Order(orderId, table, billId, employee, completed, comment);
         }
-        private MenuItem ReadItem (SqlDataReader reader)
+        private MenuItem ReadItem(SqlDataReader reader)
         {
             int id = (int)reader["menuItemID"];
             int catId = (int)reader["categoryID"];

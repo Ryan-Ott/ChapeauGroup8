@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill_Service.cs" />
     <Compile Include="Category_Service.cs" />
     <Compile Include="MenuItem_Service.cs" />
     <Compile Include="Menu_Service.cs" />
