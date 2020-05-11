@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bill_Service.cs" />
     <Compile Include="Category_Service.cs" />
+    <Compile Include="Employee_Service.cs" />
     <Compile Include="MenuItem_Service.cs" />
     <Compile Include="Menu_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
