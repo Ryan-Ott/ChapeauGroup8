@@ -16,8 +16,7 @@ namespace UserInterface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login());
-            Application.Run(new Order_Home());
+            Application.Run(new Login());
         }
     }
 }
