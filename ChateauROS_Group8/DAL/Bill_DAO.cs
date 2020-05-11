@@ -11,6 +11,7 @@ namespace DAL
 {
     public class Bill_DAO : DAOBase
     {
+        //Get the order information coreesponding to the tableID
         public Order DB_GetOrderById(int tableId)
         {
             OpenConnection();
@@ -29,7 +30,7 @@ namespace DAL
 
             return order;
         }
-        //Get all menu items of a specific order corresponding to the table for calculating the bill (necessary?)
+        //Get all menu items of a specific order corresponding to the table for calculating the bill (necessary? - can use the one in menuitem_DAO?)
         public List<MenuItem> DB_GetAllItems()
         {
             OpenConnection();
@@ -67,7 +68,7 @@ namespace DAL
 
             return new MenuItem(id, catId, name, price, stock, alcoholic);
         }
-
+        //writing bill information to Bills table in the database
         //public void AddToBill(Bill bill)
         //{
         //    string query = "INSERT INTO Bills VALUES (" + bill.BillID + ",'" + bill.PaymentMethod + "'," + bill.Tax6 + "," + bill.Tax21 + "," + drink.VAT + "," + bill.Tip + "," + bill.Total + "); ";

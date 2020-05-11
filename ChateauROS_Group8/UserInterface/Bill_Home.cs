@@ -42,7 +42,7 @@ namespace UserInterface
             lbl_orderID.Text = order.OrderID.ToString();
             lbl_tableID.Text = order.Table.TableID.ToString();
             lbl_emID.Text = order.Employee.EmployeeID.ToString();
-            lbl_Date.Text = DateTime.Now.ToString();
+            lbl_Date.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
             //Get all items of each order to fill in the list view
             List<Models.MenuItem> items = bill_Service.GetAllItems();
@@ -70,11 +70,11 @@ namespace UserInterface
             }
 
             //fill out the summary of the order
-            lbl_totalNoVAT.Text = (total + al_total).ToString();
+            lbl_totalNoVAT.Text = (total + al_total).ToString("'0' €");
             tax6 = 0.06 * total;
             tax21 = 0.21 * al_total;
-            lbl_VAT.Text = (tax6 + tax21).ToString();
-            lbl_total.Text = (total + al_total + tax6 + tax21).ToString();
+            lbl_VAT.Text = (tax6 + tax21).ToString("'0' €");
+            lbl_total.Text = (total + al_total + tax6 + tax21).ToString("'0' €");
 
         }
     }
