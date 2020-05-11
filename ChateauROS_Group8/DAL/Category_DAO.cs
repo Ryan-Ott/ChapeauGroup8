@@ -26,6 +26,23 @@ namespace DAL
             return categories;
         }
 
+        public List<Category> DB_GetCategoriesByMenuID(int menuID)
+        {
+            OpenConnection();
+            SqlCommand queryGetByMenuID = new SqlCommand("SELECT categoryID, menuID, categoryName FROM [Categories] WHERE menuID = @menuID", connection);
+            queryGetByMenuID.Parameters.AddWithValue("@menuID", menuID);
+            SqlDataReader reader = queryGetByMenuID.ExecuteReader();
+            List<Category> categories = new List<Category>();
+            while (reader.Read())
+            {
+                Category category = ReadCategory(reader);
+                categories.Add(category);
+            }
+            reader.Close();
+            CloseConnection();
+            return categories;
+        }
+
         public Category DB_GetCategoryByID(int id)
         {
             OpenConnection();

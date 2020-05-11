@@ -21,5 +21,10 @@ namespace Logic
         {
             return categoryDAO.DB_GetCategoryByID(id);
         }
+
+        public List<Category> GetCategoriesByMenu(int menuID)
+        {
+            return categoryDAO.DB_GetCategoriesByMenuID(menuID);
+        }
     }
 }
