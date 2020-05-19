@@ -20,10 +20,10 @@ namespace Models
 
         public int MenuItemID { get; set; }
         public int CategoryID { get; set; }
-        public string DishName { get; set; }
+        public string DishName { get; set; } //rename to name
         public double Price { get; set; }
         public int Stock { get; set; }
-        public bool Alcoholic { get; set; }
+        public bool Alcoholic { get; set; } //maybe not needed
 
         public override string ToString()
         {

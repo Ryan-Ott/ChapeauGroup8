@@ -14,9 +14,9 @@ namespace Models
             MenuID = menuID;
             CategoryName = categoryName;
         }
-
+        //list of menuItems
         public int CategoryID { get; set; }
-        public int MenuID { get; set; }
+        public int MenuID { get; set; } //store as menu object
         public string CategoryName { get; set; }
 
         public override string ToString()

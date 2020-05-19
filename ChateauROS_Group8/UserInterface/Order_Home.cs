@@ -41,7 +41,7 @@ namespace UserInterface
             }
         }
 
-        private void FillMenu(int menuNumber)
+        private void FillMenu(int menuNumber) //try catch statements
         {
             List<Models.MenuItem> allMenuItems = menuItem_Service.GetAllMenuItems(); //retrieves all menuItems from DB
             allMenuItems.OrderBy(item => item.CategoryID); //orders them by category (e.g. starters, hot drinks, etc)

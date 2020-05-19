@@ -24,7 +24,7 @@ namespace Models
         public MenuItem MenuItem { get; set; }
         public int Quantity { get; set; }
         public string Requests { get; set; } //any special requests that were added to the order (e.g. extra salt)
-        public string OrderState { get; set; } //whether order is ordered, in kitchen/bar, ready or delivered
-        public TimeSpan LastStateChange { get; set; } //time passed since order state last changed
+        public string OrderState { get; set; } //whether order is ordered, in kitchen/bar(preparing), ready(to be served) or delivered -- could be enum
+        public TimeSpan/*datetime*/ LastStateChange { get; set; } //time passed since order state last changed
     }
 }

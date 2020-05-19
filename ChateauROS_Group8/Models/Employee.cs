@@ -17,8 +17,8 @@ namespace Models
         }
 
         public int EmployeeID { get; set; } //DB primary key (so not the username used to log into the system)
-        public string Type { get; set; } //used to identify user permissions (e.g. barman, chef, waiter etc.)
+        public string Type { get; set; } //used to identify user permissions (e.g. barman, chef, waiter etc.) //also enum
         public string Username { get; set; } //username used to log into the system
-        public string Password { get; set; }
+        public string Password { get; set; } 
     }
 }
