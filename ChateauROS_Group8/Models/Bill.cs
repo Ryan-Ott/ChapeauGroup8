@@ -8,16 +8,6 @@ namespace Models
 {
     public class Bill
     {
-        public Bill(int billID, string paymentMethod, double tax6, double tax21, double tip, double total)
-        {
-            BillID = billID;
-            PaymentMethod = paymentMethod;
-            Tax6 = tax6;
-            Tax21 = tax21;
-            Tip = tip;
-            Total = total;
-        }
-
         public int BillID { get; set; }
         public string PaymentMethod { get; set; } //cash, pin, AMEX or VISA
         public double Tax6 { get; set; } //amount of tax for items with 6% VAT
