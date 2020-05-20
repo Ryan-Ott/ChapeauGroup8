@@ -8,13 +8,18 @@ namespace Models
 {
     public class Table
     {
-        public Table(int tableID, string tableState)
+        public Table(int tableID, TableState tableState)
         {
             TableID = tableID;
             TableState = tableState;
         }
 
         public int TableID { get; set; }
-        public string TableState { get; set; } //whether a table is occupied, reserved or free //make enum
+        public TableState TableState { get; set; }
+    }
+
+    public enum TableState
+    {
+        available, occupied, reserved
     }
 }
