@@ -46,9 +46,9 @@ namespace DAL
         private Table ReadTable (SqlDataReader reader)
         {
             int tableId = (int)reader["tableID"];
-            string tableState = (string)reader["tableState"];
+            int tableState = (int)reader["tableState"];
 
-            return new Table(tableId,tableState);
+            return new Table(tableId, (TableState)tableState);
         }
     }
 }

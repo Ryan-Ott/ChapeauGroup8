@@ -64,6 +64,12 @@
     <Compile Include="Order_Home.Designer.cs">
       <DependentUpon>Order_Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_MenuSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_MenuSelect.Designer.cs">
+      <DependentUpon>Order_MenuSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bill_Home.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Home.resx">
       <DependentUpon>Order_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_MenuSelect.resx">
+      <DependentUpon>Order_MenuSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

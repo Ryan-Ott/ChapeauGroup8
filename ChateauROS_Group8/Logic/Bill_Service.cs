@@ -38,7 +38,7 @@ namespace Logic
             catch
             {
                 //return fake order information in case database connection is not working;
-                return new Order(1, new Table(1, "available"), 001, new Employee(1, "waiter", "username", "password"), true, "none");
+                return new Order(1, new Table(1, 0), 001, new Employee(1, "waiter", "username", "password"), true, "none");
             }
         }
         //public void AddToBill(Bill bill)

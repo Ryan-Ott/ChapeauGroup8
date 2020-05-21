@@ -189,8 +189,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1024, 769);
-            this.Controls.Add(this.btn_Home);
             this.Controls.Add(this.pbox_ChapeauLogo);
+            this.Controls.Add(this.btn_Home);
             this.Controls.Add(this.pnl_OrderHome);
             this.Name = "Order_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
