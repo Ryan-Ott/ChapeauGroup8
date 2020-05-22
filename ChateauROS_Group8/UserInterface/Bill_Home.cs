@@ -16,7 +16,7 @@ namespace UserInterface
     public partial class Bill_Home : Form
     {
         private int tableID;
-        private OrderItem_Service orderItem_Service = new OrderItem_Service();
+        private OrderAndOrderItem_Service orderItem_Service = new OrderAndOrderItem_Service();
         private Bill_Service bill_Service = new Bill_Service();
         private Bill bill = new Bill();
         public Bill_Home()
@@ -29,35 +29,42 @@ namespace UserInterface
         {
 
         }
-        //make a display method and call
         private void Bill_Home_Load(object sender, EventArgs e)
         {
             pnl_Summary.Hide();
             pnl_cash_payment.Hide();
             pnl_pin_payment.Hide();
 
-            ////Get bill data from database - from table with running order
+            //Get bill data from database - from table with running order
             Order order = orderItem_Service.GetOrderByTableID(tableID);
 
-            //fill out bill information
-            FillBillInformation(order);
+            //bill.BillID = order.BillID
+            bill.BillID = 1;
 
+            //Get all order items from specific order 
             List<OrderItem> items = orderItem_Service.GetAllOrderItems(order.OrderID);
+
+            //calculate total prices and taxes
+            bill = bill_Service.CalculateTax(items, bill);
+
+            //fill out bill information
+            FillBillInformation(order, bill);
 
             //fill all ordered items in the bill
             FillOrderItems(items);
 
-            bill_Service.CalculateTax(items,bill);
-
             complete_btn.Hide();
         }
-        private void FillBillInformation(Order order)
+        private void FillBillInformation(Order order,Bill bill)
         {
             lbl_billID.Text = order.BillID.ToString();
             lbl_orderID.Text = order.OrderID.ToString();
             lbl_tableID.Text = order.Table.TableID.ToString();
             lbl_emID.Text = order.Employee.EmployeeID.ToString();
             lbl_Date.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            lbl_totalNoVAT.Text = (bill.Total - (bill.Tax21 + bill.Tax6)).ToString() + " €";
+            lbl_VAT.Text = (bill.Tax21 + bill.Tax6).ToString() + " €";
+            lbl_total.Text = bill.Total.ToString() + " €";
         }
         private void FillOrderItems(List<OrderItem> items)
         {
@@ -67,9 +74,10 @@ namespace UserInterface
             //filling the list view wih each item
             foreach (OrderItem item in items)
             {
-                ListViewItem list = new ListViewItem(item.MenuItemID.ToString());
-                list.SubItems.Add(item.DishName);
-                list.SubItems.Add(item.Price.ToString());
+                ListViewItem list = new ListViewItem(item.MenuItem.MenuItemID.ToString());
+                list.SubItems.Add(item.MenuItem.Name);
+                list.SubItems.Add(item.Quantity.ToString());
+                list.SubItems.Add(item.MenuItem.Price.ToString());
                 listView_Items.Items.Add(list);
             }
         }
@@ -79,19 +87,16 @@ namespace UserInterface
             pnl_Summary.Show();
             complete_btn.Show();
             complete_btn.Enabled = false;
+
+            //fill out summary data
+            FillSummary(bill);
         }
-        private void FillSummary()
+        private void FillSummary(Bill bill)
         {
-            lbl_Sum_Total.Text = bill.Total.ToString("'0' €");
-            lbl_Sum_VAT.Text = (bill.Tax21 + bill.Tax6).ToString("'0' €");
-            lbl_Sum_TotalNoVAT.Text = (bill.Total - (bill.Tax21 + bill.Tax6)).ToString();
+            lbl_Sum_Total.Text = bill.Total.ToString() + " €";
+            lbl_Sum_VAT.Text = (bill.Tax21 + bill.Tax6).ToString() + " €";
+            lbl_Sum_TotalNoVAT.Text = (bill.Total - (bill.Tax21 + bill.Tax6)).ToString() + " €";
         }
-
-        private void listView_Items_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cash_rb_CheckedChanged(object sender, EventArgs e)
         {
             //hide all other panels
@@ -103,30 +108,30 @@ namespace UserInterface
 
             complete_btn.Enabled = true;
         }
-        private void CashPayment()
+        private void CashPayment(Bill bill)
         {
             bill.PaymentMethod = "cash";
 
-            int received = int.Parse(txt_received.Text);
+            double received = double.Parse(txt_received.Text);
             lbl_changes_amount.Text = (received - bill.Total).ToString("'0' €");
 
             if (cb_tips.Checked == true)
-                bill.Tip = int.Parse(lbl_changes_amount.Text);
+                bill.Tip = double.Parse(lbl_changes_amount.Text);
             else
                 bill.Tip = 0;
 
             complete_btn.Enabled = true;
         }
-        private void CardPayment()
+        private void CardPayment(Bill bill)
         {
             string cardType = cardType_combo.SelectedItem.ToString();
             bill.PaymentMethod = "Credit card;" + cardType;
-            bill.Tip = int.Parse(txt_card_tips.Text);
+            bill.Tip = double.Parse(txt_card_tips.Text);
         }
-        private void PinPayment()
+        private void PinPayment(Bill bill)
         {
             bill.PaymentMethod = "Pin";
-            bill.Tip = int.Parse(txt_pin_tips.Text);
+            bill.Tip = double.Parse(txt_pin_tips.Text);
         }
 
         private void Pin_rb_CheckedChanged(object sender, EventArgs e)
@@ -143,7 +148,7 @@ namespace UserInterface
 
         private void confirm_btn_Click(object sender, EventArgs e)
         {
-            CashPayment();
+            CashPayment(bill);
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)
@@ -168,9 +173,9 @@ namespace UserInterface
         private void complete_btn_Click(object sender, EventArgs e)
         {
             if (Pin_rb.Checked == true)
-                PinPayment();
+                PinPayment(bill);
             else if (card_rb.Checked == true)
-                CardPayment();
+                CardPayment(bill);
         }
     }
 }

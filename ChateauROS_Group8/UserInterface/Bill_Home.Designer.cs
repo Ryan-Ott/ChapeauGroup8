@@ -30,8 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bill_Home));
             this.main_pnl = new System.Windows.Forms.Panel();
-            this.pnl_cash_payment = new System.Windows.Forms.Panel();
             this.pnl_pin_payment = new System.Windows.Forms.Panel();
+            this.pnl_card_payment = new System.Windows.Forms.Panel();
+            this.txt_card_tips = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cardType_combo = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_pin_tips = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.complete_btn = new System.Windows.Forms.Button();
+            this.pnl_cash_payment = new System.Windows.Forms.Panel();
+            this.confirm_btn = new System.Windows.Forms.Button();
             this.cb_tips = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lbl_changes_amount = new System.Windows.Forms.Label();
@@ -75,22 +84,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_bill = new System.Windows.Forms.Label();
-            this.confirm_btn = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_pin_tips = new System.Windows.Forms.TextBox();
-            this.complete_btn = new System.Windows.Forms.Button();
-            this.pnl_card_payment = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cardType_combo = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txt_card_tips = new System.Windows.Forms.TextBox();
             this.main_pnl.SuspendLayout();
-            this.pnl_cash_payment.SuspendLayout();
             this.pnl_pin_payment.SuspendLayout();
+            this.pnl_card_payment.SuspendLayout();
+            this.pnl_cash_payment.SuspendLayout();
             this.pnl_Summary.SuspendLayout();
             this.pnl_layout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnl_card_payment.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_pnl
@@ -110,6 +110,94 @@
             this.main_pnl.Size = new System.Drawing.Size(855, 573);
             this.main_pnl.TabIndex = 0;
             // 
+            // pnl_pin_payment
+            // 
+            this.pnl_pin_payment.Controls.Add(this.pnl_card_payment);
+            this.pnl_pin_payment.Controls.Add(this.txt_pin_tips);
+            this.pnl_pin_payment.Controls.Add(this.label14);
+            this.pnl_pin_payment.Location = new System.Drawing.Point(561, 274);
+            this.pnl_pin_payment.Name = "pnl_pin_payment";
+            this.pnl_pin_payment.Size = new System.Drawing.Size(277, 203);
+            this.pnl_pin_payment.TabIndex = 16;
+            // 
+            // pnl_card_payment
+            // 
+            this.pnl_card_payment.Controls.Add(this.txt_card_tips);
+            this.pnl_card_payment.Controls.Add(this.label16);
+            this.pnl_card_payment.Controls.Add(this.cardType_combo);
+            this.pnl_card_payment.Controls.Add(this.label15);
+            this.pnl_card_payment.Location = new System.Drawing.Point(0, 0);
+            this.pnl_card_payment.Name = "pnl_card_payment";
+            this.pnl_card_payment.Size = new System.Drawing.Size(277, 203);
+            this.pnl_card_payment.TabIndex = 1;
+            // 
+            // txt_card_tips
+            // 
+            this.txt_card_tips.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
+            this.txt_card_tips.Location = new System.Drawing.Point(166, 74);
+            this.txt_card_tips.Name = "txt_card_tips";
+            this.txt_card_tips.Size = new System.Drawing.Size(100, 26);
+            this.txt_card_tips.TabIndex = 3;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 70);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(46, 20);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Tips :";
+            // 
+            // cardType_combo
+            // 
+            this.cardType_combo.FormattingEnabled = true;
+            this.cardType_combo.Items.AddRange(new object[] {
+            "VISA",
+            "AMEX"});
+            this.cardType_combo.Location = new System.Drawing.Point(145, 20);
+            this.cardType_combo.Name = "cardType_combo";
+            this.cardType_combo.Size = new System.Drawing.Size(121, 28);
+            this.cardType_combo.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(131, 20);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Select card type :";
+            // 
+            // txt_pin_tips
+            // 
+            this.txt_pin_tips.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
+            this.txt_pin_tips.Location = new System.Drawing.Point(165, 20);
+            this.txt_pin_tips.Name = "txt_pin_tips";
+            this.txt_pin_tips.Size = new System.Drawing.Size(100, 26);
+            this.txt_pin_tips.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 23);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(46, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Tips :";
+            // 
+            // complete_btn
+            // 
+            this.complete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.complete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complete_btn.ForeColor = System.Drawing.Color.White;
+            this.complete_btn.Location = new System.Drawing.Point(561, 495);
+            this.complete_btn.Name = "complete_btn";
+            this.complete_btn.Size = new System.Drawing.Size(125, 53);
+            this.complete_btn.TabIndex = 15;
+            this.complete_btn.Text = "COMPLETE";
+            this.complete_btn.UseVisualStyleBackColor = false;
+            this.complete_btn.Click += new System.EventHandler(this.complete_btn_Click);
+            // 
             // pnl_cash_payment
             // 
             this.pnl_cash_payment.Controls.Add(this.confirm_btn);
@@ -123,15 +211,18 @@
             this.pnl_cash_payment.Size = new System.Drawing.Size(277, 203);
             this.pnl_cash_payment.TabIndex = 11;
             // 
-            // pnl_pin_payment
+            // confirm_btn
             // 
-            this.pnl_pin_payment.Controls.Add(this.pnl_card_payment);
-            this.pnl_pin_payment.Controls.Add(this.txt_pin_tips);
-            this.pnl_pin_payment.Controls.Add(this.label14);
-            this.pnl_pin_payment.Location = new System.Drawing.Point(561, 274);
-            this.pnl_pin_payment.Name = "pnl_pin_payment";
-            this.pnl_pin_payment.Size = new System.Drawing.Size(277, 203);
-            this.pnl_pin_payment.TabIndex = 16;
+            this.confirm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.confirm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirm_btn.ForeColor = System.Drawing.Color.White;
+            this.confirm_btn.Location = new System.Drawing.Point(177, 35);
+            this.confirm_btn.Name = "confirm_btn";
+            this.confirm_btn.Size = new System.Drawing.Size(89, 33);
+            this.confirm_btn.TabIndex = 15;
+            this.confirm_btn.Text = "CONFIRM";
+            this.confirm_btn.UseVisualStyleBackColor = false;
+            this.confirm_btn.Click += new System.EventHandler(this.confirm_btn_Click);
             // 
             // cb_tips
             // 
@@ -430,7 +521,6 @@
             this.listView_Items.TabIndex = 11;
             this.listView_Items.UseCompatibleStateImageBehavior = false;
             this.listView_Items.View = System.Windows.Forms.View.Details;
-            this.listView_Items.SelectedIndexChanged += new System.EventHandler(this.listView_Items_SelectedIndexChanged);
             // 
             // menuItemID
             // 
@@ -567,97 +657,6 @@
             this.lbl_bill.Text = "BILL";
             this.lbl_bill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // confirm_btn
-            // 
-            this.confirm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
-            this.confirm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_btn.ForeColor = System.Drawing.Color.White;
-            this.confirm_btn.Location = new System.Drawing.Point(177, 35);
-            this.confirm_btn.Name = "confirm_btn";
-            this.confirm_btn.Size = new System.Drawing.Size(89, 33);
-            this.confirm_btn.TabIndex = 15;
-            this.confirm_btn.Text = "CONFIRM";
-            this.confirm_btn.UseVisualStyleBackColor = false;
-            this.confirm_btn.Click += new System.EventHandler(this.confirm_btn_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 23);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Tips :";
-            // 
-            // txt_pin_tips
-            // 
-            this.txt_pin_tips.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
-            this.txt_pin_tips.Location = new System.Drawing.Point(165, 20);
-            this.txt_pin_tips.Name = "txt_pin_tips";
-            this.txt_pin_tips.Size = new System.Drawing.Size(100, 26);
-            this.txt_pin_tips.TabIndex = 1;
-            // 
-            // complete_btn
-            // 
-            this.complete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
-            this.complete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complete_btn.ForeColor = System.Drawing.Color.White;
-            this.complete_btn.Location = new System.Drawing.Point(561, 495);
-            this.complete_btn.Name = "complete_btn";
-            this.complete_btn.Size = new System.Drawing.Size(125, 53);
-            this.complete_btn.TabIndex = 15;
-            this.complete_btn.Text = "COMPLETE";
-            this.complete_btn.UseVisualStyleBackColor = false;
-            this.complete_btn.Click += new System.EventHandler(this.complete_btn_Click);
-            // 
-            // pnl_card_payment
-            // 
-            this.pnl_card_payment.Controls.Add(this.txt_card_tips);
-            this.pnl_card_payment.Controls.Add(this.label16);
-            this.pnl_card_payment.Controls.Add(this.cardType_combo);
-            this.pnl_card_payment.Controls.Add(this.label15);
-            this.pnl_card_payment.Location = new System.Drawing.Point(34, 20);
-            this.pnl_card_payment.Name = "pnl_card_payment";
-            this.pnl_card_payment.Size = new System.Drawing.Size(277, 203);
-            this.pnl_card_payment.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 23);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(131, 20);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Select card type :";
-            // 
-            // cardType_combo
-            // 
-            this.cardType_combo.FormattingEnabled = true;
-            this.cardType_combo.Items.AddRange(new object[] {
-            "VISA",
-            "AMEX"});
-            this.cardType_combo.Location = new System.Drawing.Point(145, 20);
-            this.cardType_combo.Name = "cardType_combo";
-            this.cardType_combo.Size = new System.Drawing.Size(121, 28);
-            this.cardType_combo.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(9, 70);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 20);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Tips :";
-            // 
-            // txt_card_tips
-            // 
-            this.txt_card_tips.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
-            this.txt_card_tips.Location = new System.Drawing.Point(166, 74);
-            this.txt_card_tips.Name = "txt_card_tips";
-            this.txt_card_tips.Size = new System.Drawing.Size(100, 26);
-            this.txt_card_tips.TabIndex = 3;
-            // 
             // Bill_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -670,17 +669,17 @@
             this.Text = "Bill_Home";
             this.Load += new System.EventHandler(this.Bill_Home_Load);
             this.main_pnl.ResumeLayout(false);
-            this.pnl_cash_payment.ResumeLayout(false);
-            this.pnl_cash_payment.PerformLayout();
             this.pnl_pin_payment.ResumeLayout(false);
             this.pnl_pin_payment.PerformLayout();
+            this.pnl_card_payment.ResumeLayout(false);
+            this.pnl_card_payment.PerformLayout();
+            this.pnl_cash_payment.ResumeLayout(false);
+            this.pnl_cash_payment.PerformLayout();
             this.pnl_Summary.ResumeLayout(false);
             this.pnl_Summary.PerformLayout();
             this.pnl_layout.ResumeLayout(false);
             this.pnl_layout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnl_card_payment.ResumeLayout(false);
-            this.pnl_card_payment.PerformLayout();
             this.ResumeLayout(false);
 
         }

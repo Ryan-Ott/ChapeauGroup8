@@ -8,7 +8,7 @@ using Models;
 
 namespace DAL
 {
-    public class OrderItem_DAO : DAOBase
+    public class OrderAndOrderItem_DAO : DAOBase
     {
         public List<OrderItem> DB_GetAllOrderItems(int id)
         {
@@ -67,7 +67,7 @@ namespace DAL
             int quatity = (int)reader["quantity"];
             string requests = (string)reader["requests"];
             string orderState = (string)reader["orderState"];
-            TimeSpan lastStateChange = (TimeSpan)reader["lastStateChange"];
+            DateTime lastStateChange = (DateTime)reader["lastStateChange"];
 
             return new OrderItem(orderItemID,orderID,menuItem,quatity,requests,orderState,lastStateChange);
         }
