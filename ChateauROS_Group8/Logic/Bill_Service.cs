@@ -33,12 +33,17 @@ namespace Logic
                 }
             }
 
-            bill.Tax6 = 0.06 * total;
-            bill.Tax21 = 0.21 * al_total;
-            bill.Total = total + al_total + bill.Tax6 + bill.Tax21;
-
-            return new Bill();
-
+        public Order GetByID(int tableId)
+        {
+            try
+            {
+                return bill_DAO.DB_GetOrderById(tableId);
+            }
+            catch
+            {
+                //return fake order information in case database connection is not working;
+                return new Order(1, new Table(1, "available"), 001, new Employee(1, "waiter", "username", "password"), true, "none");
+            }
         }
     }
 }

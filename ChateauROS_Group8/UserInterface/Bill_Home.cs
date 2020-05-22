@@ -67,10 +67,9 @@ namespace UserInterface
             //filling the list view wih each item
             foreach (OrderItem item in items)
             {
-                ListViewItem list = new ListViewItem(item.MenuItem.MenuItemID.ToString());
-                list.SubItems.Add(item.MenuItem.DishName);
-                list.SubItems.Add(item.Quantity.ToString());
-                list.SubItems.Add(item.MenuItem.Price.ToString());
+                ListViewItem list = new ListViewItem(item.MenuItemID.ToString());
+                list.SubItems.Add(item.DishName);
+                list.SubItems.Add(item.Price.ToString());
                 listView_Items.Items.Add(list);
             }
         }

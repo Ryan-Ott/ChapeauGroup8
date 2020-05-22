@@ -16,6 +16,7 @@ namespace UserInterface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(Order_Home.GetInstance());
             Application.Run(new Bill_Home());
         }
     }

@@ -8,11 +8,11 @@ namespace Models
 {
     public class MenuItem
     {
-        public MenuItem(int menuItemID, int categoryID, string dishName, double price, int stock, bool alcoholic)
+        public MenuItem(int menuItemID, int categoryID, string name, double price, int stock, bool alcoholic)
         {
             MenuItemID = menuItemID;
             CategoryID = categoryID;
-            DishName = dishName;
+            Name = name;
             Price = price;
             Stock = stock;
             Alcoholic = alcoholic;
@@ -20,14 +20,14 @@ namespace Models
 
         public int MenuItemID { get; set; }
         public int CategoryID { get; set; }
-        public string DishName { get; set; } //rename to name
+        public string Name { get; set; }
         public double Price { get; set; }
         public int Stock { get; set; }
-        public bool Alcoholic { get; set; } //maybe not needed
+        public bool Alcoholic { get; set; }
 
         public override string ToString()
         {
-            return $"ID: {MenuItemID} - CatID: {CategoryID} - Name: {DishName} - {Price} - Stock: {Stock} - Alcoholic: {Alcoholic}";
+            return $"ID: {MenuItemID} - CatID: {CategoryID} - Name: {Name} - {Price} - Stock: {Stock} - Alcoholic: {Alcoholic}";
         }
     }
 }

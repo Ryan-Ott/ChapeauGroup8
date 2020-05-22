@@ -21,8 +21,8 @@ namespace Logic
             {
                 //add fake tables to the list in case database connection is not working;
                 List<Table> tables = new List<Table>();
-                Table tab1 = new Table(1, "free");
-                Table tab2 = new Table(2, "free");
+                Table tab1 = new Table(1, 0);
+                Table tab2 = new Table(2, 0);
                 tables.Add(tab1);
                 tables.Add(tab2);
                 return tables;
@@ -38,7 +38,7 @@ namespace Logic
             catch
             {
                 //return a fake table information in case database connection is not working;
-                return new Table(1, "free");
+                return new Table(1, 0);
             }
         }
     }
