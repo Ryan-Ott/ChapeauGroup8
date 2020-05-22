@@ -12,10 +12,11 @@ namespace Logic
     { 
         private Bill_DAO bill_DAO = new Bill_DAO();
 
-        //public void AddToBill(Bill bill)
-        //{
-        //    return bill_DAO.AddToBill(bill);
-        //
+        public void AddToBill(Bill bill)
+        {
+            bill_DAO.AddToBill(bill);
+        }
+
         public Bill CalculateTax(List<OrderItem> items, Bill bill)
         {
             double total = 0;
@@ -37,7 +38,7 @@ namespace Logic
             bill.Tax21 = 0.21 * total;
             bill.Total = total + al_total + bill.Tax6 + bill.Tax21;
 
-            return new Bill(bill.BillID, "", 7, 8, 0, 15);
+            return new Bill(bill.BillID, "", 7, 8, 0, 15);//all taxes and prices are hardcoded here since there is no order in the database yet
         }
     }
 }

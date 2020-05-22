@@ -24,22 +24,26 @@ namespace UserInterface
             InitializeComponent();
             //this.tableID = tableID;
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
         private void Bill_Home_Load(object sender, EventArgs e)
         {
+            //hide all other panels and buttons
             pnl_Summary.Hide();
             pnl_cash_payment.Hide();
             pnl_pin_payment.Hide();
+            pnl_card_payment.Hide();
+            pnl_order_complete.Hide();
+            complete_btn.Hide();
+            btn_back_to_tbview.Hide();
 
             //Get bill data from database - from table with running order
             Order order = orderItem_Service.GetOrderByTableID(tableID);
 
             //bill.BillID = order.BillID
-            bill.BillID = 1;
+            bill.BillID = 1;//the bill id is hardcoded since there is no order stored in the database yet
 
             //Get all order items from specific order 
             List<OrderItem> items = orderItem_Service.GetAllOrderItems(order.OrderID);
@@ -52,8 +56,6 @@ namespace UserInterface
 
             //fill all ordered items in the bill
             FillOrderItems(items);
-
-            complete_btn.Hide();
         }
         private void FillBillInformation(Order order,Bill bill)
         {
@@ -86,7 +88,6 @@ namespace UserInterface
         {
             pnl_Summary.Show();
             complete_btn.Show();
-            complete_btn.Enabled = false;
 
             //fill out summary data
             FillSummary(bill);
@@ -105,8 +106,6 @@ namespace UserInterface
 
             //show cash payment details panel
             pnl_cash_payment.Show();
-
-            complete_btn.Enabled = true;
         }
         private void CashPayment(Bill bill)
         {
@@ -142,8 +141,6 @@ namespace UserInterface
 
             //show pin payment details panel
             pnl_pin_payment.Show();
-
-            complete_btn.Enabled = true;
         }
 
         private void confirm_btn_Click(object sender, EventArgs e)
@@ -176,6 +173,22 @@ namespace UserInterface
                 PinPayment(bill);
             else if (card_rb.Checked == true)
                 CardPayment(bill);
+
+            //hide all other buttons and panels
+            complete_btn.Hide();
+            cancel_btn.Hide();
+            pnl_card_payment.Hide();
+            pnl_cash_payment.Hide();
+            pnl_pin_payment.Hide();
+            pnl_Summary.Hide();
+            btn_correct.Hide();
+            btn_modify.Hide();
+
+            //show order complete panel
+            btn_back_to_tbview.Show();
+            pnl_order_complete.Show();
+
+            bill_Service.AddToBill(bill);
         }
     }
 }
