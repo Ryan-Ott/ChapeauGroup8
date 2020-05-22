@@ -16,5 +16,10 @@ namespace UserInterface
         {
             InitializeComponent();
         }
+
+        private void lbl_ItemSelect_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

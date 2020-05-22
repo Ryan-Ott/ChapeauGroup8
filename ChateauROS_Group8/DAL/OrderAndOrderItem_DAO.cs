@@ -10,6 +10,21 @@ namespace DAL
 {
     public class OrderAndOrderItem_DAO : DAOBase
     {
+        public List<OrderItem> DB_GetOrderItems()
+        {
+            OpenConnection();
+            SqlCommand queryGetAll = new SqlCommand("SELECT oderItemID, orderID, menuItemID, quantity, requests, orderState, lastStateChange FROM [OrderItems]", connection);
+            SqlDataReader reader = queryGetAll.ExecuteReader();
+            List<OrderItem> orderItems = new List<OrderItem>();
+            while (reader.Read())
+            {
+                OrderItem orderItem = ReadOrderItem(reader);
+                orderItems.Add(orderItem);
+            }
+            reader.Close();
+            CloseConnection();
+            return orderItems;
+        }
         public List<OrderItem> DB_GetAllOrderItems(int id)
         {
             OpenConnection();

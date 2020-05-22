@@ -43,5 +43,15 @@ namespace UserInterface
             menuSelect.Closed += (s, args) => Show();
             menuSelect.Show();
         }
+
+        private void liv_CurrentOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnl_OrderHome_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
