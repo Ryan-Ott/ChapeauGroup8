@@ -72,7 +72,7 @@ namespace Logic
             }
             catch (Exception)
             {
-                Order order = new Order(1, new Table(1, TableState.available),1, new Employee(1, "waiter", "Peter", "1234"), true, "none");
+                Order order = new Order(1, new Table(1, TableState.occupied),1, new Employee(1, "waiter", "Peter", "1234"), true, "none");
 
                 return order;
             }
