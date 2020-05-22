@@ -64,6 +64,12 @@
     <Compile Include="Order_Home.Designer.cs">
       <DependentUpon>Order_Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_MenuItemSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_MenuItemSelect.Designer.cs">
+      <DependentUpon>Order_MenuItemSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order_MenuSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Home.resx">
       <DependentUpon>Order_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_MenuItemSelect.resx">
+      <DependentUpon>Order_MenuItemSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_MenuSelect.resx">
       <DependentUpon>Order_MenuSelect.cs</DependentUpon>

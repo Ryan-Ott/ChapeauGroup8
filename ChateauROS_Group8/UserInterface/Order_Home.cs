@@ -38,16 +38,10 @@ namespace UserInterface
 
         private void btn_Menus_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Hide();
-                Order_MenuSelect menuSelect = new Order_MenuSelect();
-                menuSelect.Closed += (s, args) => Close();
-                menuSelect.Show();
-            }
-            catch (Exception)
-            {
-            }
+            Hide();
+            Order_MenuSelect menuSelect = new Order_MenuSelect();
+            menuSelect.Closed += (s, args) => Show();
+            menuSelect.Show();
         }
     }
 }

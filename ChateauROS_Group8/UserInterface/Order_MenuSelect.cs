@@ -24,5 +24,61 @@ namespace UserInterface
             orderHome.Closed += (s, args) => Close();
             orderHome.Show();
         }
+
+        private void btn_LunchMain_Click(object sender, EventArgs e)
+        {
+            Hide();
+            
+        }
+
+        private void btn_Specials_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Bites_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Starters_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Mains_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Desserts_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_SoftDrinks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_HotDrinks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Beers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Wines_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

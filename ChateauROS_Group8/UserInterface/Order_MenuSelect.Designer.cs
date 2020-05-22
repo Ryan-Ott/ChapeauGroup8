@@ -62,6 +62,7 @@
             this.btn_Home.TabIndex = 1;
             this.btn_Home.Text = "Home";
             this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // pbox_ChapeauLogo
             // 
@@ -165,6 +166,7 @@
             this.btn_LunchMain.TabIndex = 0;
             this.btn_LunchMain.Text = "Lunch Main";
             this.btn_LunchMain.UseVisualStyleBackColor = false;
+            this.btn_LunchMain.Click += new System.EventHandler(this.btn_LunchMain_Click);
             // 
             // btn_Specials
             // 
@@ -177,6 +179,7 @@
             this.btn_Specials.TabIndex = 1;
             this.btn_Specials.Text = "Specials";
             this.btn_Specials.UseVisualStyleBackColor = false;
+            this.btn_Specials.Click += new System.EventHandler(this.btn_Specials_Click);
             // 
             // btn_Bites
             // 
@@ -189,6 +192,7 @@
             this.btn_Bites.TabIndex = 2;
             this.btn_Bites.Text = "Bites";
             this.btn_Bites.UseVisualStyleBackColor = false;
+            this.btn_Bites.Click += new System.EventHandler(this.btn_Bites_Click);
             // 
             // btn_Starters
             // 
@@ -201,6 +205,7 @@
             this.btn_Starters.TabIndex = 1;
             this.btn_Starters.Text = "Starters";
             this.btn_Starters.UseVisualStyleBackColor = false;
+            this.btn_Starters.Click += new System.EventHandler(this.btn_Starters_Click);
             // 
             // btn_Mains
             // 
@@ -213,6 +218,7 @@
             this.btn_Mains.TabIndex = 2;
             this.btn_Mains.Text = "Mains";
             this.btn_Mains.UseVisualStyleBackColor = false;
+            this.btn_Mains.Click += new System.EventHandler(this.btn_Mains_Click);
             // 
             // btn_Desserts
             // 
@@ -225,6 +231,7 @@
             this.btn_Desserts.TabIndex = 3;
             this.btn_Desserts.Text = "Desserts";
             this.btn_Desserts.UseVisualStyleBackColor = false;
+            this.btn_Desserts.Click += new System.EventHandler(this.btn_Desserts_Click);
             // 
             // btn_SoftDrinks
             // 
@@ -237,6 +244,7 @@
             this.btn_SoftDrinks.TabIndex = 1;
             this.btn_SoftDrinks.Text = "Soft Drinks";
             this.btn_SoftDrinks.UseVisualStyleBackColor = false;
+            this.btn_SoftDrinks.Click += new System.EventHandler(this.btn_SoftDrinks_Click);
             // 
             // btn_HotDrinks
             // 
@@ -249,6 +257,7 @@
             this.btn_HotDrinks.TabIndex = 2;
             this.btn_HotDrinks.Text = "Hot Drinks";
             this.btn_HotDrinks.UseVisualStyleBackColor = false;
+            this.btn_HotDrinks.Click += new System.EventHandler(this.btn_HotDrinks_Click);
             // 
             // btn_Beers
             // 
@@ -261,6 +270,7 @@
             this.btn_Beers.TabIndex = 3;
             this.btn_Beers.Text = "Beers";
             this.btn_Beers.UseVisualStyleBackColor = false;
+            this.btn_Beers.Click += new System.EventHandler(this.btn_Beers_Click);
             // 
             // btn_Wines
             // 
@@ -273,6 +283,7 @@
             this.btn_Wines.TabIndex = 4;
             this.btn_Wines.Text = "Wines";
             this.btn_Wines.UseVisualStyleBackColor = false;
+            this.btn_Wines.Click += new System.EventHandler(this.btn_Wines_Click);
             // 
             // Order_MenuSelect
             // 
