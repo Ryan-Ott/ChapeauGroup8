@@ -18,7 +18,8 @@ namespace Models
             Comment = comment;
         }
 
-        //possibly List<OrderItem> orderItems ? (unsure about DB implementation) [join SQL query]
+        public List<OrderItem> orderItems; //join SQL query
+
         public int OrderID { get; set; }
         public Table Table { get; set; } //from which restaurant table the order was taken
         public int BillID { get; set; } //which bill is associated with the order

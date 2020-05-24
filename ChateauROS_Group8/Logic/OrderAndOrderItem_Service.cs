@@ -10,12 +10,12 @@ namespace Logic
 {
     public class OrderAndOrderItem_Service
     {
-        private OrderAndOrderItem_DAO orderItemDAO = new OrderAndOrderItem_DAO();
+        private OrderAndOrderItem_DAO orderAndOrderItemDAO = new OrderAndOrderItem_DAO();
         public List<OrderItem> GetOrderItems()
         {
             try
             {
-                return orderItemDAO.DB_GetOrderItems();
+                return orderAndOrderItemDAO.DB_GetOrderItems();
             }
             catch (Exception)
             {
@@ -35,7 +35,7 @@ namespace Logic
         {
             try
             {
-                return orderItemDAO.DB_GetAllOrderItems(id);
+                return orderAndOrderItemDAO.DB_GetAllOrderItems(id);
             }
             catch(Exception)
             {
@@ -55,7 +55,7 @@ namespace Logic
         {
             try
             {
-                return orderItemDAO.DB_GetOrderItemByID(id);
+                return orderAndOrderItemDAO.DB_GetOrderItemByID(id);
             }
             catch (Exception)
             {
@@ -68,13 +68,65 @@ namespace Logic
         {
             try
             {
-                return orderItemDAO.DB_GetOrderByTableID(tableID);
+                return orderAndOrderItemDAO.DB_GetOrderByTableID(tableID);
             }
             catch (Exception)
             {
                 Order order = new Order(1, new Table(1, TableState.occupied),1, new Employee(1, "waiter", "Peter", "1234"), true, "none");
 
                 return order;
+            }
+        }
+
+        public void AddOrderItem(OrderItem orderItem)
+        {
+            try
+            {
+                orderAndOrderItemDAO.DB_AddOrderItem(orderItem);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failure to add orderItem to db. Error: {e.Message}");
+                throw;
+            }
+        }
+
+        public void AddOrder(Order order)
+        {
+            try
+            {
+                orderAndOrderItemDAO.DB_AddOrder(order);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failure to add order to db. Error: {e.Message}");
+                throw;
+            }
+        }
+
+        public void EditOrder(Order order)
+        {
+            try
+            {
+                orderAndOrderItemDAO.DB_EditOrder(order);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failure to edit order with orderID {order.OrderID}. Error: {e.Message}");
+                throw;
+            }
+        }
+
+        public void DeleteOrder(Order order)
+        {
+            try
+            {
+                orderAndOrderItemDAO.DB_DeleteOrder(order);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failure to delete order with orderID {order.OrderID}. Error: {e.Message}");
+                throw;
             }
         }
     }

@@ -14,6 +14,7 @@ namespace UserInterface
 {
     public partial class Order_Home : Form
     {
+        OrderAndOrderItem_Service orderService = new OrderAndOrderItem_Service();
         Menu_Service menu_Service = new Menu_Service();
         Category_Service category_Service = new Category_Service();
         MenuItem_Service menuItem_Service = new MenuItem_Service();
@@ -38,6 +39,12 @@ namespace UserInterface
 
         private void btn_Menus_Click(object sender, EventArgs e)
         {
+            if (nud_TableID.Value == 0)
+            {
+                MessageBox.Show("Please select a table for which you wish to take an order.");
+                return;
+            }
+            Order tempOrder = new Order()
             Hide();
             Order_MenuSelect menuSelect = new Order_MenuSelect();
             menuSelect.Closed += (s, args) => Show();

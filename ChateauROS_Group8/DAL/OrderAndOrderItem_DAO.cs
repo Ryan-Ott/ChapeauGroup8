@@ -25,6 +25,7 @@ namespace DAL
             CloseConnection();
             return orderItems;
         }
+
         public List<OrderItem> DB_GetAllOrderItems(int id)
         {
             OpenConnection();
@@ -57,6 +58,7 @@ namespace DAL
             CloseConnection();
             return orderItem;
         }
+
         public Order DB_GetOrderByTableID(int tableID)
         {
             OpenConnection();
@@ -73,19 +75,70 @@ namespace DAL
             return order;
         }
 
+        public void DB_AddOrderItem(OrderItem orderItem)
+        {
+            OpenConnection();
+            SqlCommand queryAddOrder = new SqlCommand("INSERT INTO[OrderItems]([orderID], [menuItemID], [quantity], [requests], [orderState], [lastStateChange]) VALUES(@orderID, @menuItemID, @quantity, @requests, @orderState, @lastStateChange)");
+            queryAddOrder.Parameters.AddWithValue("@orderID", orderItem.OrderID);
+            queryAddOrder.Parameters.AddWithValue("@menuItemID", orderItem.MenuItem.MenuItemID);
+            queryAddOrder.Parameters.AddWithValue("@quantity", orderItem.Quantity);
+            queryAddOrder.Parameters.AddWithValue("@requests", orderItem.Requests);
+            queryAddOrder.Parameters.AddWithValue("@orderState", orderItem.OrderState);
+            queryAddOrder.Parameters.AddWithValue("@lastStateChange", orderItem.LastStateChange);
+            queryAddOrder.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public void DB_AddOrder(Order order)
+        {
+            OpenConnection();
+            SqlCommand queryAddOrder = new SqlCommand("INSERT INTO [Orders] ([tableID], [billID], [employeeID], [completed], [comment]) VALUES (@tableID, @billID, @employeeID, @completed, @comment)");
+            queryAddOrder.Parameters.AddWithValue("@tableID", order.Table.TableID);
+            queryAddOrder.Parameters.AddWithValue("@billID", order.BillID);
+            queryAddOrder.Parameters.AddWithValue("@employeeID", order.Employee.EmployeeID);
+            queryAddOrder.Parameters.AddWithValue("@completed", order.Completed);
+            queryAddOrder.Parameters.AddWithValue("@comment", order.Comment);
+            queryAddOrder.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public void DB_EditOrder(Order order)
+        {
+            OpenConnection();
+            SqlCommand queryEditOrder = new SqlCommand("UPDATE [Orders] SET [tableID] = @tableID, [billID] = @billID, [employeeID] = @employeeID, [completed] = @completed, [comment] = @comment WHERE [orderID] = @orderID");
+            queryEditOrder.Parameters.AddWithValue("@tableID", order.Table.TableID);
+            queryEditOrder.Parameters.AddWithValue("@billID", order.BillID);
+            queryEditOrder.Parameters.AddWithValue("@employeeID", order.Employee.EmployeeID);
+            queryEditOrder.Parameters.AddWithValue("@completed", order.Completed);
+            queryEditOrder.Parameters.AddWithValue("@comment", order.Comment);
+            queryEditOrder.Parameters.AddWithValue("@orderID", order.OrderID);
+            queryEditOrder.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public void DB_DeleteOrder(Order order)
+        {
+            OpenConnection();
+            SqlCommand queryDeleteOrder = new SqlCommand("DELETE FROM [Orders] WHERE [orderID] = @orderID");
+            queryDeleteOrder.Parameters.AddWithValue("@orderID", order.OrderID);
+            queryDeleteOrder.ExecuteNonQuery();
+            CloseConnection();
+        }
+
         private OrderItem ReadOrderItem(SqlDataReader reader)
         {
             MenuItem_DAO menuItem_DAO = new MenuItem_DAO();
             int orderItemID = (int)reader["oderItemID"];
             int orderID = (int)reader["orderID"];
             MenuItem menuItem = menuItem_DAO.DB_GetMenuItemByID((int)reader["menuItemID"]);
-            int quatity = (int)reader["quantity"];
+            int quantity = (int)reader["quantity"];
             string requests = (string)reader["requests"];
             string orderState = (string)reader["orderState"];
             DateTime lastStateChange = (DateTime)reader["lastStateChange"];
 
-            return new OrderItem(orderItemID,orderID,menuItem,quatity,requests,orderState,lastStateChange);
+            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, lastStateChange);
         }
+
         private Order ReadOrder(SqlDataReader reader)
         {
             Table_DAO table_DAO = new Table_DAO();
