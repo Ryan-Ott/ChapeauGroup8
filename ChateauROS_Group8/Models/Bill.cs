@@ -8,15 +8,18 @@ namespace Models
 {
     public class Bill
     {
-        public Bill() { }
-        public Bill (int id, string paymentMethod, double tax6, double tax21, double tip, double total) : this()
-        { 
+        public Bill (int id,string paymentMethod, double tax6, double tax21, double tip, double total)
+        {
             BillID = id;
             PaymentMethod = paymentMethod;
             Tax6 = tax6;
             Tax21 = tax21;
             Tip = tip;
             Total = total;
+        }
+        public Bill(int id) : this(id,"",0,0,0,0)
+        {
+            BillID = id;
         }
         public int BillID { get; set; }
         public string PaymentMethod { get; set; } //cash, pin, AMEX or VISA

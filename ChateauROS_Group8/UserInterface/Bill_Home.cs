@@ -18,7 +18,7 @@ namespace UserInterface
         private int tableID;
         private OrderAndOrderItem_Service orderItem_Service = new OrderAndOrderItem_Service();
         private Bill_Service bill_Service = new Bill_Service();
-        private Bill bill = new Bill();
+        private Bill bill;
         public Bill_Home()
         {
             InitializeComponent();
@@ -41,8 +41,8 @@ namespace UserInterface
 
             //Get bill data from database - from table with running order
             Order order = orderItem_Service.GetOrderByTableID(tableID);
+            //bill = new Bill(order.BillID);
 
-            //bill.BillID = order.BillID
             bill.BillID = 1;//the bill id is hardcoded since there is no order stored in the database yet
 
             //Get all order items from specific order 
