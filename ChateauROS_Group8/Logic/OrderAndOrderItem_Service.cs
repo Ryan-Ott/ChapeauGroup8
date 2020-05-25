@@ -11,6 +11,7 @@ namespace Logic
     public class OrderAndOrderItem_Service
     {
         private OrderAndOrderItem_DAO orderAndOrderItemDAO = new OrderAndOrderItem_DAO();
+
         public List<OrderItem> GetOrderItems()
         {
             try
@@ -64,17 +65,30 @@ namespace Logic
                 return orderItem;
             }
         }
+
         public Order GetOrderByTableID(int tableID)
         {
             try
             {
                 return orderAndOrderItemDAO.DB_GetOrderByTableID(tableID);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Order order = new Order(0, new Table(), 1, new Employee(), true, "none");
+                Console.WriteLine($"Could not retrieve order with tableID: {tableID}. Placeholder data sent. + {e.Message}");
+                return new Order();
+            }
+        }
 
-                return order;
+        public Order GetLastOrder()
+        {
+            try
+            {
+                return orderAndOrderItemDAO.DB_GetLastOrder();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not retrieve last order " + e.Message);
+                return new Order();
             }
         }
 

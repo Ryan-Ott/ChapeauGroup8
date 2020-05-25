@@ -67,6 +67,19 @@ namespace Logic
             return new Bill(bill.BillID, 0, 7, 8, 0, 15);//all taxes and prices are hardcoded here since there is no order in the database yet
         }
 
+        public Bill GetLastBill()
+        {
+            try
+            {
+                return bill_DAO.DB_GetLastBill();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not retrieve last bill " + e.Message);
+                return new Bill(0);
+            }
+        }
+
         //public object GetLastIdentity()
         //{
         //    try

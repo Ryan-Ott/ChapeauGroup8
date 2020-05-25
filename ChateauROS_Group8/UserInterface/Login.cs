@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace LoginApp
 {
-    public partial class LoginfForm : Form
+    public partial class LoginForm : Form
     {
-        public LoginfForm()
+        public LoginForm()
         {
             InitializeComponent();
         }

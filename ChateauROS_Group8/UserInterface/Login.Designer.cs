@@ -1,6 +1,8 @@
-﻿namespace UserInterface
+﻿using System.Windows.Forms;
+
+namespace LoginApp
 {
-    partial class Login
+    partial class LoginForm : Form
     {
         /// <summary>
         /// Required designer variable.

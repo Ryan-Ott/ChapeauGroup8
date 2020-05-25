@@ -18,6 +18,12 @@ namespace Models
             Comment = comment;
         }
 
+        public Order(Bill bill, Employee employee) : this()
+        {
+            BillID = bill.BillID;
+            Employee = employee;
+        }
+
         public Order() : this(0, new Table(), 0, new Employee(), false, "")
         {
         }

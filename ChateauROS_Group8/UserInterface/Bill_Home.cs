@@ -111,24 +111,27 @@ namespace UserInterface
             //show cash payment details panel
             pnl_cash_payment.Show();
         }
+
         private void CashPayment(Bill bill)
         {
-            bill.PaymentMethod = "cash";
+            bill.PaymentMethod = PaymentMethod.cash;
 
             if (cb_tips.Checked == true)
                 bill.Tip = double.Parse(lbl_changes_amount.Text);
             else
                 bill.Tip = 0;
         }
+
         private void CardPayment(Bill bill)
         {
             string cardType = cardType_combo.SelectedItem.ToString();
             bill.PaymentMethod = "Credit card;" + cardType;
             bill.Tip = double.Parse(txt_card_tips.Text);
         }
+
         private void PinPayment(Bill bill)
         {
-            bill.PaymentMethod = "Pin";
+            bill.PaymentMethod = PaymentMethod.pin;
             bill.Tip = double.Parse(txt_pin_tips.Text);
         }
 

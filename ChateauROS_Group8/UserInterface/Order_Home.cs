@@ -47,8 +47,11 @@ namespace UserInterface
 
         private void InitNewOrderProcess()
         {
-            orderService.AddOrder(new Order());
-            currentOrder = 
+            billService.AddNewBill(new Bill(0));
+            Bill currentBill = billService.GetLastBill();
+            Employee employee = employeeService.GetByID(3);
+            orderService.AddOrder(new Order(currentBill, employee));
+            currentOrder = orderService.GetLastOrder();
         }
 
         private void DisplayComment()
@@ -94,7 +97,7 @@ namespace UserInterface
 
             Hide();
             Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);
-            menuSelect.Closed += (s, args) => Show();
+            menuSelect.Closed += (s, args) => Close();
             menuSelect.Show(); 
         }
 

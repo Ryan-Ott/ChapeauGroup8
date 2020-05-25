@@ -14,7 +14,7 @@ namespace Models
             TableState = tableState;
         }
 
-        public Table() : this(0, 0)
+        public Table() : this(1, 0)
         {
         }
 
