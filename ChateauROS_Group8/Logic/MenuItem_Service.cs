@@ -22,8 +22,8 @@ namespace Logic
             {
                 Console.WriteLine($"Could not get all menuItems: " + e.Message);
                 List<MenuItem> errorMenuItems = new List<MenuItem>();
-                errorMenuItems.Add(new MenuItem(666, 777, "errorMenuItem1", 69, 0, false));
-                errorMenuItems.Add(new MenuItem(888, 999, "errorMenuItem2", 69, 0, false));
+                errorMenuItems.Add(new MenuItem(0, 1, "errorMenuItem1", 69, 1, false));
+                errorMenuItems.Add(new MenuItem(0, 1, "errorMenuItem2", 69, 1, false));
                 return errorMenuItems;
             }
         }
@@ -37,7 +37,7 @@ namespace Logic
             catch (Exception e)
             {
                 Console.WriteLine($"Could not get menuItem by ID {id}: " + e.Message);
-                throw;
+                return new MenuItem(0, 1, "errorMenuItem3", 69, 1, false);
             }
         }
 
@@ -51,9 +51,22 @@ namespace Logic
             {
                 Console.WriteLine($"Could not get all menuItems by category: " + e.Message);
                 List<MenuItem> errorMenuItems = new List<MenuItem>();
-                errorMenuItems.Add(new MenuItem(666, 777, "errorMenuItem1", 69, 0, false));
-                errorMenuItems.Add(new MenuItem(888, 999, "errorMenuItem2", 69, 0, false));
+                errorMenuItems.Add(new MenuItem(0, 1, "errorMenuItem4", 69, 0, false));
+                errorMenuItems.Add(new MenuItem(0, 1, "errorMenuItem5", 69, 0, false));
                 return errorMenuItems;
+            }
+        }
+
+        public MenuItem GetMenuItemByName(string menuItemName)
+        {
+            try
+            {
+                return menuItemDAO.DB_GetMenuItemByName(menuItemName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Could not get menuItem with name {menuItemName}: " + e.Message);
+                return new MenuItem(0, 1, "errorMenuItem5", 69, 0, false);
             }
         }
     }

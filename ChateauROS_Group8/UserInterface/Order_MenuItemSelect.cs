@@ -17,12 +17,16 @@ namespace UserInterface
     {
         Category_Service categoryService = new Category_Service();
         MenuItem_Service menuItemService = new MenuItem_Service();
+        OrderAndOrderItem_Service orderAndOrderItemService = new OrderAndOrderItem_Service();
+        Order currentOrder;
 
-        public Order_MenuItemSelect(int categoryID)
+        public Order_MenuItemSelect(int categoryID, Order currentOrder)
         {
             InitializeComponent();
+            this.currentOrder = currentOrder;
             SetCategoryLabel(categoryID);
             DisplayMenuItems(categoryID);
+            DisplayCurrentOrder();
         }
 
         private void SetCategoryLabel(int categoryID)
@@ -46,6 +50,21 @@ namespace UserInterface
             }
         }
 
+        private void DisplayCurrentOrder()
+        {
+            liv_CurrentOrder.Items.Clear();
+            liv_CurrentOrder.Columns.Add("Item", 150);
+            liv_CurrentOrder.Columns.Add("Count", 48);
+
+            List<OrderItem> orderItems = orderAndOrderItemService.GetAllOrderItems(currentOrder.OrderID);
+            foreach (OrderItem orderItem in orderItems)
+            {
+                ListViewItem li = new ListViewItem(orderItem.MenuItem.Name);
+                li.SubItems.Add(orderItem.Quantity.ToString());
+                liv_CurrentOrder.Items.Add(li);
+            }
+        }
+
         private void lbl_ItemSelect_Click(object sender, EventArgs e)
         {
 
@@ -54,9 +73,38 @@ namespace UserInterface
         private void btn_Menus_Click(object sender, EventArgs e)
         {
             Hide();
-            Order_MenuSelect menuSelect = new Order_MenuSelect();
+            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);
             menuSelect.Closed += (s, args) => Close();
             menuSelect.Show();
+        }
+
+        private void btn_AddItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
+                string menuItemName = selectedLVI.SubItems[0].Text;
+                Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
+                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
+                orderAndOrderItemService.AddOrderItem(newOrderItem);
+                DisplayCurrentOrder();
+                //DisplayMenuItems(); with updated stock?
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please make sure a menu item is selected.");
+                return;
+            }
+        }
+
+        private void btn_Submit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            //functionality to go back to homescreen here
         }
     }
 }

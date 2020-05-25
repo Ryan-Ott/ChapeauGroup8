@@ -18,7 +18,11 @@ namespace Models
             Comment = comment;
         }
 
-        public List<OrderItem> orderItems; //join SQL query
+        public Order() : this(0, new Table(), 0, new Employee(), false, "")
+        {
+        }
+
+        //public List<OrderItem> orderItems; //join SQL query
 
         public int OrderID { get; set; }
         public Table Table { get; set; } //from which restaurant table the order was taken

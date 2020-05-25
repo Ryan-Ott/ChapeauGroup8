@@ -8,7 +8,7 @@ namespace Models
 {
     public class OrderItem
     {
-        public OrderItem(int orderItemID, int orderID, MenuItem menuItem, int quantity, string requests, string orderState, DateTime lastStateChange)
+        public OrderItem(int orderItemID, int orderID, MenuItem menuItem, int quantity, string requests, OrderState orderState, DateTime lastStateChange)
         {
             OrderItemID = orderItemID;
             OrderID = orderID;
@@ -24,7 +24,12 @@ namespace Models
         public MenuItem MenuItem { get; set; }
         public int Quantity { get; set; }
         public string Requests { get; set; } //any special requests that were added to the order (e.g. extra salt)
-        public string OrderState { get; set; } //whether order is ordered, in kitchen/bar(preparing), ready(to be served) or delivered -- could be enum
-        public DateTime LastStateChange { get; set; } //time passed since order state last changed
+        public OrderState OrderState { get; set; }
+        public DateTime LastStateChange { get; set; } //time when order state last changed
+    }
+
+    public enum OrderState
+    {
+        ordered, preparing, ready, delivered
     }
 }

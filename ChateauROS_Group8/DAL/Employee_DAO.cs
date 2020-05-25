@@ -46,11 +46,11 @@ namespace DAL
         private Employee ReadEmployee(SqlDataReader reader)
         {
             int employeeID = (int)reader["employeeID"];
-            string type = (string)reader["type"];
+            int type = (int)reader["type"];
             string username = (string)reader["username"];
             string password = (string)reader["password"];
 
-            return new Employee(employeeID, type, username, password);
+            return new Employee(employeeID, (Models.Type)type, username, password);
         }
     }
 }

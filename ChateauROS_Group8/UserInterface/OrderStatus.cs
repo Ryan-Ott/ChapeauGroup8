@@ -32,7 +32,7 @@ namespace UserInterface
                 item.SubItems.Add(order.MenuItem.Name);
                 item.SubItems.Add(order.Quantity.ToString());
                 item.SubItems.Add(order.Requests);
-                item.SubItems.Add(order.OrderState);
+                item.SubItems.Add(order.OrderState.ToString());
                 item.SubItems.Add(order.LastStateChange.ToString());
                 Orderlistlbl.Items.Add(item);
             }

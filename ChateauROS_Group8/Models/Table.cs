@@ -14,6 +14,10 @@ namespace Models
             TableState = tableState;
         }
 
+        public Table() : this(0, 0)
+        {
+        }
+
         public int TableID { get; set; }
         public TableState TableState { get; set; }
     }

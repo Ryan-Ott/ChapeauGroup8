@@ -20,8 +20,8 @@ namespace Logic
             catch (Exception)
             {
                 List<OrderItem> items = new List<OrderItem>();
-                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", "Not Ready", DateTime.Now);
-                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", "Not Ready", DateTime.Now);
+                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
+                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, DateTime.Now);
 
                 items.Add(orderItem1);
                 items.Add(orderItem2);
@@ -40,8 +40,8 @@ namespace Logic
             catch(Exception)
             {
                 List<OrderItem> items = new List<OrderItem>();
-                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", "Not Ready", DateTime.Now);
-                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", "Not Ready", DateTime.Now);
+                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
+                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, DateTime.Now);
 
                 items.Add(orderItem1);
                 items.Add(orderItem2);
@@ -59,7 +59,7 @@ namespace Logic
             }
             catch (Exception)
             {
-                OrderItem orderItem = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", "Not Ready", DateTime.Now);
+                OrderItem orderItem = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
 
                 return orderItem;
             }
@@ -72,7 +72,7 @@ namespace Logic
             }
             catch (Exception)
             {
-                Order order = new Order(1, new Table(1, TableState.occupied),1, new Employee(1, "waiter", "Peter", "1234"), true, "none");
+                Order order = new Order(0, new Table(), 1, new Employee(), true, "none");
 
                 return order;
             }

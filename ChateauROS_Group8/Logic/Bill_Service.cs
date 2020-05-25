@@ -17,6 +17,32 @@ namespace Logic
             bill_DAO.AddToBill(bill);
         }
 
+        public void AddNewBill(Bill bill)
+        {
+            try
+            {
+                bill_DAO.DB_AddNewBill(bill);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        public void EditBill(Bill bill)
+        {
+            try
+            {
+                bill_DAO.DB_EditBill(bill);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
         public Bill CalculateTax(List<OrderItem> items, Bill bill)
         {
             double total = 0;
@@ -38,7 +64,20 @@ namespace Logic
             bill.Tax21 = 0.21 * total;
             bill.Total = total + al_total + bill.Tax6 + bill.Tax21;
 
-            return new Bill(bill.BillID, "", 7, 8, 0, 15);//all taxes and prices are hardcoded here since there is no order in the database yet
+            return new Bill(bill.BillID, 0, 7, 8, 0, 15);//all taxes and prices are hardcoded here since there is no order in the database yet
         }
+
+        //public object GetLastIdentity()
+        //{
+        //    try
+        //    {
+        //        return bill_DAO.DB_GetLastIdentity();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine("Could not retrieve scope identity. Possibly none exists: " + e.Message);
+        //        return 0;
+        //    }
+        //}
     }
 }

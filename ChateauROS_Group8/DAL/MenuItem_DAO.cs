@@ -59,6 +59,22 @@ namespace DAL
             return menuItems;
         }
 
+        public MenuItem DB_GetMenuItemByName(string menuItemName)
+        {
+            OpenConnection();
+            SqlCommand queryGetByID = new SqlCommand("SELECT menuItemID, categoryID, name, price, stock, alcoholic FROM [MenuItems] WHERE name = @name", connection);
+            queryGetByID.Parameters.AddWithValue("@name", menuItemName);
+            SqlDataReader reader = queryGetByID.ExecuteReader();
+            MenuItem menuItem = null;
+            if (reader.Read())
+            {
+                menuItem = ReadMenuItem(reader);
+            }
+            reader.Close();
+            CloseConnection();
+            return menuItem;
+        }
+
         private MenuItem ReadMenuItem(SqlDataReader reader)
         {
             int menuItemID = (int)reader["menuItemID"];

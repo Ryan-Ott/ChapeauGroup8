@@ -21,8 +21,8 @@ namespace Logic
             {
                 //add fake employees to the list in case database connection is not working;
                 List<Employee> employees = new List<Employee>();
-                Employee em1 = new Employee(1,"waiter","username","password");
-                Employee em2 = new Employee(2, "kitchen staff", "username", "password");
+                Employee em1 = new Employee();
+                Employee em2 = new Employee();
                 employees.Add(em1);
                 employees.Add(em2);
                 return employees;
@@ -38,7 +38,7 @@ namespace Logic
             catch
             {
                 //return a fake employee information in case database connection is not working;
-                return new Employee(1, "waiter", "username", "password");
+                return new Employee();
             }
         }
     }

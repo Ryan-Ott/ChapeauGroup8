@@ -26,11 +26,11 @@ namespace DAL
             return orderItems;
         }
 
-        public List<OrderItem> DB_GetAllOrderItems(int id)
+        public List<OrderItem> DB_GetAllOrderItems(int orderID)
         {
             OpenConnection();
             SqlCommand queryGetAll = new SqlCommand("SELECT oderItemID, orderID, menuItemID, quantity, requests, orderState, lastStateChange FROM [OrderItems] WHERE orderID = @id", connection);
-            queryGetAll.Parameters.AddWithValue("@id", id);
+            queryGetAll.Parameters.AddWithValue("@id", orderID);
             SqlDataReader reader = queryGetAll.ExecuteReader();
             List<OrderItem> orderItems = new List<OrderItem>();
             while (reader.Read())
@@ -78,12 +78,12 @@ namespace DAL
         public void DB_AddOrderItem(OrderItem orderItem)
         {
             OpenConnection();
-            SqlCommand queryAddOrder = new SqlCommand("INSERT INTO[OrderItems]([orderID], [menuItemID], [quantity], [requests], [orderState], [lastStateChange]) VALUES(@orderID, @menuItemID, @quantity, @requests, @orderState, @lastStateChange)");
+            SqlCommand queryAddOrder = new SqlCommand("INSERT INTO[OrderItems]([orderID], [menuItemID], [quantity], [requests], [orderState], [lastStateChange]) VALUES(@orderID, @menuItemID, @quantity, @requests, @orderState, @lastStateChange);", connection);
             queryAddOrder.Parameters.AddWithValue("@orderID", orderItem.OrderID);
             queryAddOrder.Parameters.AddWithValue("@menuItemID", orderItem.MenuItem.MenuItemID);
             queryAddOrder.Parameters.AddWithValue("@quantity", orderItem.Quantity);
             queryAddOrder.Parameters.AddWithValue("@requests", orderItem.Requests);
-            queryAddOrder.Parameters.AddWithValue("@orderState", orderItem.OrderState);
+            queryAddOrder.Parameters.AddWithValue("@orderState", (int)orderItem.OrderState);
             queryAddOrder.Parameters.AddWithValue("@lastStateChange", orderItem.LastStateChange);
             queryAddOrder.ExecuteNonQuery();
             CloseConnection();
@@ -92,7 +92,7 @@ namespace DAL
         public void DB_AddOrder(Order order)
         {
             OpenConnection();
-            SqlCommand queryAddOrder = new SqlCommand("INSERT INTO [Orders] ([tableID], [billID], [employeeID], [completed], [comment]) VALUES (@tableID, @billID, @employeeID, @completed, @comment)");
+            SqlCommand queryAddOrder = new SqlCommand("INSERT INTO [Orders] ([tableID], [billID], [employeeID], [completed], [comment]) VALUES (@tableID, @billID, @employeeID, @completed, @comment);", connection);
             queryAddOrder.Parameters.AddWithValue("@tableID", order.Table.TableID);
             queryAddOrder.Parameters.AddWithValue("@billID", order.BillID);
             queryAddOrder.Parameters.AddWithValue("@employeeID", order.Employee.EmployeeID);
@@ -105,7 +105,7 @@ namespace DAL
         public void DB_EditOrder(Order order)
         {
             OpenConnection();
-            SqlCommand queryEditOrder = new SqlCommand("UPDATE [Orders] SET [tableID] = @tableID, [billID] = @billID, [employeeID] = @employeeID, [completed] = @completed, [comment] = @comment WHERE [orderID] = @orderID");
+            SqlCommand queryEditOrder = new SqlCommand("UPDATE [Orders] SET [tableID] = @tableID, [billID] = @billID, [employeeID] = @employeeID, [completed] = @completed, [comment] = @comment WHERE [orderID] = @orderID", connection);
             queryEditOrder.Parameters.AddWithValue("@tableID", order.Table.TableID);
             queryEditOrder.Parameters.AddWithValue("@billID", order.BillID);
             queryEditOrder.Parameters.AddWithValue("@employeeID", order.Employee.EmployeeID);
@@ -119,7 +119,7 @@ namespace DAL
         public void DB_DeleteOrder(Order order)
         {
             OpenConnection();
-            SqlCommand queryDeleteOrder = new SqlCommand("DELETE FROM [Orders] WHERE [orderID] = @orderID");
+            SqlCommand queryDeleteOrder = new SqlCommand("DELETE FROM [Orders] WHERE [orderID] = @orderID", connection);
             queryDeleteOrder.Parameters.AddWithValue("@orderID", order.OrderID);
             queryDeleteOrder.ExecuteNonQuery();
             CloseConnection();
@@ -133,10 +133,10 @@ namespace DAL
             MenuItem menuItem = menuItem_DAO.DB_GetMenuItemByID((int)reader["menuItemID"]);
             int quantity = (int)reader["quantity"];
             string requests = (string)reader["requests"];
-            string orderState = (string)reader["orderState"];
+            int orderState = (int)reader["orderState"];
             DateTime lastStateChange = (DateTime)reader["lastStateChange"];
 
-            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, lastStateChange);
+            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, (OrderState)orderState, lastStateChange);
         }
 
         private Order ReadOrder(SqlDataReader reader)
