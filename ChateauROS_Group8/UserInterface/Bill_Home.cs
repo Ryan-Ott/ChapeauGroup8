@@ -10,19 +10,22 @@ using System.Windows.Forms;
 using Logic;
 using Models;
 using DAL;
+using System.Net.Mail;
 
 namespace UserInterface
 {
     public partial class Bill_Home : Form
     {
-        private int tableID;
-        private OrderAndOrderItem_Service orderItem_Service = new OrderAndOrderItem_Service();
+        private Table table;
+        private OrderAndOrderItem_Service order_Service = new OrderAndOrderItem_Service();
         private Bill_Service bill_Service = new Bill_Service();
         private Bill bill;
+        private Order order;
+        private List<OrderItem> items;
         public Bill_Home()
         {
             InitializeComponent();
-            //this.tableID = tableID;
+            //this.table = table;
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -38,15 +41,16 @@ namespace UserInterface
             pnl_order_complete.Hide();
             complete_btn.Hide();
             btn_back_to_tbview.Hide();
+            txt_comment.Hide();
 
             //Get bill data from database - from table with running order
-            Order order = orderItem_Service.GetOrderByTableID(tableID);
+            order = order_Service.GetOrderByTableID(table.TableID);
             //bill = new Bill(order.BillID);
 
             bill.BillID = 1;//the bill id is hardcoded since there is no order stored in the database yet
 
             //Get all order items from specific order 
-            List<OrderItem> items = orderItem_Service.GetAllOrderItems(order.OrderID);
+            items = order_Service.GetAllOrderItems(order.OrderID);
 
             //calculate total prices and taxes
             bill = bill_Service.CalculateTax(items, bill);
@@ -76,7 +80,7 @@ namespace UserInterface
             //filling the list view wih each item
             foreach (OrderItem item in items)
             {
-                ListViewItem list = new ListViewItem(item.MenuItem.MenuItemID.ToString());
+                ListViewItem list = new ListViewItem(item.OrderItemID.ToString());
                 list.SubItems.Add(item.MenuItem.Name);
                 list.SubItems.Add(item.Quantity.ToString());
                 list.SubItems.Add(item.MenuItem.Price.ToString());
@@ -111,15 +115,10 @@ namespace UserInterface
         {
             bill.PaymentMethod = "cash";
 
-            double received = double.Parse(txt_received.Text);
-            lbl_changes_amount.Text = (received - bill.Total).ToString("'0' €");
-
             if (cb_tips.Checked == true)
                 bill.Tip = double.Parse(lbl_changes_amount.Text);
             else
                 bill.Tip = 0;
-
-            complete_btn.Enabled = true;
         }
         private void CardPayment(Bill bill)
         {
@@ -145,7 +144,8 @@ namespace UserInterface
 
         private void confirm_btn_Click(object sender, EventArgs e)
         {
-            CashPayment(bill);
+            double received = double.Parse(txt_received.Text);
+            lbl_changes_amount.Text = (received - bill.Total).ToString($"{received} €");
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)
@@ -173,6 +173,8 @@ namespace UserInterface
                 PinPayment(bill);
             else if (card_rb.Checked == true)
                 CardPayment(bill);
+            else if (cash_rb.Checked == true)
+                CashPayment(bill);
 
             //hide all other buttons and panels
             complete_btn.Hide();
@@ -181,14 +183,35 @@ namespace UserInterface
             pnl_cash_payment.Hide();
             pnl_pin_payment.Hide();
             pnl_Summary.Hide();
-            btn_correct.Hide();
-            btn_modify.Hide();
 
             //show order complete panel
             btn_back_to_tbview.Show();
             pnl_order_complete.Show();
 
+            //store data to the database
             bill_Service.AddToBill(bill);
+
+            //update order status to 'completed' in database
+            order.Completed = true;
+            order_Service.EditOrder(order);
+        }
+
+        private void btn_add_comment_Click(object sender, EventArgs e)
+        {
+            txt_comment.Show();
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            //save comment to the database
+            order.Comment = txt_comment.Text;
+            order_Service.EditOrder(order);
+
+            //show confirmation message box
+            MessageBox.Show("Comment saved!", "CONFIRM", MessageBoxButtons.OK);
+
+            //hide textbox
+            txt_comment.Hide();
         }
     }
 }

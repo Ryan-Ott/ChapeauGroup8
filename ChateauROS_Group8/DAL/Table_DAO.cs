@@ -43,6 +43,13 @@ namespace DAL
             return table;
         }
 
+        public void EditTable(Table table)
+        {
+            string query = "UPDATE Tables SET [tableState] = " + table.TableState + ", WHERE [tableID] = " + table.TableID;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private Table ReadTable (SqlDataReader reader)
         {
             int tableId = (int)reader["tableID"];
