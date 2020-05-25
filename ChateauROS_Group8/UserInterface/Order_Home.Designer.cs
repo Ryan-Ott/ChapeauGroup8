@@ -61,7 +61,7 @@
             this.pnl_OrderHome.Controls.Add(this.btn_Submit);
             this.pnl_OrderHome.Controls.Add(this.btn_Menus);
             this.pnl_OrderHome.Location = new System.Drawing.Point(62, 90);
-            this.pnl_OrderHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_OrderHome.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_OrderHome.Name = "pnl_OrderHome";
             this.pnl_OrderHome.Size = new System.Drawing.Size(900, 650);
             this.pnl_OrderHome.TabIndex = 1;
@@ -70,7 +70,7 @@
             // txtb_Requests
             // 
             this.txtb_Requests.Location = new System.Drawing.Point(60, 260);
-            this.txtb_Requests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtb_Requests.Margin = new System.Windows.Forms.Padding(4);
             this.txtb_Requests.Multiline = true;
             this.txtb_Requests.Name = "txtb_Requests";
             this.txtb_Requests.Size = new System.Drawing.Size(360, 160);
@@ -102,7 +102,7 @@
             // nud_ItemCount
             // 
             this.nud_ItemCount.Location = new System.Drawing.Point(300, 462);
-            this.nud_ItemCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nud_ItemCount.Margin = new System.Windows.Forms.Padding(4);
             this.nud_ItemCount.Name = "nud_ItemCount";
             this.nud_ItemCount.Size = new System.Drawing.Size(120, 31);
             this.nud_ItemCount.TabIndex = 5;
@@ -110,7 +110,12 @@
             // nud_TableID
             // 
             this.nud_TableID.Location = new System.Drawing.Point(300, 115);
-            this.nud_TableID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nud_TableID.Margin = new System.Windows.Forms.Padding(4);
+            this.nud_TableID.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nud_TableID.Name = "nud_TableID";
             this.nud_TableID.Size = new System.Drawing.Size(120, 31);
             this.nud_TableID.TabIndex = 1;
@@ -121,7 +126,7 @@
             this.liv_CurrentOrder.GridLines = true;
             this.liv_CurrentOrder.HideSelection = false;
             this.liv_CurrentOrder.Location = new System.Drawing.Point(450, 110);
-            this.liv_CurrentOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.liv_CurrentOrder.Margin = new System.Windows.Forms.Padding(4);
             this.liv_CurrentOrder.Name = "liv_CurrentOrder";
             this.liv_CurrentOrder.Size = new System.Drawing.Size(400, 500);
             this.liv_CurrentOrder.TabIndex = 6;
@@ -133,7 +138,7 @@
             // 
             this.btn_Delete.BackColor = System.Drawing.Color.Lavender;
             this.btn_Delete.Location = new System.Drawing.Point(60, 569);
-            this.btn_Delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(160, 40);
             this.btn_Delete.TabIndex = 6;
@@ -146,7 +151,7 @@
             this.btn_AddComment.BackColor = System.Drawing.Color.Lavender;
             this.btn_AddComment.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_AddComment.Location = new System.Drawing.Point(60, 456);
-            this.btn_AddComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_AddComment.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddComment.Name = "btn_AddComment";
             this.btn_AddComment.Size = new System.Drawing.Size(160, 40);
             this.btn_AddComment.TabIndex = 4;
@@ -158,7 +163,7 @@
             // 
             this.btn_Submit.BackColor = System.Drawing.Color.Gold;
             this.btn_Submit.Location = new System.Drawing.Point(260, 569);
-            this.btn_Submit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Submit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(160, 40);
             this.btn_Submit.TabIndex = 7;
@@ -171,7 +176,7 @@
             this.btn_Menus.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Menus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Menus.Location = new System.Drawing.Point(148, 177);
-            this.btn_Menus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Menus.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Menus.Name = "btn_Menus";
             this.btn_Menus.Size = new System.Drawing.Size(180, 60);
             this.btn_Menus.TabIndex = 2;
@@ -183,7 +188,7 @@
             // 
             this.btn_Home.BackColor = System.Drawing.Color.Gold;
             this.btn_Home.Location = new System.Drawing.Point(432, 19);
-            this.btn_Home.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(160, 40);
             this.btn_Home.TabIndex = 0;
@@ -195,7 +200,7 @@
             // 
             this.pbox_ChapeauLogo.Image = global::UserInterface.Properties.Resources.ChapeauLogo;
             this.pbox_ChapeauLogo.Location = new System.Drawing.Point(62, 10);
-            this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pbox_ChapeauLogo.Name = "pbox_ChapeauLogo";
             this.pbox_ChapeauLogo.Size = new System.Drawing.Size(140, 75);
             this.pbox_ChapeauLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -211,7 +216,7 @@
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.btn_Home);
             this.Controls.Add(this.pnl_OrderHome);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Order_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order_Home";

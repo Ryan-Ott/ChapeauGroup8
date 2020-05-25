@@ -65,6 +65,7 @@ namespace UserInterface
 
         private void DisplayCurrentOrder()
         {
+            liv_CurrentOrder.Columns.Clear();
             liv_CurrentOrder.Items.Clear();
             liv_CurrentOrder.Columns.Add("Item", 150);
             liv_CurrentOrder.Columns.Add("Count", 48);

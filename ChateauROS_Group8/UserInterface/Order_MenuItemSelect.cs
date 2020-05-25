@@ -19,24 +19,32 @@ namespace UserInterface
         MenuItem_Service menuItemService = new MenuItem_Service();
         OrderAndOrderItem_Service orderAndOrderItemService = new OrderAndOrderItem_Service();
         Order currentOrder;
+        int categoryID;
 
         public Order_MenuItemSelect(int categoryID, Order currentOrder)
         {
             InitializeComponent();
             this.currentOrder = currentOrder;
-            SetCategoryLabel(categoryID);
-            DisplayMenuItems(categoryID);
+            this.categoryID = categoryID;
+            SetCategoryLabel();
+            DisplayMenuItems();
             DisplayCurrentOrder();
         }
 
-        private void SetCategoryLabel(int categoryID)
+        private void Order_MenuItemSelect_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetCategoryLabel()
         {
             Category selectedCat = categoryService.GetCategoryByID(categoryID);
             lbl_Menu_Category.Text = selectedCat.CategoryName;
         }
 
-        private void DisplayMenuItems(int categoryID)
+        private void DisplayMenuItems()
         {
+            liv_MenuItems.Columns.Clear();
             liv_MenuItems.Items.Clear();
             liv_MenuItems.Columns.Add("Menu Item", 150);
             liv_MenuItems.Columns.Add("Stock", 48);
@@ -52,6 +60,7 @@ namespace UserInterface
 
         private void DisplayCurrentOrder()
         {
+            liv_CurrentOrder.Columns.Clear();
             liv_CurrentOrder.Items.Clear();
             liv_CurrentOrder.Columns.Add("Item", 150);
             liv_CurrentOrder.Columns.Add("Count", 48);
@@ -82,13 +91,20 @@ namespace UserInterface
         {
             try
             {
+                if (nud_ItemCount.Value == 0)
+                {
+                    MessageBox.Show("Please select the correct quantity of the menu item you wish to add.");
+                    return;
+                }
                 ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
                 string menuItemName = selectedLVI.SubItems[0].Text;
                 Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
+
+                nud_ItemCount.Maximum = selectedMenuItem.Stock;
                 OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
                 orderAndOrderItemService.AddOrderItem(newOrderItem);
                 DisplayCurrentOrder();
-                //DisplayMenuItems(); with updated stock?
+                DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
             }
             catch (Exception)
             {

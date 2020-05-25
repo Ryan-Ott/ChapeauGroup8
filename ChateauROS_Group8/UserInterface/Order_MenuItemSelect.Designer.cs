@@ -192,6 +192,7 @@
             this.Name = "Order_MenuItemSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order_MenuItemSelect";
+            this.Load += new System.EventHandler(this.Order_MenuItemSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.pnl_ItemSelect.ResumeLayout(false);
             this.pnl_ItemSelect.PerformLayout();

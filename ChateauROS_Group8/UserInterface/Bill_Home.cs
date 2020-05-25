@@ -125,7 +125,7 @@ namespace UserInterface
         private void CardPayment(Bill bill)
         {
             string cardType = cardType_combo.SelectedItem.ToString();
-            bill.PaymentMethod = "Credit card;" + cardType;
+            //bill.PaymentMethod = "Credit card;" + cardType;
             bill.Tip = double.Parse(txt_card_tips.Text);
         }
 
