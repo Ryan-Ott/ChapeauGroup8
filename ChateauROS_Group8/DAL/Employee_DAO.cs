@@ -43,6 +43,8 @@ namespace DAL
             return employee;
         }
 
+        //GetEmployeeByLoginData()
+
         private Employee ReadEmployee(SqlDataReader reader)
         {
             int employeeID = (int)reader["employeeID"];
