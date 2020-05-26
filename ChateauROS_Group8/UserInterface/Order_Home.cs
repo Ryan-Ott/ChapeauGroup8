@@ -95,6 +95,7 @@ namespace UserInterface
             }
             currentOrder.Table = tableService.GetByID((int)nud_TableID.Value);
             orderService.EditOrder(currentOrder);
+            currentOrder = orderService.GetLastOrder();
 
             Hide();
             Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);

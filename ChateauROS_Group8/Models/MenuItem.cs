@@ -18,6 +18,10 @@ namespace Models
             Alcoholic = alcoholic;
         }
 
+        public MenuItem() : this(0, 1, "testItem", (double)1.23, 2, false)
+        {
+        }
+
         public int MenuItemID { get; set; }
         public int CategoryID { get; set; }
         public string Name { get; set; }

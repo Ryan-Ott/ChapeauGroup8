@@ -34,7 +34,7 @@ namespace UserInterface
         {
             Hide();
             Order_Home orderHome = Order_Home.GetInstance();
-            orderHome.Closed += (s, args) => Close();
+            orderHome.Closed += (s, args) => Show();
             orderHome.Show();
         }
 
@@ -74,7 +74,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(5, currentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 

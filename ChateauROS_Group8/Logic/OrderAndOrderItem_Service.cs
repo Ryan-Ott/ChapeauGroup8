@@ -29,7 +29,6 @@ namespace Logic
 
                 return items;
             }
-
         }
 
         public List<OrderItem> GetAllOrderItems(int id)
@@ -49,7 +48,6 @@ namespace Logic
 
                 return items;
             }
-
         }
 
         public OrderItem GetOrderItemByID(int id)
@@ -89,6 +87,19 @@ namespace Logic
             {
                 Console.WriteLine("Could not retrieve last order " + e.Message);
                 return new Order();
+            }
+        }
+
+        public OrderItem GetLastOrderItem()
+        {
+            try
+            {
+                return orderAndOrderItemDAO.DB_GetLastOrderItem();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not retrieve last orderitem " + e.Message);
+                return new OrderItem();
             }
         }
 

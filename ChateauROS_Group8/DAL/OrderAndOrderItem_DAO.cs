@@ -90,6 +90,21 @@ namespace DAL
             return order;
         }
 
+        public OrderItem DB_GetLastOrderItem()
+        {
+            OpenConnection();
+            SqlCommand queryMaxOrderItemID = new SqlCommand("SELECT TOP 1 * FROM [OrderItems] ORDER BY [orderItemID] DESC", connection);
+            SqlDataReader reader = queryMaxOrderItemID.ExecuteReader();
+            OrderItem orderItem = null;
+            if (reader.Read())
+            {
+                orderItem = ReadOrderItem(reader);
+            }
+            reader.Close();
+            CloseConnection();
+            return orderItem;
+        }
+
         public void DB_AddOrderItem(OrderItem orderItem)
         {
             OpenConnection();

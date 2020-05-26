@@ -65,8 +65,9 @@ namespace UserInterface
             liv_CurrentOrder.Columns.Add("Item", 150);
             liv_CurrentOrder.Columns.Add("Count", 48);
 
-            List<OrderItem> orderItems = orderAndOrderItemService.GetAllOrderItems(currentOrder.OrderID);
-            foreach (OrderItem orderItem in orderItems)
+            currentOrder.orderItems = orderAndOrderItemService.GetAllOrderItems(currentOrder.OrderID);
+
+            foreach (OrderItem orderItem in currentOrder.orderItems)
             {
                 ListViewItem li = new ListViewItem(orderItem.MenuItem.Name);
                 li.SubItems.Add(orderItem.Quantity.ToString());
@@ -103,12 +104,13 @@ namespace UserInterface
                 nud_ItemCount.Maximum = selectedMenuItem.Stock;
                 OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
                 orderAndOrderItemService.AddOrderItem(newOrderItem);
+                newOrderItem = orderAndOrderItemService.GetLastOrderItem();
                 DisplayCurrentOrder();
                 DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
             }
-            catch (Exception)
+            catch (Exception x)
             {
-                MessageBox.Show("Please make sure a menu item is selected.");
+                MessageBox.Show("Please make sure a menu item is selected. " + x.Message);
                 return;
             }
         }
