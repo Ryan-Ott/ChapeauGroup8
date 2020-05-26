@@ -28,7 +28,7 @@ namespace Models
         {
         }
 
-        public List<OrderItem> orderItems; //CIRCULAR DEPENDANCY QUESTION
+        public List<OrderItem> orderItems = new List<OrderItem>();
 
         public int OrderID { get; set; }
         public Table Table { get; set; } //from which restaurant table the order was taken

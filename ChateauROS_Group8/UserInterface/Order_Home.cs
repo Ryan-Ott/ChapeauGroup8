@@ -29,6 +29,7 @@ namespace UserInterface
         private Order_Home()
         {
             InitializeComponent();
+            //pass on employee obj
         }
 
         public static Order_Home GetInstance()
@@ -40,6 +41,11 @@ namespace UserInterface
 
         private void Order_Home_Load(object sender, EventArgs e)
         {
+            ReloadForm();
+        }
+
+        private void ReloadForm()
+        {
             InitNewOrderProcess();
             DisplayCurrentOrder();
             //DisplayComment();
@@ -47,20 +53,34 @@ namespace UserInterface
 
         private void InitNewOrderProcess()
         {
-            billService.AddNewBill(new Bill(0));
-            Bill currentBill = billService.GetLastBill();
-            Employee employee = employeeService.GetByID(3);
-            orderService.AddOrder(new Order(currentBill, employee));
-            currentOrder = orderService.GetLastOrder();
+            currentOrder = new Order();
+
+            //billService.AddNewBill(new Bill(0));
+            //Bill currentBill = billService.GetLastBill();
+            //Employee employee = employeeService.GetByID(3);
+            //orderService.AddOrder(new Order(currentBill, employee));
+            //currentOrder = orderService.GetLastOrder();
         }
 
         private void DisplayComment()
         {
-            ListViewItem selectedItem = liv_CurrentOrder.Items[0];
-            //string menuItemName = liv_CurrentOrder.Items[0].SubItems[0].Text;
-            //Models.MenuItem itemInOrder = menuItemService.GetMenuItemByName(menuItemName);
-            OrderItem orderItem = orderService.GetOrderItemByID(currentOrder.OrderID);
-            txtb_Requests.Text = orderItem.Requests;
+            ListViewItem selectedItem = liv_CurrentOrder.SelectedItems[0];
+
+            if (selectedItem == null)
+                selectedItem = liv_CurrentOrder.Items[0];
+
+            string menuItemName = selectedItem.SubItems[0].Text;
+            Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
+
+            OrderItem selectedOrderItem = new OrderItem();
+            foreach (OrderItem orderItem in currentOrder.orderItems) //eeeeh not sure yet
+            {
+                if (orderItem.MenuItem == selectedMenuItem)
+                {
+
+                }
+            }
+            txtb_Requests.Text = selectedOrderItem.Requests;
         }
 
         private void DisplayCurrentOrder()
@@ -72,8 +92,7 @@ namespace UserInterface
 
             try
             {
-                List<OrderItem> orderItems = orderService.GetAllOrderItems(currentOrder.OrderID);
-                foreach (OrderItem orderItem in orderItems)
+                foreach (OrderItem orderItem in currentOrder.orderItems)
                 {
                     ListViewItem li = new ListViewItem(orderItem.MenuItem.Name);
                     li.SubItems.Add(orderItem.Quantity.ToString());
@@ -94,8 +113,9 @@ namespace UserInterface
                 return;
             }
             currentOrder.Table = tableService.GetByID((int)nud_TableID.Value);
-            orderService.EditOrder(currentOrder);
-            currentOrder = orderService.GetLastOrder();
+
+            //orderService.EditOrder(currentOrder);
+            //currentOrder = orderService.GetLastOrder();
 
             Hide();
             Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);
@@ -115,7 +135,8 @@ namespace UserInterface
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            //reset currentOrder
+
+            //reset currentOrder (reload the form)
             //foreach ordered menuItem reduce stock by count
         }
 

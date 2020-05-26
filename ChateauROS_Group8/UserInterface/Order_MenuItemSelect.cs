@@ -1,5 +1,4 @@
-﻿using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logic;
 using Models;
+using Logic;
 
 namespace UserInterface
 {
@@ -18,6 +17,7 @@ namespace UserInterface
         Category_Service categoryService = new Category_Service();
         MenuItem_Service menuItemService = new MenuItem_Service();
         OrderAndOrderItem_Service orderAndOrderItemService = new OrderAndOrderItem_Service();
+
         Order currentOrder;
         int categoryID;
 
@@ -65,7 +65,7 @@ namespace UserInterface
             liv_CurrentOrder.Columns.Add("Item", 150);
             liv_CurrentOrder.Columns.Add("Count", 48);
 
-            currentOrder.orderItems = orderAndOrderItemService.GetAllOrderItems(currentOrder.OrderID);
+            //currentOrder.orderItems = orderAndOrderItemService.GetAllOrderItems(currentOrder.OrderID);
 
             foreach (OrderItem orderItem in currentOrder.orderItems)
             {
@@ -102,9 +102,9 @@ namespace UserInterface
                 Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
 
                 nud_ItemCount.Maximum = selectedMenuItem.Stock;
+
                 OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
-                orderAndOrderItemService.AddOrderItem(newOrderItem);
-                newOrderItem = orderAndOrderItemService.GetLastOrderItem();
+                currentOrder.orderItems.Add(newOrderItem);
                 DisplayCurrentOrder();
                 DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
             }
@@ -117,7 +117,10 @@ namespace UserInterface
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            Order_Home orderHome = Order_Home.GetInstance();
+            orderHome.Closed += (s, args) => Show();
+            orderHome.Show();
         }
 
         private void btn_Home_Click(object sender, EventArgs e)

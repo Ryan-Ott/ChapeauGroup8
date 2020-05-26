@@ -19,7 +19,7 @@ namespace Models
             LastStateChange = lastStateChange;
         }
 
-        public OrderItem() : this(0, 0, new MenuItem(), 1, "no cheese", OrderState.ordered, DateTime.Now)
+        public OrderItem() : this(0, 0, new MenuItem(), 1, "", OrderState.ordered, DateTime.Now)
         {
         }
 
