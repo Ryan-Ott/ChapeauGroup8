@@ -12,13 +12,6 @@ namespace DAL
     public class Bill_DAO : DAOBase
     {
         //storing bill information to Bills table in the database
-        public void AddToBill(Bill bill)
-        {
-            string query = "INSERT INTO Bills VALUES (" + bill.BillID + ",'" + bill.PaymentMethod + "'," + bill.Tax6 + "," + bill.Tax21 + "," + bill.Tip + "," + bill.Total + "); ";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
         public void DB_AddNewBill(Bill bill)
         {
             OpenConnection();
@@ -35,8 +28,7 @@ namespace DAL
         public void DB_EditBill(Bill bill)
         {
             OpenConnection();
-            SqlCommand queryEditBill = new SqlCommand("UPDATE [Bills] SET [paymentMethod] = @paymentMethod, [6tax] = @6tax, [21tax] = @21tax, [tip] = @tip, [total] = @total WHERE [billID] = @billID", connection);
-            queryEditBill.Parameters.AddWithValue("@paymentMethod", bill.PaymentMethod);
+            SqlCommand queryEditBill = new SqlCommand("UPDATE [Bills] SET [paymentMethod] = '" + bill.PaymentMethod + "', [6tax] = @6tax, [21tax] = @21tax, [tip] = @tip, [total] = @total WHERE [billID] = @billID", connection);
             queryEditBill.Parameters.AddWithValue("@6tax", bill.Tax6);
             queryEditBill.Parameters.AddWithValue("@21tax", bill.Tax21);
             queryEditBill.Parameters.AddWithValue("@tip", bill.Tip);

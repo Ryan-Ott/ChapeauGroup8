@@ -11,11 +11,7 @@ namespace Logic
     public class Bill_Service
     { 
         private Bill_DAO bill_DAO = new Bill_DAO();
-
-        public void AddToBill(Bill bill)
-        {
-            bill_DAO.AddToBill(bill);
-        }
+        private OrderAndOrderItem_DAO orderAndOrderItem_DAO = new OrderAndOrderItem_DAO();
 
         public void AddNewBill(Bill bill)
         {
@@ -30,11 +26,15 @@ namespace Logic
             }
         }
 
-        public void EditBill(Bill bill)
+        public void EditBill(Bill bill,Order order)
         {
             try
             {
                 bill_DAO.DB_EditBill(bill);
+
+                order.Completed = true;
+                order.Table.TableState = TableState.available;
+                orderAndOrderItem_DAO.DB_EditOrder(order);
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ namespace Logic
             }
         }
 
-        public Bill CalculateTax(List<OrderItem> items, Bill bill)
+        public void CalculateTax(List<OrderItem> items, Bill bill)
         {
             double total = 0;
             double al_total = 0;
@@ -61,10 +61,8 @@ namespace Logic
             }
 
             bill.Tax6 = 0.06 * total;
-            bill.Tax21 = 0.21 * total;
+            bill.Tax21 = 0.21 * al_total;
             bill.Total = total + al_total + bill.Tax6 + bill.Tax21;
-
-            return new Bill(bill.BillID, 0, 7, 8, 0, 15);//all taxes and prices are hardcoded here since there is no order in the database yet
         }
 
         public Bill GetLastBill()

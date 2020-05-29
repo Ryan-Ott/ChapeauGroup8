@@ -32,27 +32,5 @@ namespace DAL
         {
             connection.Close();
         }
-
-        //for insert/edit/delete queries
-        protected void ExecuteEditQuery(String query, SqlParameter[] sqlParameters)
-        {
-            SqlCommand command = new SqlCommand();
-            try
-            {
-                command.Connection = OpenConnection();
-                command.CommandText = query;
-                command.Parameters.AddRange(sqlParameters);
-                adapter.InsertCommand = command;
-                command.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
-            finally
-            {
-                CloseConnection();
-            }
-        }
     }
 }
