@@ -12,7 +12,7 @@ using Logic;
 
 namespace UserInterface
 {
-    public partial class Order_Home : Form
+    public partial class Order_Home : Form, IObserver
     {
         OrderAndOrderItem_Service orderService = new OrderAndOrderItem_Service();
         Menu_Service menuService = new Menu_Service();
@@ -29,6 +29,7 @@ namespace UserInterface
         private Order_Home()
         {
             InitializeComponent();
+            InitNewOrderProcess();
             //pass on employee obj
         }
 
@@ -46,7 +47,6 @@ namespace UserInterface
 
         private void ReloadForm()
         {
-            InitNewOrderProcess();
             DisplayCurrentOrder();
             //DisplayComment();
         }
@@ -158,6 +158,12 @@ namespace UserInterface
         private void btn_Home_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void Update(Order currentOrder)
+        {
+            this.currentOrder = currentOrder;
+            ReloadForm(); 
         }
     }
 }
