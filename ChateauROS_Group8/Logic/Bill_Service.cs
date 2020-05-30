@@ -52,17 +52,17 @@ namespace Logic
             {
                 if (item.MenuItem.Alcoholic == false)
                 {
-                    total += item.MenuItem.Price;
+                    total += item.MenuItem.Price * item.Quantity;
                 }
                 else
                 {
-                    al_total += item.MenuItem.Price;
+                    al_total += item.MenuItem.Price * item.Quantity;
                 }
             }
 
-            bill.Tax6 = 0.06 * total;
-            bill.Tax21 = 0.21 * al_total;
-            bill.Total = total + al_total + bill.Tax6 + bill.Tax21;
+            bill.Tax6 = Math.Round(0.06 * total,2);
+            bill.Tax21 = Math.Round(0.21 * al_total,2);
+            bill.Total = Math.Round(total + al_total + bill.Tax6 + bill.Tax21,2);
         }
 
         public Bill GetLastBill()

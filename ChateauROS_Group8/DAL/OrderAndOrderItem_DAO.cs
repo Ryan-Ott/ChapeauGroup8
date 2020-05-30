@@ -62,7 +62,7 @@ namespace DAL
         public Order DB_GetOrderByTableID(int tableID)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed NOT LIKE 'true'", connection);
+            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed NOT LIKE 'True'", connection);
             queryGetByID.Parameters.AddWithValue("@tableID", tableID);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Order order = null;
@@ -72,6 +72,9 @@ namespace DAL
             }
             reader.Close();
             CloseConnection();
+
+            order.orderItems = DB_GetAllOrderItems(order.OrderID);
+
             return order;
         }
 
@@ -173,6 +176,7 @@ namespace DAL
         {
             Table_DAO table_DAO = new Table_DAO();
             Employee_DAO employee_DAO = new Employee_DAO();
+            Order order = new Order();
 
             int orderID = (int)reader["orderID"];
             Table table = table_DAO.DB_GetTableByID((int)reader["tableID"]);

@@ -21,7 +21,6 @@ namespace UserInterface
         private Bill_Service bill_Service = new Bill_Service();
         private Bill bill;
         private Order order;
-        private List<OrderItem> items;
         public Bill_Home()
         {
             InitializeComponent();
@@ -39,22 +38,21 @@ namespace UserInterface
             pnl_card.Hide();
             pnl_tip.Hide();
             pnl_comment.Hide();
+            pnl_paymentComplete.Hide();
             complete_btn.Hide();
 
             //Get bill data from database - from table with running order
-            order = order_Service.GetOrderByTableID(4);
+            order = order_Service.GetOrderByTableID(6);
             bill = new Bill(order.BillID);
 
-            items = order_Service.GetAllOrderItems(order.OrderID);
-
             //calculate total prices and taxes
-            bill_Service.CalculateTax(items, bill);
+            bill_Service.CalculateTax(order.orderItems, bill);
 
             //fill out bill information
             DisplayBillInformation(order, bill);
 
             //fill all ordered items in the bill
-            FillOrderItems(items);
+            FillOrderItems(order.orderItems);
         }
         private void DisplayBillInformation(Order order,Bill bill)
         {
@@ -100,6 +98,7 @@ namespace UserInterface
         }
         private void cash_rb_CheckedChanged(object sender, EventArgs e)
         {
+            //hide all other panles
             pnl_card.Hide();
 
             pnl_cash.Show();
@@ -152,10 +151,20 @@ namespace UserInterface
             else if (cash_rb.Checked == true)
                 CashPayment(bill);
 
-            bill.Tip = double.Parse(txt_tips.Text);
+            if (txt_tips.Text != null)
+            {
+                bill.Tip = double.Parse(txt_tips.Text);
+            }
+            else
+            {
+                bill.Tip = 0;
+            }
+
 
             //store data to the database and update order and table status
             bill_Service.EditBill(bill,order);
+
+            pnl_paymentComplete.Show();
         }
 
         private void btn_add_comment_Click(object sender, EventArgs e)
@@ -184,6 +193,10 @@ namespace UserInterface
         private void add_comment_btn_Click(object sender, EventArgs e)
         {
             pnl_comment.Show();
+        }
+        private void backToTbView_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
