@@ -88,7 +88,6 @@ namespace UserInterface
 
         private void btn_AddItem_Click(object sender, EventArgs e)
         {
-            //search for item if its existing already
             try
             {
                 if (nud_ItemCount.Value == 0)
@@ -96,21 +95,45 @@ namespace UserInterface
                     MessageBox.Show("Please select the correct quantity of the menu item you wish to add.");
                     return;
                 }
+
                 ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
                 string menuItemName = selectedLVI.SubItems[0].Text;
                 Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
-
                 nud_ItemCount.Maximum = selectedMenuItem.Stock;
+                UpdateOrderItems(selectedMenuItem);
 
-                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
-                currentOrder.orderItems.Add(newOrderItem);
                 DisplayCurrentOrder();
                 DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
+                nud_ItemCount.Value = 0;
             }
             catch (Exception x)
             {
                 MessageBox.Show("Please make sure a menu item is selected. " + x.Message);
                 return;
+            }
+        }
+
+        private void UpdateOrderItems(Models.MenuItem selectedMenuItem)
+        {
+            bool itemPresent = false;
+            foreach (OrderItem orderItem in currentOrder.orderItems) //determines whether this item is already being ordered, if yes, only increase order quantity
+            {
+                if (orderItem.MenuItem.MenuItemID == selectedMenuItem.MenuItemID)
+                {
+                    itemPresent = true;
+                    if ((orderItem.Quantity + (int)nud_ItemCount.Value) <= selectedMenuItem.Stock)
+                        orderItem.Quantity += (int)nud_ItemCount.Value;
+                    else
+                    {
+                        orderItem.Quantity = selectedMenuItem.Stock;
+                        MessageBox.Show("Maximum current capacity for this menu item has been reached. Max stock amount has been added to order.");
+                    }
+                }
+            }
+            if (!itemPresent) //if menuItem not present in order already, create a new order item for it and add to orderItems of current order
+            {
+                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
+                currentOrder.orderItems.Add(newOrderItem);
             }
         }
 
