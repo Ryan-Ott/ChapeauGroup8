@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Models;
 using Logic;
+using System.Runtime.Serialization;
 
 namespace UserInterface
 {
-    public partial class Order_Home : Form, IObserver
+    public partial class Order_Home : Form
     {
         OrderAndOrderItem_Service orderService = new OrderAndOrderItem_Service();
         Menu_Service menuService = new Menu_Service();
@@ -22,24 +23,21 @@ namespace UserInterface
         Employee_Service employeeService = new Employee_Service();
         Bill_Service billService = new Bill_Service();
 
-        ISubject subject;
-
         Order currentOrder;
 
         static Order_Home order_Home;
 
-        private Order_Home(ISubject subject)
+        private Order_Home()
         {
             InitializeComponent();
             InitNewOrderProcess();
-            subject.AddObserver(this);
             //pass on employee obj
         }
 
-        public static Order_Home GetInstance(ISubject subject)
+        public static Order_Home GetInstance()
         {
             if (order_Home == null)
-                order_Home = new Order_Home(subject);
+                order_Home = new Order_Home();
             return order_Home;
         }
 
@@ -57,12 +55,6 @@ namespace UserInterface
         private void InitNewOrderProcess()
         {
             currentOrder = new Order();
-
-            //billService.AddNewBill(new Bill(0));
-            //Bill currentBill = billService.GetLastBill();
-            //Employee employee = employeeService.GetByID(3);
-            //orderService.AddOrder(new Order(currentBill, employee));
-            //currentOrder = orderService.GetLastOrder();
         }
 
         private void DisplayComment()
@@ -117,15 +109,13 @@ namespace UserInterface
             }
             currentOrder.Table = tableService.GetByID((int)nud_TableID.Value);
 
-            //orderService.EditOrder(currentOrder);
-            //currentOrder = orderService.GetLastOrder();
-
             Hide();
-            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);
+            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance();
+            menuSelect.CurrentOrder = currentOrder;
             menuSelect.Closed += (s, args) => Close();
-            menuSelect.Show(); 
+            menuSelect.ShowDialog();
         }
-
+        
         private void liv_CurrentOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -138,7 +128,6 @@ namespace UserInterface
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-
             //reset currentOrder (reload the form)
             //foreach ordered menuItem reduce stock by count
         }
@@ -167,6 +156,16 @@ namespace UserInterface
         {
             this.currentOrder = currentOrder;
             ReloadForm(); 
+        }
+
+        private void Order_Home_Shown(object sender, EventArgs e)
+        {
+            ReloadForm();
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            ReloadForm();
         }
     }
 }

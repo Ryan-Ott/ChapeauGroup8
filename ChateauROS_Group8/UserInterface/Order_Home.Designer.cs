@@ -41,6 +41,7 @@
             this.btn_Menus = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.pnl_OrderHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ItemCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_TableID)).BeginInit();
@@ -50,6 +51,7 @@
             // pnl_OrderHome
             // 
             this.pnl_OrderHome.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnl_OrderHome.Controls.Add(this.btn_Refresh);
             this.pnl_OrderHome.Controls.Add(this.txtb_Requests);
             this.pnl_OrderHome.Controls.Add(this.lbl_OrderView);
             this.pnl_OrderHome.Controls.Add(this.lbl_TableID);
@@ -207,6 +209,17 @@
             this.pbox_ChapeauLogo.TabIndex = 3;
             this.pbox_ChapeauLogo.TabStop = false;
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Refresh.Location = new System.Drawing.Point(726, 56);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(130, 48);
+            this.btn_Refresh.TabIndex = 11;
+            this.btn_Refresh.Text = "Refresh";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // Order_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -221,6 +234,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order_Home";
             this.Load += new System.EventHandler(this.Order_Home_Load);
+            this.Shown += new System.EventHandler(this.Order_Home_Shown);
             this.pnl_OrderHome.ResumeLayout(false);
             this.pnl_OrderHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ItemCount)).EndInit();
@@ -245,5 +259,6 @@
         private System.Windows.Forms.Label lbl_TableID;
         private System.Windows.Forms.TextBox txtb_Requests;
         private System.Windows.Forms.PictureBox pbox_ChapeauLogo;
+        private System.Windows.Forms.Button btn_Refresh;
     }
 }

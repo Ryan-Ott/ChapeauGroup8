@@ -12,14 +12,12 @@ using Logic;
 
 namespace UserInterface
 {
-    public partial class Order_MenuItemSelect : Form, ISubject
+    public partial class Order_MenuItemSelect : Form
     {
         Category_Service categoryService = new Category_Service();
         MenuItem_Service menuItemService = new MenuItem_Service();
         OrderAndOrderItem_Service orderAndOrderItemService = new OrderAndOrderItem_Service();
-
-        List<IObserver> observers = new List<IObserver>();
-
+ 
         Order currentOrder;
         int categoryID;
 
@@ -36,22 +34,6 @@ namespace UserInterface
         private void Order_MenuItemSelect_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public void AddObserver(IObserver observer)
-        {
-            observers.Add(observer);
-        }
-
-        public void RemoveObserver(IObserver observer)
-        {
-            observers.Remove(observer);
-        }
-
-        public void NotifyObservers()
-        {
-            foreach (IObserver observer in observers)
-                observer.Update(currentOrder);
         }
 
         private void SetCategoryLabel()
@@ -98,15 +80,15 @@ namespace UserInterface
 
         private void btn_Menus_Click(object sender, EventArgs e)
         {
-            NotifyObservers();
             Hide();
-            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);
+            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance();
             menuSelect.Closed += (s, args) => Close();
             menuSelect.Show();
         }
 
         private void btn_AddItem_Click(object sender, EventArgs e)
         {
+            //search for item if its existing already
             try
             {
                 if (nud_ItemCount.Value == 0)
@@ -134,9 +116,8 @@ namespace UserInterface
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            NotifyObservers();
             Hide();
-            Order_Home orderHome = Order_Home.GetInstance(this);
+            Order_Home orderHome = Order_Home.GetInstance();
             orderHome.Closed += (s, args) => Show();
             orderHome.Show();
         }
