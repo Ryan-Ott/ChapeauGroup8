@@ -45,9 +45,12 @@ namespace DAL
 
         public void EditTable(Table table)
         {
-            string query = "UPDATE Tables SET [tableState] = " + table.TableState + ", WHERE [tableID] = " + table.TableID;
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
+            OpenConnection();
+            SqlCommand queryEditTable = new SqlCommand("UPDATE [Tables] SET [tableState] = @tableState WHERE [tableID] = @tableID", connection);
+            queryEditTable.Parameters.AddWithValue("@tableState", (int)table.TableState);
+            queryEditTable.Parameters.AddWithValue("@tableID", table.TableID);
+            queryEditTable.ExecuteNonQuery();
+            CloseConnection();
         }
 
         private Table ReadTable (SqlDataReader reader)

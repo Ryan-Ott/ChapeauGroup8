@@ -37,8 +37,9 @@ namespace Logic
             {
                 return orderAndOrderItemDAO.DB_GetAllOrderItems(id);
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                string message = e.Message;
                 List<OrderItem> items = new List<OrderItem>();
                 OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
                 OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, DateTime.Now);

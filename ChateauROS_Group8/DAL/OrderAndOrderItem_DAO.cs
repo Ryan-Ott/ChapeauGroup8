@@ -62,8 +62,8 @@ namespace DAL
         public Order DB_GetOrderByTableID(int tableID)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, commment FROM [Orders] WHERE tableID = @tableID", connection);
-            queryGetByID.Parameters.AddWithValue("@id", tableID);
+            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed NOT LIKE 'True'", connection);
+            queryGetByID.Parameters.AddWithValue("@tableID", tableID);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Order order = null;
             if (reader.Read())
@@ -72,6 +72,9 @@ namespace DAL
             }
             reader.Close();
             CloseConnection();
+
+            order.orderItems = DB_GetAllOrderItems(order.OrderID);
+
             return order;
         }
 
@@ -163,16 +166,17 @@ namespace DAL
             MenuItem menuItem = menuItem_DAO.DB_GetMenuItemByID((int)reader["menuItemID"]);
             int quantity = (int)reader["quantity"];
             string requests = (string)reader["requests"];
-            int orderState = (int)reader["orderState"];
+            OrderState orderState = (OrderState)reader["orderState"];
             DateTime lastStateChange = (DateTime)reader["lastStateChange"];
 
-            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, (OrderState)orderState, lastStateChange);
+            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, lastStateChange);
         }
 
         private Order ReadOrder(SqlDataReader reader)
         {
             Table_DAO table_DAO = new Table_DAO();
             Employee_DAO employee_DAO = new Employee_DAO();
+            Order order = new Order();
 
             int orderID = (int)reader["orderID"];
             Table table = table_DAO.DB_GetTableByID((int)reader["tableID"]);
