@@ -136,7 +136,7 @@ namespace UserInterface
         {
             NotifyObservers();
             Hide();
-            Order_Home orderHome = Order_Home.GetInstance();
+            Order_Home orderHome = Order_Home.GetInstance(this);
             orderHome.Closed += (s, args) => Show();
             orderHome.Show();
         }

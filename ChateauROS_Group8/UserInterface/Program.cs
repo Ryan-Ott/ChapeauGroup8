@@ -18,7 +18,8 @@ namespace UserInterface
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            Application.Run(Order_Home.GetInstance());
+            Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(1, new Order());
+            Application.Run(Order_Home.GetInstance(menuItemSelect));
         }
     }
 }

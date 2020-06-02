@@ -22,21 +22,24 @@ namespace UserInterface
         Employee_Service employeeService = new Employee_Service();
         Bill_Service billService = new Bill_Service();
 
+        ISubject subject;
+
         Order currentOrder;
 
         static Order_Home order_Home;
 
-        private Order_Home()
+        private Order_Home(ISubject subject)
         {
             InitializeComponent();
             InitNewOrderProcess();
+            subject.AddObserver(this);
             //pass on employee obj
         }
 
-        public static Order_Home GetInstance()
+        public static Order_Home GetInstance(ISubject subject)
         {
             if (order_Home == null)
-                order_Home = new Order_Home();
+                order_Home = new Order_Home(subject);
             return order_Home;
         }
 

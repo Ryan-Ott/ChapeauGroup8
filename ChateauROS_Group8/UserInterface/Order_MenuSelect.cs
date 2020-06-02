@@ -14,7 +14,7 @@ namespace UserInterface
     public partial class Order_MenuSelect : Form
     {
         Order currentOrder;
-        
+        Order_MenuItemSelect menuItemSelect;
         static Order_MenuSelect order_MenuSelect;
 
         private Order_MenuSelect(Order currentOrder)
@@ -33,7 +33,7 @@ namespace UserInterface
         private void btn_Order_Click(object sender, EventArgs e)
         {
             Hide();
-            Order_Home orderHome = Order_Home.GetInstance();
+            Order_Home orderHome = Order_Home.GetInstance(menuItemSelect);
             orderHome.Closed += (s, args) => Show();
             orderHome.Show();
         }
