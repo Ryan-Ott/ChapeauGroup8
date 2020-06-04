@@ -67,7 +67,6 @@
             this.pnl_OrderHome.Name = "pnl_OrderHome";
             this.pnl_OrderHome.Size = new System.Drawing.Size(900, 650);
             this.pnl_OrderHome.TabIndex = 1;
-            this.pnl_OrderHome.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_OrderHome_Paint);
             // 
             // btn_Refresh
             // 
@@ -119,6 +118,7 @@
             this.nud_ItemCount.Name = "nud_ItemCount";
             this.nud_ItemCount.Size = new System.Drawing.Size(120, 31);
             this.nud_ItemCount.TabIndex = 5;
+            this.nud_ItemCount.ValueChanged += new System.EventHandler(this.nud_ItemCount_ValueChanged);
             // 
             // nud_TableID
             // 

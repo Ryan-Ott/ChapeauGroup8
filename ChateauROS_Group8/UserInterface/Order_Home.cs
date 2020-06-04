@@ -112,18 +112,17 @@ namespace UserInterface
         {
             try
             {
-                nud_ItemCount.Value = liv_CurrentOrder.SelectedIndices[0];
+                OrderItem selectedOrderItem = FindOrderItemByLVI(liv_CurrentOrder.SelectedItems[0]);
+                if (selectedOrderItem == null)
+                    nud_ItemCount.Value = 0;
+                else
+                    nud_ItemCount.Value = selectedOrderItem.Quantity;
                 DisplayComment();
             }
             catch (Exception)
             {
                 txtb_Requests.Text = "No orderItem selected";
             }
-        }
-
-        private void pnl_OrderHome_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btn_Submit_Click(object sender, EventArgs e)
@@ -134,7 +133,13 @@ namespace UserInterface
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this order being taken right now?", "Delete Order?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                InitNewOrderProcess();
+                ReloadForm();
+                nud_ItemCount.Value = 0;
+            }
         }
 
         private void btn_AddComment_Click(object sender, EventArgs e)
@@ -186,6 +191,29 @@ namespace UserInterface
         private void nud_TableID_ValueChanged(object sender, EventArgs e)
         {
             //DELETE THIS OBJECT IN DESIGNER
+        }
+
+        private void nud_ItemCount_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                currentOrderItem = FindOrderItemByLVI(liv_CurrentOrder.SelectedItems[0]);
+
+                if (nud_ItemCount.Value == 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("If you continue, this menuItem will be removed from the order alltogether.", "Are you sure you want to set the quantity to 0?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        currentOrder.orderItems.Remove(currentOrderItem);
+                    }
+                }
+                currentOrderItem.Quantity = (int)nud_ItemCount.Value;
+                ReloadForm();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Please select the desired item again.");
+            }
         }
     }
 }
