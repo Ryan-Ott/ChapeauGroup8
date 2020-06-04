@@ -15,15 +15,14 @@ namespace UserInterface
 {
     public partial class Order_Home : Form
     {
-        OrderAndOrderItem_Service orderService = new OrderAndOrderItem_Service();
-        Menu_Service menuService = new Menu_Service();
-        Category_Service categoryService = new Category_Service();
+        OrderAndOrderItem_Service orderOrderItemService = new OrderAndOrderItem_Service();
         MenuItem_Service menuItemService = new MenuItem_Service();
         Table_Service tableService = new Table_Service();
         Employee_Service employeeService = new Employee_Service();
         Bill_Service billService = new Bill_Service();
 
         Order currentOrder;
+        OrderItem currentOrderItem;
 
         static Order_Home order_Home;
 
@@ -49,7 +48,7 @@ namespace UserInterface
         private void ReloadForm()
         {
             DisplayCurrentOrder();
-            //DisplayComment();
+            DisplayComment();
         }
 
         private void InitNewOrderProcess()
@@ -59,23 +58,16 @@ namespace UserInterface
 
         private void DisplayComment()
         {
-            ListViewItem selectedItem = liv_CurrentOrder.SelectedItems[0];
-
-            if (selectedItem == null)
-                selectedItem = liv_CurrentOrder.Items[0];
-
-            string menuItemName = selectedItem.SubItems[0].Text;
-            Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
-
-            OrderItem selectedOrderItem = new OrderItem();
-            foreach (OrderItem orderItem in currentOrder.orderItems) //eeeeh not sure yet
+            txtb_Requests.Clear();
+            if (liv_CurrentOrder.SelectedItems.Count == 0)
             {
-                if (orderItem.MenuItem == selectedMenuItem)
-                {
-
-                }
+                txtb_Requests.Text = "No orderItem selected";
             }
-            txtb_Requests.Text = selectedOrderItem.Requests;
+            else
+            {
+                OrderItem selectedOrderItem = FindOrderItemByLVI(liv_CurrentOrder.SelectedItems[0]);
+                txtb_Requests.Text = selectedOrderItem.Requests;
+            }
         }
 
         private void DisplayCurrentOrder()
@@ -118,7 +110,15 @@ namespace UserInterface
         
         private void liv_CurrentOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                nud_ItemCount.Value = liv_CurrentOrder.SelectedIndices[0];
+                DisplayComment();
+            }
+            catch (Exception)
+            {
+                txtb_Requests.Text = "No orderItem selected";
+            }
         }
 
         private void pnl_OrderHome_Paint(object sender, PaintEventArgs e)
@@ -139,23 +139,38 @@ namespace UserInterface
 
         private void btn_AddComment_Click(object sender, EventArgs e)
         {
-            if (txtb_Requests.TextLength == 0)
+            try
             {
-                MessageBox.Show("Please first enter a comment.");
+                if (txtb_Requests.TextLength == 0)
+                    MessageBox.Show("Please enter a comment to save.");
+                else
+                {
+                    currentOrderItem = FindOrderItemByLVI(liv_CurrentOrder.SelectedItems[0]);
+                    currentOrderItem.Requests = txtb_Requests.Text;
+                    MessageBox.Show("Request has been saved.");
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Please make sure a menu item is selected. " + x.Message);
                 return;
             }
+        }
 
+        private OrderItem FindOrderItemByLVI(ListViewItem selectedLVI)
+        {
+            string menuItemName = selectedLVI.SubItems[0].Text;
+            foreach (OrderItem orderItem in currentOrder.orderItems)
+            {
+                if (orderItem.MenuItem.Name == menuItemName)
+                    return orderItem;
+            }
+            return null;
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public void Update(Order currentOrder)
-        {
-            this.currentOrder = currentOrder;
-            ReloadForm(); 
         }
 
         private void Order_Home_Shown(object sender, EventArgs e)
@@ -166,6 +181,11 @@ namespace UserInterface
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             ReloadForm();
+        }
+
+        private void nud_TableID_ValueChanged(object sender, EventArgs e)
+        {
+            //DELETE THIS OBJECT IN DESIGNER
         }
     }
 }

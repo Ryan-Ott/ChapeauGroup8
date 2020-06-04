@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnl_OrderHome = new System.Windows.Forms.Panel();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.txtb_Requests = new System.Windows.Forms.TextBox();
             this.lbl_OrderView = new System.Windows.Forms.Label();
             this.lbl_TableID = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.btn_Menus = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
-            this.btn_Refresh = new System.Windows.Forms.Button();
             this.pnl_OrderHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ItemCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_TableID)).BeginInit();
@@ -68,6 +68,17 @@
             this.pnl_OrderHome.Size = new System.Drawing.Size(900, 650);
             this.pnl_OrderHome.TabIndex = 1;
             this.pnl_OrderHome.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_OrderHome_Paint);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Refresh.Location = new System.Drawing.Point(726, 56);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(130, 48);
+            this.btn_Refresh.TabIndex = 11;
+            this.btn_Refresh.Text = "Refresh";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // txtb_Requests
             // 
@@ -121,6 +132,7 @@
             this.nud_TableID.Name = "nud_TableID";
             this.nud_TableID.Size = new System.Drawing.Size(120, 31);
             this.nud_TableID.TabIndex = 1;
+            this.nud_TableID.ValueChanged += new System.EventHandler(this.nud_TableID_ValueChanged);
             // 
             // liv_CurrentOrder
             // 
@@ -208,17 +220,6 @@
             this.pbox_ChapeauLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox_ChapeauLogo.TabIndex = 3;
             this.pbox_ChapeauLogo.TabStop = false;
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.BackColor = System.Drawing.Color.Lavender;
-            this.btn_Refresh.Location = new System.Drawing.Point(726, 56);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(130, 48);
-            this.btn_Refresh.TabIndex = 11;
-            this.btn_Refresh.Text = "Refresh";
-            this.btn_Refresh.UseVisualStyleBackColor = false;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // Order_Home
             // 

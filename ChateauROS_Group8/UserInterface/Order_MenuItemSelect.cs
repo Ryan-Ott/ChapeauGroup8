@@ -91,20 +91,20 @@ namespace UserInterface
             try
             {
                 if (nud_ItemCount.Value == 0)
-                {
                     MessageBox.Show("Please select the correct quantity of the menu item you wish to add.");
-                    return;
+                else
+                {
+                    ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
+                    string menuItemName = selectedLVI.SubItems[0].Text;
+                    Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
+                    nud_ItemCount.Maximum = selectedMenuItem.Stock;
+                    UpdateOrderItems(selectedMenuItem);
+
+                    DisplayCurrentOrder();
+                    DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
+                    nud_ItemCount.Value = 0;
+
                 }
-
-                ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
-                string menuItemName = selectedLVI.SubItems[0].Text;
-                Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
-                nud_ItemCount.Maximum = selectedMenuItem.Stock;
-                UpdateOrderItems(selectedMenuItem);
-
-                DisplayCurrentOrder();
-                DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
-                nud_ItemCount.Value = 0;
             }
             catch (Exception x)
             {
