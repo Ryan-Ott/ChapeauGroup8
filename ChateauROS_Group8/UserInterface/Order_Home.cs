@@ -54,6 +54,7 @@ namespace UserInterface
         private void InitNewOrderProcess()
         {
             currentOrder = new Order();
+            ReloadForm();
         }
 
         private void DisplayComment()

@@ -101,9 +101,8 @@ namespace UserInterface
                     UpdateOrderItems(selectedMenuItem);
 
                     DisplayCurrentOrder();
-                    DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
+                    DisplayMenuItems();
                     nud_ItemCount.Value = 0;
-
                 }
             }
             catch (Exception x)

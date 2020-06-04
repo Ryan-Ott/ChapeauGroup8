@@ -113,15 +113,17 @@
             // 
             // nud_ItemCount
             // 
+            this.nud_ItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nud_ItemCount.Location = new System.Drawing.Point(300, 462);
             this.nud_ItemCount.Margin = new System.Windows.Forms.Padding(4);
             this.nud_ItemCount.Name = "nud_ItemCount";
-            this.nud_ItemCount.Size = new System.Drawing.Size(120, 31);
+            this.nud_ItemCount.Size = new System.Drawing.Size(120, 44);
             this.nud_ItemCount.TabIndex = 5;
             this.nud_ItemCount.ValueChanged += new System.EventHandler(this.nud_ItemCount_ValueChanged);
             // 
             // nud_TableID
             // 
+            this.nud_TableID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nud_TableID.Location = new System.Drawing.Point(300, 115);
             this.nud_TableID.Margin = new System.Windows.Forms.Padding(4);
             this.nud_TableID.Maximum = new decimal(new int[] {
@@ -130,7 +132,7 @@
             0,
             0});
             this.nud_TableID.Name = "nud_TableID";
-            this.nud_TableID.Size = new System.Drawing.Size(120, 31);
+            this.nud_TableID.Size = new System.Drawing.Size(120, 44);
             this.nud_TableID.TabIndex = 1;
             this.nud_TableID.ValueChanged += new System.EventHandler(this.nud_TableID_ValueChanged);
             // 
@@ -162,14 +164,15 @@
             // 
             // btn_AddComment
             // 
+            this.btn_AddComment.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_AddComment.BackColor = System.Drawing.Color.Lavender;
             this.btn_AddComment.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_AddComment.Location = new System.Drawing.Point(60, 456);
             this.btn_AddComment.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddComment.Name = "btn_AddComment";
-            this.btn_AddComment.Size = new System.Drawing.Size(160, 40);
+            this.btn_AddComment.Size = new System.Drawing.Size(200, 50);
             this.btn_AddComment.TabIndex = 4;
-            this.btn_AddComment.Text = "Add Comment";
+            this.btn_AddComment.Text = "Save Request";
             this.btn_AddComment.UseVisualStyleBackColor = false;
             this.btn_AddComment.Click += new System.EventHandler(this.btn_AddComment_Click);
             // 
@@ -235,7 +238,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order_Home";
             this.Load += new System.EventHandler(this.Order_Home_Load);
-            this.Shown += new System.EventHandler(this.Order_Home_Shown);
             this.pnl_OrderHome.ResumeLayout(false);
             this.pnl_OrderHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ItemCount)).EndInit();
