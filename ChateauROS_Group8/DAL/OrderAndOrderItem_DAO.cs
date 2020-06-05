@@ -62,13 +62,18 @@ namespace DAL
         public Order DB_GetOrderByTableID(int tableID)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed NOT LIKE 'True'", connection);
+            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed <> 1", connection);
             queryGetByID.Parameters.AddWithValue("@tableID", tableID);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Order order = null;
             if (reader.Read())
             {
                 order = ReadOrder(reader);
+            }
+
+            if(reader.HasRows == false)
+            {
+                throw new Exception("There is no running order at the selected table");
             }
             reader.Close();
             CloseConnection();

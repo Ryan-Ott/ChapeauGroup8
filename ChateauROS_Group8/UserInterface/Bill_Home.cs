@@ -42,7 +42,7 @@ namespace UserInterface
             complete_btn.Hide();
 
             //Get bill data from database - from table with running order
-            order = order_Service.GetOrderByTableID(6);
+            order = order_Service.GetOrderByTableID(3);
             bill = new Bill(order.BillID);
 
             //calculate total prices and taxes
@@ -160,6 +160,8 @@ namespace UserInterface
                 bill.Tip = 0;
             }
 
+            //if there is no comment received from the customer, the comment is set to "none"
+            order.Comment = "none";
 
             //store data to the database and update order and table status
             bill_Service.EditBill(bill,order);
