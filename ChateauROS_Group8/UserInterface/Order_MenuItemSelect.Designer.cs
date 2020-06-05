@@ -135,10 +135,11 @@
             // 
             // nud_ItemCount
             // 
+            this.nud_ItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nud_ItemCount.Location = new System.Drawing.Point(48, 577);
             this.nud_ItemCount.Margin = new System.Windows.Forms.Padding(4);
             this.nud_ItemCount.Name = "nud_ItemCount";
-            this.nud_ItemCount.Size = new System.Drawing.Size(120, 31);
+            this.nud_ItemCount.Size = new System.Drawing.Size(120, 44);
             this.nud_ItemCount.TabIndex = 1;
             // 
             // liv_CurrentOrder

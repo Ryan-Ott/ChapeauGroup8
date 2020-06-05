@@ -12,14 +12,12 @@ using Logic;
 
 namespace UserInterface
 {
-    public partial class Order_MenuItemSelect : Form, ISubject
+    public partial class Order_MenuItemSelect : Form
     {
         Category_Service categoryService = new Category_Service();
         MenuItem_Service menuItemService = new MenuItem_Service();
         OrderAndOrderItem_Service orderAndOrderItemService = new OrderAndOrderItem_Service();
-
-        List<IObserver> observers = new List<IObserver>();
-
+ 
         Order currentOrder;
         int categoryID;
 
@@ -36,22 +34,6 @@ namespace UserInterface
         private void Order_MenuItemSelect_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public void AddObserver(IObserver observer)
-        {
-            observers.Add(observer);
-        }
-
-        public void RemoveObserver(IObserver observer)
-        {
-            observers.Remove(observer);
-        }
-
-        public void NotifyObservers()
-        {
-            foreach (IObserver observer in observers)
-                observer.Update(currentOrder);
         }
 
         private void SetCategoryLabel()
@@ -98,9 +80,8 @@ namespace UserInterface
 
         private void btn_Menus_Click(object sender, EventArgs e)
         {
-            NotifyObservers();
             Hide();
-            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance(currentOrder);
+            Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance();
             menuSelect.Closed += (s, args) => Close();
             menuSelect.Show();
         }
@@ -110,20 +91,19 @@ namespace UserInterface
             try
             {
                 if (nud_ItemCount.Value == 0)
-                {
                     MessageBox.Show("Please select the correct quantity of the menu item you wish to add.");
-                    return;
+                else
+                {
+                    ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
+                    string menuItemName = selectedLVI.SubItems[0].Text;
+                    Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
+                    nud_ItemCount.Maximum = selectedMenuItem.Stock;
+                    UpdateOrderItems(selectedMenuItem);
+
+                    DisplayCurrentOrder();
+                    DisplayMenuItems();
+                    nud_ItemCount.Value = 0;
                 }
-                ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
-                string menuItemName = selectedLVI.SubItems[0].Text;
-                Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(menuItemName);
-
-                nud_ItemCount.Maximum = selectedMenuItem.Stock;
-
-                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
-                currentOrder.orderItems.Add(newOrderItem);
-                DisplayCurrentOrder();
-                DisplayMenuItems(); //REMEMBER TO ADD UPDATE STOCK FUNCTIONALTIY
             }
             catch (Exception x)
             {
@@ -132,9 +112,32 @@ namespace UserInterface
             }
         }
 
+        private void UpdateOrderItems(Models.MenuItem selectedMenuItem)
+        {
+            bool itemPresent = false;
+            foreach (OrderItem orderItem in currentOrder.orderItems) //determines whether this item is already being ordered, if yes, only increase order quantity
+            {
+                if (orderItem.MenuItem.MenuItemID == selectedMenuItem.MenuItemID)
+                {
+                    itemPresent = true;
+                    if ((orderItem.Quantity + (int)nud_ItemCount.Value) <= selectedMenuItem.Stock)
+                        orderItem.Quantity += (int)nud_ItemCount.Value;
+                    else
+                    {
+                        orderItem.Quantity = selectedMenuItem.Stock;
+                        MessageBox.Show("Maximum current capacity for this menu item has been reached. Max stock amount has been added to order.");
+                    }
+                }
+            }
+            if (!itemPresent) //if menuItem not present in order already, create a new order item for it and add to orderItems of current order
+            {
+                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
+                currentOrder.orderItems.Add(newOrderItem);
+            }
+        }
+
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            NotifyObservers();
             Hide();
             Order_Home orderHome = Order_Home.GetInstance();
             orderHome.Closed += (s, args) => Show();

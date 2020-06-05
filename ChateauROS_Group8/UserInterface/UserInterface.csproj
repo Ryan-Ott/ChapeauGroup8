@@ -52,8 +52,6 @@
     <Compile Include="Bill_Home.Designer.cs">
       <DependentUpon>Bill_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="IObserver.cs" />
-    <Compile Include="ISubject.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

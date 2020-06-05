@@ -69,5 +69,13 @@ namespace Logic
                 return new MenuItem(0, 1, "errorMenuItem5", 69, 0, false);
             }
         }
+
+        public void UpdateStock(List<OrderItem> orderItems)
+        {
+            foreach (OrderItem orderItem in orderItems)
+            {
+                menuItemDAO.DB_EditMenuItemStock(orderItem.MenuItem);
+            }
+        }
     }
 }
