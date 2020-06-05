@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Logic;
+using DAL;
 
 namespace UserInterface
 {
     public partial class TableView : Form
     {
-        public TableView()
+        //Table currentTable;
+        //static TableView tableView;
+
+        private TableView()
         {
             InitializeComponent();
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
