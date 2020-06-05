@@ -211,7 +211,7 @@ namespace UserInterface
                 currentOrderItem.Quantity = (int)nud_ItemCount.Value;
                 ReloadForm();
             }
-            catch (Exception x)
+            catch (Exception)
             {
                 MessageBox.Show("Please select the desired item again.");
             }

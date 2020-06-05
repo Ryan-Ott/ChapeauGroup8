@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Logic;
+using DAL;
 
 namespace UserInterface
 {
     public partial class TableView : Form
     {
-        public TableView()
+        //Table currentTable;
+        static TableView tableView;
+        private Table_Service table_Service = new Table_Service();
+
+        private TableView()
         {
             InitializeComponent();
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,9 +42,21 @@ namespace UserInterface
 
         private void table2_Click(object sender, EventArgs e)
         {
-
+            TableState state = TableState.available;
+            if (state == TableState.reserved)
+            {
+                table2.BackColor = Color.DarkRed;
+            }
+            else if (state == TableState.occupied)
+            {
+                table2.BackColor = Color.LightGoldenrodYellow;
+            }
+            else
+            {
+                table2.BackColor = Color.Green;
+            }
         }
-
+        // labelName.BackColor = Color.Blue
         private void table3_Click(object sender, EventArgs e)
         {
 

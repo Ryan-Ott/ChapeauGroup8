@@ -38,7 +38,15 @@ namespace LoginApp
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-
+            string user, pass;
+            user = txtUser.Text;
+            pass = txtPass.Text;
+            if (user == "testmanager" && pass == "password")
+            {
+                MessageBox.Show("Succesfully logged in");
+            }
+            else
+                MessageBox.Show("Error, check username or password.");
         }
     }
 }

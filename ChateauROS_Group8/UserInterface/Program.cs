@@ -19,7 +19,7 @@ namespace UserInterface
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             Application.Run(Order_Home.GetInstance());
-            //Application.Run(new OrderStatus());
+            Application.Run(new Bill_Home());
         }
     }
 }
