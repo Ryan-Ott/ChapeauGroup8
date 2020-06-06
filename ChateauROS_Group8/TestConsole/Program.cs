@@ -12,7 +12,18 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            
+            Bill_Service bill_Service = new Bill_Service();
+            try
+            {
+                bill_Service.AddNewBill(new Bill(0));
+                Bill lastBill = bill_Service.GetLastBill();
+                Console.WriteLine(lastBill);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message); ;
+            }
+            Console.ReadKey();
         }
     }
 }

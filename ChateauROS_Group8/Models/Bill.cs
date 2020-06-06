@@ -29,6 +29,11 @@ namespace Models
         public double Tax21 { get; set; } //amount of tax for items with 21% VAT
         public double Tip { get; set; } //value of optional tip left by customer
         public double Total { get; set; } //total sum to be paid by customer
+
+        public override string ToString()
+        {
+            return $"Bill - ID: {BillID} - Payment Method: {PaymentMethod} - 6%Tax: {Tax6} - 21%Tax: {Tax21} - Tip: {Tip} - Total: {Total}";
+        }
     }
 
     public enum PaymentMethod

@@ -34,7 +34,7 @@ namespace UserInterface
                 item.SubItems.Add(order.OrderState.ToString());
                 item.SubItems.Add(TimeAgo(order.LastStateChange));
                 item.SubItems.Add(order.OrderItemID.ToString());
-                item.SubItems.Add(order.TableID.TableID.ToString());
+                item.SubItems.Add(order.Table.TableID.ToString());
                 item.SubItems.Add(order.Requests);
                 Orderlistlbl.Items.Add(item);
             }

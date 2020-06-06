@@ -11,6 +11,7 @@ namespace Logic
     public class OrderAndOrderItem_Service
     {
         private OrderAndOrderItem_DAO orderAndOrderItemDAO = new OrderAndOrderItem_DAO();
+        private Bill_DAO billDAO = new Bill_DAO();
 
         public List<OrderItem> GetOrderItems()
         {
@@ -121,6 +122,9 @@ namespace Logic
         {
             try
             {
+                billDAO.DB_AddNewBill(new Bill(0));
+                Bill lastBill = billDAO.DB_GetLastBill();
+                order.BillID = lastBill.BillID;
                 orderAndOrderItemDAO.DB_AddOrder(order);
             }
             catch (Exception e)
