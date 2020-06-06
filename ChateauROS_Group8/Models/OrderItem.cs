@@ -8,7 +8,7 @@ namespace Models
 {
     public class OrderItem
     {
-        public OrderItem(int orderItemID, int orderID, MenuItem menuItem, int quantity, string requests, OrderState orderState, DateTime lastStateChange)
+        public OrderItem(int orderItemID, int orderID, MenuItem menuItem, int quantity, string requests, OrderState orderState, Table table, DateTime lastStateChange)
         {
             OrderItemID = orderItemID;
             OrderID = orderID;
@@ -16,10 +16,13 @@ namespace Models
             Quantity = quantity;
             Requests = requests;
             OrderState = orderState;
+
             LastStateChange = lastStateChange;
+            TableID = table;
+
         }
 
-        public OrderItem() : this(0, 0, new MenuItem(), 1, "", OrderState.ordered, DateTime.Now)
+        public OrderItem() : this(0, 0, new MenuItem(), 1, "", OrderState.ordered, new Table(), DateTime.Now)
         {
         }
 
@@ -29,11 +32,14 @@ namespace Models
         public int Quantity { get; set; }
         public string Requests { get; set; } //any special requests that were added to the order (e.g. extra salt)
         public OrderState OrderState { get; set; }
+        
         public DateTime LastStateChange { get; set; } //time when order state last changed
+        public Table TableID { get; set; }
+
     }
 
     public enum OrderState
     {
-        ordered, preparing, ready, delivered
+        ordered = 1, preparing, ready, delivered
     }
 }
