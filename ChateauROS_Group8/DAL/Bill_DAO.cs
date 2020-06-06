@@ -15,12 +15,13 @@ namespace DAL
         public void DB_AddNewBill(Bill bill)
         {
             OpenConnection();
-            SqlCommand queryAddBill = new SqlCommand("INSERT INTO [dbo].[Bills] ([paymentMethod], [6tax], [21tax], [tip], [total]) VALUES (@paymentMethod, @6tax, @21tax, @tip, @total); SELECT SCOPE_IDENTITY();", connection);
+            SqlCommand queryAddBill = new SqlCommand("INSERT INTO [dbo].[Bills] ([paymentMethod], [6tax], [21tax], [tip], [total], [AmountPaid]) VALUES (@paymentMethod, @6tax, @21tax, @tip, @total, @paid); SELECT SCOPE_IDENTITY();", connection);
             queryAddBill.Parameters.AddWithValue("@paymentMethod", bill.PaymentMethod);
             queryAddBill.Parameters.AddWithValue("@6tax", bill.Tax6);
             queryAddBill.Parameters.AddWithValue("@21tax", bill.Tax21);
             queryAddBill.Parameters.AddWithValue("@tip", bill.Tip);
             queryAddBill.Parameters.AddWithValue("@total", bill.Total);
+            queryAddBill.Parameters.AddWithValue("@paid", bill.AmountPaid);
             queryAddBill.ExecuteNonQuery();
             CloseConnection();
         }
@@ -28,12 +29,13 @@ namespace DAL
         public void DB_EditBill(Bill bill)
         {
             OpenConnection();
-            SqlCommand queryEditBill = new SqlCommand("UPDATE [Bills] SET [paymentMethod] = '" + bill.PaymentMethod + "', [6tax] = @6tax, [21tax] = @21tax, [tip] = @tip, [total] = @total WHERE [billID] = @billID", connection);
+            SqlCommand queryEditBill = new SqlCommand("UPDATE [Bills] SET [paymentMethod] = '" + bill.PaymentMethod + "', [6tax] = @6tax, [21tax] = @21tax, [tip] = @tip, [total] = @total, [AmountPaid] = @paid WHERE [billID] = @billID", connection);
             queryEditBill.Parameters.AddWithValue("@6tax", bill.Tax6);
             queryEditBill.Parameters.AddWithValue("@21tax", bill.Tax21);
             queryEditBill.Parameters.AddWithValue("@tip", bill.Tip);
             queryEditBill.Parameters.AddWithValue("@total", bill.Total);
             queryEditBill.Parameters.AddWithValue("@billID", bill.BillID);
+            queryEditBill.Parameters.AddWithValue("@paid", bill.AmountPaid);
             queryEditBill.ExecuteNonQuery();
             CloseConnection();
         }
@@ -61,8 +63,9 @@ namespace DAL
             double tax21 = (double)reader["21tax"];
             double tip = (double)reader["tip"];
             double total = (double)reader["total"];
+            double paid = (double)reader["AmountPaid"];
 
-            return new Bill(billID, (PaymentMethod)paymentMethod, tax6, tax21, tip, total);
+            return new Bill(billID, (PaymentMethod)paymentMethod, tax6, tax21, tip, total, paid);
         }
 
         //public object DB_GetLastIdentity()

@@ -8,7 +8,7 @@ namespace Models
 {
     public class Bill
     {
-        public Bill (int id, PaymentMethod paymentMethod, double tax6, double tax21, double tip, double total)
+        public Bill (int id, PaymentMethod paymentMethod, double tax6, double tax21, double tip, double total,double paid)
         {
             BillID = id;
             PaymentMethod = paymentMethod;
@@ -16,9 +16,10 @@ namespace Models
             Tax21 = tax21;
             Tip = tip;
             Total = total;
+            AmountPaid = paid;
         }
 
-        public Bill(int id) : this(id, 0, 0, 0, 0, 0)
+        public Bill(int id) : this(id, 0, 0, 0, 0, 0, 0)
         {
             BillID = id;
         }
@@ -29,6 +30,7 @@ namespace Models
         public double Tax21 { get; set; } //amount of tax for items with 21% VAT
         public double Tip { get; set; } //value of optional tip left by customer
         public double Total { get; set; } //total sum to be paid by customer
+        public double AmountPaid { get; set; } //actual amount paid by customer
     }
 
     public enum PaymentMethod
