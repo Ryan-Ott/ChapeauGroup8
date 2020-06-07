@@ -75,16 +75,17 @@ namespace DAL
             return menuItem;
         }
 
-        public void DB_EditMenuItemStock(MenuItem newMenuItem)
+        public void DB_EditMenuItemStock(MenuItem newMenuItem, int quantity)
         {
             MenuItem oldMenuItem = DB_GetMenuItemByID(newMenuItem.MenuItemID);
+            int newStock = oldMenuItem.Stock - quantity;
 
             OpenConnection();
             SqlCommand queryEdit = new SqlCommand("UPDATE [MenuItems] SET [categoryID] = @categoryID, [name] = @name, [price] = @price, [stock] = @stock, [alcoholic] = @alcoholic WHERE [menuItemID] = @menuItemID;", connection);
             queryEdit.Parameters.AddWithValue("@categoryID", newMenuItem.CategoryID);
             queryEdit.Parameters.AddWithValue("@name", newMenuItem.Name);
             queryEdit.Parameters.AddWithValue("@price", newMenuItem.Price);
-            queryEdit.Parameters.AddWithValue("@stock", oldMenuItem.Stock - newMenuItem.Stock);
+            queryEdit.Parameters.AddWithValue("@stock", newStock);
             queryEdit.Parameters.AddWithValue("@alcoholic", newMenuItem.Alcoholic);
             queryEdit.Parameters.AddWithValue("@menuItemID", newMenuItem.MenuItemID);
             queryEdit.ExecuteNonQuery();

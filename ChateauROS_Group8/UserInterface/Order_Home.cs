@@ -26,11 +26,12 @@ namespace UserInterface
 
         static Order_Home order_Home;
 
-        private Order_Home()
+        private Order_Home(/*Employee employee*/)
         {
             InitializeComponent();
             InitNewOrderProcess();
-            //pass on employee obj
+            Employee orderTaker = employeeService.GetByID(4); //temporary whilst login is in works
+            currentOrder.Employee = orderTaker/*employee*/;
         }
 
         public static Order_Home GetInstance()
@@ -54,10 +55,15 @@ namespace UserInterface
         private void InitNewOrderProcess()
         {
             currentOrder = new Order();
+            Order lastOrder = orderOrderItemService.GetLastOrder();
+            if (lastOrder == null)
+                currentOrder.OrderID = 1;
+            else
+                currentOrder.OrderID = lastOrder.OrderID + 1;
             ReloadForm();
         }
 
-        private void DisplayComment()
+        private void DisplayComment() 
         {
             txtb_Requests.Clear();
             if (liv_CurrentOrder.SelectedItems.Count == 0)
@@ -128,8 +134,26 @@ namespace UserInterface
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            //reset currentOrder (reload the form)
-            //foreach ordered menuItem reduce stock by count
+            try
+            {
+                if (currentOrder.orderItems.Count == 0)
+                {
+                    MessageBox.Show("Please add items to an order to be submitted.");
+                    return;
+                }
+                else
+                {
+                    orderOrderItemService.AddOrder(currentOrder);
+                    menuItemService.UpdateStock(currentOrder.orderItems);
+                    MessageBox.Show("Order has been successfully added! Returning go table view.");
+                    //return to table view HERE
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("An error occured when attempting to add the order. " + x.Message);
+            }
+            InitNewOrderProcess();
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)

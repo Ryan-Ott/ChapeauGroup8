@@ -74,7 +74,7 @@ namespace Logic
         {
             foreach (OrderItem orderItem in orderItems)
             {
-                menuItemDAO.DB_EditMenuItemStock(orderItem.MenuItem);
+                menuItemDAO.DB_EditMenuItemStock(orderItem.MenuItem, orderItem.Quantity);
             }
         }
     }

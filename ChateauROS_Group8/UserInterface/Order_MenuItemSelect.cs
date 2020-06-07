@@ -103,7 +103,7 @@ namespace UserInterface
                     DisplayCurrentOrder();
                     DisplayMenuItems();
                     nud_ItemCount.Value = 0;
-                }
+                } 
             }
             catch (Exception x)
             {
@@ -117,6 +117,7 @@ namespace UserInterface
             bool itemPresent = false;
             foreach (OrderItem orderItem in currentOrder.orderItems) //determines whether this item is already being ordered, if yes, only increase order quantity
             {
+                orderItem.OrderID = currentOrder.OrderID;
                 if (orderItem.MenuItem.MenuItemID == selectedMenuItem.MenuItemID)
                 {
                     itemPresent = true;
