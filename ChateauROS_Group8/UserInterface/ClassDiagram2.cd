@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UserInterface.Bill_Home" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wADDIwBoDCJgFFTAO2bABAikhgFKEkVBCABEMBCAHA=</HashCode>
+      <FileName>Bill_Home.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.Order_Home" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCgAAACKAACAAACgaSAiAiRBAJAgYkkoBABIkAEBA=</HashCode>
+      <FileName>Order_Home.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.Order_MenuItemSelect" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAACKAAGgABCACFAgISABAJAAAECgBQAIABABA=</HashCode>
+      <FileName>Order_MenuItemSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.Order_MenuSelect" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QgAARAAIOKgIAICAAAGAAIACBLAggAJACABBAQoMAQA=</HashCode>
+      <FileName>Order_MenuSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.OrderStatus" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAABABACQAAoAAAACBAAAChIBMAAAAAARAAAAAAEA=</HashCode>
+      <FileName>OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.Program" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.TableView" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAIAABAIACAAAADAAAEAAAAAABBAARAAAQ=</HashCode>
+      <FileName>TableView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoginApp.LoginForm" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAAACAEAEAAIACAAAACAIAAAAAAAACAAAAAAAQ=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserInterface.Properties.Settings" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
