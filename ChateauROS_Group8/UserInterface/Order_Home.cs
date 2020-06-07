@@ -224,13 +224,15 @@ namespace UserInterface
             {
                 currentOrderItem = FindOrderItemByLVI(liv_CurrentOrder.SelectedItems[0]);
 
-                if (nud_ItemCount.Value == 0)
+                if (nud_ItemCount.Value == 0) //if item quantity is being set to 0, ask if waiter is sure they want to remove the item, if not, set value to 1
                 {
-                    DialogResult dialogResult = MessageBox.Show("If you continue, this menuItem will be removed from the order alltogether.", "Are you sure you want to set the quantity to 0?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to set the quantity to 0?", "Remove item", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
-                    {
                         currentOrder.orderItems.Remove(currentOrderItem);
-                    }
+                    else if (dialogResult == DialogResult.No)
+                        currentOrderItem.Quantity = 1;
+                    ReloadForm();
+                    return;
                 }
                 currentOrderItem.Quantity = (int)nud_ItemCount.Value;
                 ReloadForm();
