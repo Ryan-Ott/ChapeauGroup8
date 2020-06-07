@@ -19,6 +19,7 @@ namespace UserInterface
         // make single object for table state 
         
         private Table_Service table_Service = new Table_Service();
+        Table currentTable;
 
         private TableView()
         {
@@ -43,6 +44,9 @@ namespace UserInterface
 
         private void table2_Click(object sender, EventArgs e)
         {
+            //This is the code from last meeting
+            currentTable.TableID = 2;
+            ChangeTableState();
             TableState state = TableState.available;
             if (state == TableState.reserved)
             {
@@ -57,6 +61,18 @@ namespace UserInterface
                 table2.BackColor = Color.Green;
             }
         }
+
+        private void ChangeTableState()
+        {
+            //this too
+            DialogResult dialogResult = MessageBox.Show("sjdvjsd", "shdhsd", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                currentTable.TableState = TableState.available;
+            }
+        }
+
         // labelName.BackColor = Color.Blue
         private void table3_Click(object sender, EventArgs e)
         {

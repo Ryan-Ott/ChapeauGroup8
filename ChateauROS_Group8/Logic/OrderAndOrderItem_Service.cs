@@ -11,6 +11,7 @@ namespace Logic
     public class OrderAndOrderItem_Service
     {
         private OrderAndOrderItem_DAO orderAndOrderItemDAO = new OrderAndOrderItem_DAO();
+        private Bill_DAO billDAO = new Bill_DAO();
 
         public List<OrderItem> GetOrderItems()
         {
@@ -21,8 +22,8 @@ namespace Logic
             catch (Exception)
             {
                 List<OrderItem> items = new List<OrderItem>();
-                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
-                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, DateTime.Now);
+                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "no onion", OrderState.ordered, new Table(4, TableState.occupied), DateTime.Now);
+                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ready, new Table(7, TableState.occupied), DateTime.Now);
 
                 items.Add(orderItem1);
                 items.Add(orderItem2);
@@ -41,8 +42,8 @@ namespace Logic
             {
                 string message = e.Message;
                 List<OrderItem> items = new List<OrderItem>();
-                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
-                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, DateTime.Now);
+                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, new Table(4, TableState.occupied), DateTime.Now);
+                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, new Table(7, TableState.occupied), DateTime.Now);
 
                 items.Add(orderItem1);
                 items.Add(orderItem2);
@@ -59,7 +60,7 @@ namespace Logic
             }
             catch (Exception)
             {
-                OrderItem orderItem = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, DateTime.Now);
+                OrderItem orderItem = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, new Table(4, TableState.occupied), DateTime.Now);
 
                 return orderItem;
             }
@@ -121,7 +122,14 @@ namespace Logic
         {
             try
             {
+                billDAO.DB_AddNewBill(new Bill(0));
+                Bill lastBill = billDAO.DB_GetLastBill();
+                order.BillID = lastBill.BillID;
                 orderAndOrderItemDAO.DB_AddOrder(order);
+                foreach (OrderItem orderItem in order.orderItems)
+                {
+                    AddOrderItem(orderItem);
+                }
             }
             catch (Exception e)
             {

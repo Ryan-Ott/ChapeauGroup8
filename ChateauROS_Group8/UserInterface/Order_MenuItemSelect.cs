@@ -103,7 +103,7 @@ namespace UserInterface
                     DisplayCurrentOrder();
                     DisplayMenuItems();
                     nud_ItemCount.Value = 0;
-                }
+                } 
             }
             catch (Exception x)
             {
@@ -117,6 +117,7 @@ namespace UserInterface
             bool itemPresent = false;
             foreach (OrderItem orderItem in currentOrder.orderItems) //determines whether this item is already being ordered, if yes, only increase order quantity
             {
+                orderItem.OrderID = currentOrder.OrderID;
                 if (orderItem.MenuItem.MenuItemID == selectedMenuItem.MenuItemID)
                 {
                     itemPresent = true;
@@ -131,7 +132,7 @@ namespace UserInterface
             }
             if (!itemPresent) //if menuItem not present in order already, create a new order item for it and add to orderItems of current order
             {
-                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, DateTime.Now);
+                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, new Table(), DateTime.Now);
                 currentOrder.orderItems.Add(newOrderItem);
             }
         }

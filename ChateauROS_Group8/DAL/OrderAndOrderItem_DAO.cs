@@ -13,7 +13,7 @@ namespace DAL
         public List<OrderItem> DB_GetOrderItems()
         {
             OpenConnection();
-            SqlCommand queryGetAll = new SqlCommand("SELECT oderItemID, orderID, menuItemID, quantity, requests, orderState, lastStateChange FROM [OrderItems]", connection);
+            SqlCommand queryGetAll = new SqlCommand("SELECT OrderItems.oderItemID, OrderItems.orderID, OrderItems.menuItemID, OrderItems.quantity, OrderItems.requests, OrderItems.orderState, OrderItems.lastStateChange, Orders.TableID FROM [OrderItems] LEFT JOIN [Orders] ON OrderItems.OrderID = Orders.OrderID ", connection);
             SqlDataReader reader = queryGetAll.ExecuteReader();
             List<OrderItem> orderItems = new List<OrderItem>();
             while (reader.Read())
@@ -62,13 +62,18 @@ namespace DAL
         public Order DB_GetOrderByTableID(int tableID)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed NOT LIKE 'True'", connection);
+            SqlCommand queryGetByID = new SqlCommand("SELECT orderID, tableID, billID, employeeID, completed, comment FROM Orders WHERE tableID = @tableID AND completed <> 1", connection);
             queryGetByID.Parameters.AddWithValue("@tableID", tableID);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Order order = null;
             if (reader.Read())
             {
                 order = ReadOrder(reader);
+            }
+
+            if(reader.HasRows == false)
+            {
+                throw new Exception("There is no running order at the selected table");
             }
             reader.Close();
             CloseConnection();
@@ -161,6 +166,8 @@ namespace DAL
         private OrderItem ReadOrderItem(SqlDataReader reader)
         {
             MenuItem_DAO menuItem_DAO = new MenuItem_DAO();
+            Table_DAO table_DAO = new Table_DAO();
+
             int orderItemID = (int)reader["oderItemID"];
             int orderID = (int)reader["orderID"];
             MenuItem menuItem = menuItem_DAO.DB_GetMenuItemByID((int)reader["menuItemID"]);
@@ -168,8 +175,10 @@ namespace DAL
             string requests = (string)reader["requests"];
             OrderState orderState = (OrderState)reader["orderState"];
             DateTime lastStateChange = (DateTime)reader["lastStateChange"];
+            Table table = table_DAO.DB_GetTableByID((int)reader["tableID"]);
 
-            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, lastStateChange);
+
+            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, table, lastStateChange);
         }
 
         private Order ReadOrder(SqlDataReader reader)

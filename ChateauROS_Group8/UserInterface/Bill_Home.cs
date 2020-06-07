@@ -34,15 +34,14 @@ namespace UserInterface
         {
             //hide all other panels and buttons
             pnl_Summary.Hide();
-            pnl_cash.Hide();
-            pnl_card.Hide();
-            pnl_tip.Hide();
+            card_grp.Hide();
+            pnl_payment.Hide();
             pnl_comment.Hide();
             pnl_paymentComplete.Hide();
             complete_btn.Hide();
 
             //Get bill data from database - from table with running order
-            order = order_Service.GetOrderByTableID(6);
+            order = order_Service.GetOrderByTableID(3);
             bill = new Bill(order.BillID);
 
             //calculate total prices and taxes
@@ -84,7 +83,7 @@ namespace UserInterface
         private void btn_correct_Click(object sender, EventArgs e)
         {
             pnl_Summary.Show();
-            pnl_tip.Show();
+            pnl_payment.Show();
             complete_btn.Show();
 
             //fill out summary data
@@ -99,9 +98,11 @@ namespace UserInterface
         private void cash_rb_CheckedChanged(object sender, EventArgs e)
         {
             //hide all other panles
-            pnl_card.Hide();
+            card_grp.Hide();
 
-            pnl_cash.Show();
+            //show changes labels
+            lbl_changes.Show();
+            lbl_changesAmount.Show();
         }
 
         private void CashPayment(Bill bill)
@@ -125,9 +126,10 @@ namespace UserInterface
 
         private void Pin_rb_CheckedChanged(object sender, EventArgs e)
         {
-            //hide all other panels
-            pnl_cash.Hide();
-            pnl_card.Hide();
+            //hide all other panels and labels
+            card_grp.Hide();
+            lbl_changes.Hide();
+            lbl_changesAmount.Hide();
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)
@@ -136,10 +138,11 @@ namespace UserInterface
 
         private void card_rb_CheckedChanged(object sender, EventArgs e)
         {
-            //hide all other panels
-            pnl_cash.Hide();
+            //hide all other panels and labels
+            lbl_changes.Hide();
+            lbl_changesAmount.Hide();
 
-            pnl_card.Show();
+            card_grp.Show();
         }
 
         private void complete_btn_Click(object sender, EventArgs e)
@@ -160,6 +163,8 @@ namespace UserInterface
                 bill.Tip = 0;
             }
 
+            //if there is no comment received from the customer, the comment is set to "none"
+            order.Comment = "none";
 
             //store data to the database and update order and table status
             bill_Service.EditBill(bill,order);
@@ -170,11 +175,6 @@ namespace UserInterface
         private void btn_add_comment_Click(object sender, EventArgs e)
         {
             pnl_comment.Show();
-        }
-
-        private void confirm_btn_Click_1(object sender, EventArgs e)
-        {
-            lbl_changes.Text = (double.Parse(txt_received.Text) - bill.Total).ToString(); 
         }
 
         private void save_btn_Click_1(object sender, EventArgs e)
@@ -197,6 +197,12 @@ namespace UserInterface
         private void backToTbView_btn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void confirm_btn_Click(object sender, EventArgs e)
+        {
+            bill.AmountPaid = double.Parse(txt_received.Text);
+            lbl_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
         }
     }
 }
