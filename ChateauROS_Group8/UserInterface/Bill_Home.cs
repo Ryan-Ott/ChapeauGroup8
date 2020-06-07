@@ -139,9 +139,10 @@ namespace UserInterface
         private void card_rb_CheckedChanged(object sender, EventArgs e)
         {
             //hide all other panels and labels
-            card_grp.Show();
             lbl_changes.Hide();
             lbl_changesAmount.Hide();
+
+            card_grp.Show();
         }
 
         private void complete_btn_Click(object sender, EventArgs e)
@@ -201,6 +202,7 @@ namespace UserInterface
         private void confirm_btn_Click(object sender, EventArgs e)
         {
             bill.AmountPaid = double.Parse(txt_received.Text);
+            lbl_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
         }
     }
 }
