@@ -15,8 +15,7 @@ namespace UserInterface
 {
     public partial class TableView : Form
     {
-        //Table currentTable;
-        // make single object for table state 
+    
         
         Table_Service table_Service = new Table_Service();
         Table currentTable;

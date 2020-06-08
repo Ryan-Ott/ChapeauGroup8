@@ -45,7 +45,7 @@
             // 
             // table1
             // 
-            this.table1.BackColor = System.Drawing.Color.GreenYellow;
+            this.table1.BackColor = System.Drawing.Color.Green;
             this.table1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table1.Location = new System.Drawing.Point(44, 66);
             this.table1.Name = "table1";
@@ -57,7 +57,7 @@
             // 
             // table2
             // 
-            this.table2.BackColor = System.Drawing.Color.GreenYellow;
+            this.table2.BackColor = System.Drawing.Color.Green;
             this.table2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table2.Location = new System.Drawing.Point(161, 66);
             this.table2.Name = "table2";
@@ -69,7 +69,7 @@
             // 
             // table3
             // 
-            this.table3.BackColor = System.Drawing.Color.GreenYellow;
+            this.table3.BackColor = System.Drawing.Color.Green;
             this.table3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table3.Location = new System.Drawing.Point(269, 66);
             this.table3.Name = "table3";
@@ -81,7 +81,7 @@
             // 
             // table4
             // 
-            this.table4.BackColor = System.Drawing.Color.GreenYellow;
+            this.table4.BackColor = System.Drawing.Color.Green;
             this.table4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table4.Location = new System.Drawing.Point(383, 66);
             this.table4.Name = "table4";
@@ -93,7 +93,7 @@
             // 
             // table5
             // 
-            this.table5.BackColor = System.Drawing.Color.GreenYellow;
+            this.table5.BackColor = System.Drawing.Color.Green;
             this.table5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table5.Location = new System.Drawing.Point(503, 66);
             this.table5.Name = "table5";
@@ -105,7 +105,7 @@
             // 
             // table6
             // 
-            this.table6.BackColor = System.Drawing.Color.GreenYellow;
+            this.table6.BackColor = System.Drawing.Color.Green;
             this.table6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table6.Location = new System.Drawing.Point(44, 176);
             this.table6.Name = "table6";
@@ -117,7 +117,7 @@
             // 
             // table7
             // 
-            this.table7.BackColor = System.Drawing.Color.GreenYellow;
+            this.table7.BackColor = System.Drawing.Color.Green;
             this.table7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table7.Location = new System.Drawing.Point(161, 176);
             this.table7.Name = "table7";
@@ -129,7 +129,7 @@
             // 
             // table8
             // 
-            this.table8.BackColor = System.Drawing.Color.GreenYellow;
+            this.table8.BackColor = System.Drawing.Color.Green;
             this.table8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table8.Location = new System.Drawing.Point(269, 176);
             this.table8.Name = "table8";
@@ -141,7 +141,7 @@
             // 
             // table9
             // 
-            this.table9.BackColor = System.Drawing.Color.GreenYellow;
+            this.table9.BackColor = System.Drawing.Color.Green;
             this.table9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table9.Location = new System.Drawing.Point(383, 176);
             this.table9.Name = "table9";
@@ -153,7 +153,7 @@
             // 
             // table10
             // 
-            this.table10.BackColor = System.Drawing.Color.GreenYellow;
+            this.table10.BackColor = System.Drawing.Color.Green;
             this.table10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table10.Location = new System.Drawing.Point(503, 176);
             this.table10.Name = "table10";
