@@ -18,13 +18,14 @@ namespace UserInterface
         //Table currentTable;
         // make single object for table state 
         
-        private Table_Service table_Service = new Table_Service();
+         Table_Service table_Service = new Table_Service();
         Table currentTable;
 
-
-        private TableView()
+        
+        public TableView()
         {
             InitializeComponent();
+            currentTable = new Table();
            
         }
 
@@ -46,9 +47,10 @@ namespace UserInterface
         private void table2_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
+            currentTable.TableID = 2;
             if (dialogResult == DialogResult.Yes)
             {
-
+                
                 currentTable.TableState = TableState.occupied;
             }
             else if (dialogResult == DialogResult.No)
@@ -59,15 +61,17 @@ namespace UserInterface
             {
                 currentTable.TableState = TableState.available;
             }
+            // call change table state method 
         }
 
-        private void ChangeTableState()
+        private void ChangeTableState(int tableID)
         {
             //this too
+            currentTable.TableID = tableID;
             DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
             if (dialogResult == DialogResult.Yes)
             {
-
+               // object.BackColor = Color.Red();
                 currentTable.TableState = TableState.occupied;
             }
             else if (dialogResult == DialogResult.No)
