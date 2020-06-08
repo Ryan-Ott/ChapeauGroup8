@@ -30,19 +30,21 @@ namespace UserInterface
 
         private void ChangeTableState(int tableID, Label tableLabel)
         {
+            CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView();
             currentTable.TableID = tableID;
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
+            dialogResult.ShowDialog();
+            //DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
+            if (dialogResult.DialogResult.Equals(DialogResult.No))
             {
                 tableLabel.BackColor = Color.Red;
                 currentTable.TableState = TableState.occupied;
             }
-            else if (dialogResult == DialogResult.No)
+            else if (dialogResult.DialogResult.Equals(DialogResult.Yes))
             {
                 tableLabel.BackColor = Color.Yellow;
                 currentTable.TableState = TableState.reserved;
             }
-            else
+            else if (dialogResult.DialogResult.Equals(DialogResult.Cancel))
             {
                 tableLabel.BackColor = Color.Green;
                 currentTable.TableState = TableState.available;
