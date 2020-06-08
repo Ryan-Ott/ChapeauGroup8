@@ -127,9 +127,7 @@ namespace Logic
                 order.BillID = lastBill.BillID;
                 orderAndOrderItemDAO.DB_AddOrder(order);
                 foreach (OrderItem orderItem in order.orderItems)
-                {
                     AddOrderItem(orderItem);
-                }
             }
             catch (Exception e)
             {

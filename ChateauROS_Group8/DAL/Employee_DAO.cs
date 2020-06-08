@@ -30,7 +30,7 @@ namespace DAL
         public Employee DB_GetEmployeeByID(int id)
         {
             OpenConnection();
-            SqlCommand queryGetByID = new SqlCommand("SELECT employeeID, [type], [username], [password] FROM [Employees] WHERE employeeID = @id", connection);
+            SqlCommand queryGetByID = new SqlCommand("SELECT [employeeID], [type], [username], [password] FROM [Employees] WHERE employeeID = @id", connection);
             queryGetByID.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = queryGetByID.ExecuteReader();
             Employee employee = null;
@@ -43,7 +43,21 @@ namespace DAL
             return employee;
         }
 
-        //GetEmployeeByLoginData()
+        public Employee DB_GetByUsername(string username)
+        {
+            OpenConnection();
+            SqlCommand queryGetByID = new SqlCommand("SELECT [employeeID], [type], [username], [password] FROM [Employees] WHERE [username] = @username", connection);
+            queryGetByID.Parameters.AddWithValue("@username", username);
+            SqlDataReader reader = queryGetByID.ExecuteReader();
+            Employee employee = null;
+            if (reader.Read())
+            {
+                employee = ReadEmployee(reader);
+            }
+            reader.Close();
+            CloseConnection();
+            return employee;
+        }
 
         private Employee ReadEmployee(SqlDataReader reader)
         {

@@ -41,5 +41,18 @@ namespace Logic
                 return new Employee();
             }
         }
+
+        public Employee GetByUsername(string username)
+        {
+            try
+            {
+                return em_DAO.DB_GetByUsername(username);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
     }
 }

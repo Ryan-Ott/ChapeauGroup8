@@ -18,7 +18,7 @@ namespace UserInterface
         //Table currentTable;
         // make single object for table state 
         
-         Table_Service table_Service = new Table_Service();
+        Table_Service table_Service = new Table_Service();
         Table currentTable;
 
         
@@ -26,191 +26,91 @@ namespace UserInterface
         {
             InitializeComponent();
             currentTable = new Table();
-           
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ChangeTableState(int tableID, Label tableLabel)
         {
-           
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void table2_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            currentTable.TableID = 2;
-            if (dialogResult == DialogResult.Yes)
-            {
-                
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
-            // call change table state method 
-        }
-
-        private void ChangeTableState(int tableID)
-        {
-            //this too
             currentTable.TableID = tableID;
             DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
             if (dialogResult == DialogResult.Yes)
             {
-               // object.BackColor = Color.Red();
+                tableLabel.BackColor = Color.Red;
                 currentTable.TableState = TableState.occupied;
             }
             else if (dialogResult == DialogResult.No)
             {
+                tableLabel.BackColor = Color.Yellow;
                 currentTable.TableState = TableState.reserved;
             }
             else
             {
+                tableLabel.BackColor = Color.Green;
                 currentTable.TableState = TableState.available;
+            }
+            try
+            {
+                table_Service.EditTable(currentTable);
+                MessageBox.Show("Successfully changed table state.");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Unable to change table state " + e.Message);
             }
         }
 
-        // labelName.BackColor = Color.Blue
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Close(); //go back to homescreen once built
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ChangeTableState(1, table1);
+        }
+
+        private void table2_Click(object sender, EventArgs e)
+        {
+            ChangeTableState(2, table2);
+        }
+
         private void table3_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
-
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
+            ChangeTableState(3, table3);
         }
 
         private void table4_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
-
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
+            ChangeTableState(4, table4);
         }
 
         private void table5_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
-
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
+            ChangeTableState(5, table5);
         }
 
         private void table6_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
-
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
+            ChangeTableState(6, table6);
         }
 
         private void table7_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
-
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
+            ChangeTableState(7, table7);
         }
 
         private void table8_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
+            ChangeTableState(8, table8);
+        }
 
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                currentTable.TableState = TableState.available;
-            }
+        private void label9_Click(object sender, EventArgs e)
+        {
+            ChangeTableState(9, table9);
         }
 
         private void table10_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
-            {
-                table10.BackColor = Color.Red;
-                currentTable.TableState = TableState.occupied;
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                table10.BackColor = Color.Yellow;
-                currentTable.TableState = TableState.reserved;
-            }
-            else
-            {
-                table10.BackColor = Color.GreenYellow;
-                currentTable.TableState = TableState.available;
-            }
+            ChangeTableState(10, table10);
         }
     }
 }

@@ -1,3 +1,5 @@
+using Logic;
+using Models;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,6 +9,9 @@ namespace LoginApp
 {
     public partial class LoginForm : Form
     {
+        Employee_Service employeeService = new Employee_Service();
+        Employee currentEmployee;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -38,15 +43,19 @@ namespace LoginApp
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string user, pass;
-            user = txtUser.Text;
-            pass = txtPass.Text;
-            if (user == "testmanager" && pass == "password")
+            string username, password;
+            username = txtUser.Text;
+            password = txtPass.Text;
+            currentEmployee = employeeService.GetByUsername(username);
+
+            if (username == currentEmployee.Username && password == currentEmployee.Password)
             {
-                MessageBox.Show("Succesfully logged in");
+                MessageBox.Show("Succesfully logged in as " + currentEmployee.Username);
             }
             else
                 MessageBox.Show("Error, check username or password.");
+
+            //open homescreen(currentEmployee)
         }
     }
 }

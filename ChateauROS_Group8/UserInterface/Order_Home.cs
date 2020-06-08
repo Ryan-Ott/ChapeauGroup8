@@ -137,10 +137,7 @@ namespace UserInterface
             try
             {
                 if (currentOrder.orderItems.Count == 0)
-                {
                     MessageBox.Show("Please add items to an order to be submitted.");
-                    return;
-                }
                 else
                 {
                     orderOrderItemService.AddOrder(currentOrder);

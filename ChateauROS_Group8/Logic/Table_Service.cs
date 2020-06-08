@@ -41,5 +41,18 @@ namespace Logic
                 return new Table(1, 0);
             }
         }
+
+        public void EditTable(Table currentTable)
+        {
+            try
+            {
+                tab_DAO.EditTable(currentTable);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not edit table " + e.Message);
+                throw;
+            }
+        }
     }
 }

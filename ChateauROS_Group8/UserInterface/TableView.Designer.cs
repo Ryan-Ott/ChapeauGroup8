@@ -149,7 +149,7 @@
             this.table9.TabIndex = 17;
             this.table9.Text = "Table 9";
             this.table9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.table9.Click += new System.EventHandler(this.label1_Click_1);
+            this.table9.Click += new System.EventHandler(this.label9_Click);
             // 
             // table10
             // 
