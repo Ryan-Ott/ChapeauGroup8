@@ -47,7 +47,7 @@
             // 
             this.table1.BackColor = System.Drawing.Color.GreenYellow;
             this.table1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table1.Location = new System.Drawing.Point(44, 51);
+            this.table1.Location = new System.Drawing.Point(44, 66);
             this.table1.Name = "table1";
             this.table1.Size = new System.Drawing.Size(67, 64);
             this.table1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.table2.BackColor = System.Drawing.Color.GreenYellow;
             this.table2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table2.Location = new System.Drawing.Point(161, 51);
+            this.table2.Location = new System.Drawing.Point(161, 66);
             this.table2.Name = "table2";
             this.table2.Size = new System.Drawing.Size(67, 64);
             this.table2.TabIndex = 10;
@@ -71,7 +71,7 @@
             // 
             this.table3.BackColor = System.Drawing.Color.GreenYellow;
             this.table3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table3.Location = new System.Drawing.Point(269, 51);
+            this.table3.Location = new System.Drawing.Point(269, 66);
             this.table3.Name = "table3";
             this.table3.Size = new System.Drawing.Size(67, 64);
             this.table3.TabIndex = 11;
@@ -83,7 +83,7 @@
             // 
             this.table4.BackColor = System.Drawing.Color.GreenYellow;
             this.table4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table4.Location = new System.Drawing.Point(383, 51);
+            this.table4.Location = new System.Drawing.Point(383, 66);
             this.table4.Name = "table4";
             this.table4.Size = new System.Drawing.Size(67, 64);
             this.table4.TabIndex = 12;
@@ -95,7 +95,7 @@
             // 
             this.table5.BackColor = System.Drawing.Color.GreenYellow;
             this.table5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table5.Location = new System.Drawing.Point(503, 51);
+            this.table5.Location = new System.Drawing.Point(503, 66);
             this.table5.Name = "table5";
             this.table5.Size = new System.Drawing.Size(67, 64);
             this.table5.TabIndex = 13;
@@ -188,7 +188,7 @@
             // TableView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(610, 305);
+            this.ClientSize = new System.Drawing.Size(606, 305);
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.table10);
