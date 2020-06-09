@@ -37,9 +37,10 @@
             // resBtn
             // 
             this.resBtn.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.resBtn.Location = new System.Drawing.Point(29, 70);
+            this.resBtn.Location = new System.Drawing.Point(58, 135);
+            this.resBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.resBtn.Name = "resBtn";
-            this.resBtn.Size = new System.Drawing.Size(129, 23);
+            this.resBtn.Size = new System.Drawing.Size(258, 44);
             this.resBtn.TabIndex = 0;
             this.resBtn.Text = "Reserve this table";
             this.resBtn.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // availBtn
             // 
             this.availBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.availBtn.Location = new System.Drawing.Point(91, 128);
+            this.availBtn.Location = new System.Drawing.Point(182, 246);
+            this.availBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.availBtn.Name = "availBtn";
-            this.availBtn.Size = new System.Drawing.Size(139, 23);
+            this.availBtn.Size = new System.Drawing.Size(278, 44);
             this.availBtn.TabIndex = 1;
             this.availBtn.Text = "Cancel (Make Available)";
             this.availBtn.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // busyBtn
             // 
             this.busyBtn.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.busyBtn.Location = new System.Drawing.Point(181, 70);
+            this.busyBtn.Location = new System.Drawing.Point(362, 135);
+            this.busyBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.busyBtn.Name = "busyBtn";
-            this.busyBtn.Size = new System.Drawing.Size(108, 23);
+            this.busyBtn.Size = new System.Drawing.Size(216, 44);
             this.busyBtn.TabIndex = 2;
             this.busyBtn.Text = "Occupy this table";
             this.busyBtn.UseVisualStyleBackColor = true;
@@ -68,22 +71,27 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 26);
+            this.label1.Location = new System.Drawing.Point(82, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 24);
+            this.label1.Size = new System.Drawing.Size(472, 44);
             this.label1.TabIndex = 3;
             this.label1.Text = "What would you like to do?";
             // 
             // CustomDialogBoxforTableView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 182);
+            this.ClientSize = new System.Drawing.Size(670, 350);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.busyBtn);
             this.Controls.Add(this.availBtn);
             this.Controls.Add(this.resBtn);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MaximumSize = new System.Drawing.Size(696, 421);
+            this.MinimumSize = new System.Drawing.Size(696, 421);
             this.Name = "CustomDialogBoxforTableView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CustomDialogBoxforTableView";
             this.ResumeLayout(false);
             this.PerformLayout();
