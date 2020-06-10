@@ -61,7 +61,9 @@ namespace UserInterface
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Close(); //go back to homescreen once built
+            HomeScreen homeScreen = new HomeScreen();
+            //Close(); //go back to homescreen once built
+           // HomeScreen.ActiveForm
         }
 
         private void label1_Click(object sender, EventArgs e)
