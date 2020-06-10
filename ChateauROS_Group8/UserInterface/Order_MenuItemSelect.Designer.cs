@@ -47,7 +47,7 @@
             // pbox_ChapeauLogo
             // 
             this.pbox_ChapeauLogo.Image = global::UserInterface.Properties.Resources.ChapeauLogo;
-            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(62, 19);
+            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(62, 8);
             this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pbox_ChapeauLogo.Name = "pbox_ChapeauLogo";
             this.pbox_ChapeauLogo.Size = new System.Drawing.Size(140, 75);
@@ -57,8 +57,9 @@
             // 
             // btn_Home
             // 
-            this.btn_Home.BackColor = System.Drawing.Color.Gold;
-            this.btn_Home.Location = new System.Drawing.Point(432, 29);
+            this.btn_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(226)))), ((int)(((byte)(133)))));
+            this.btn_Home.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Home.Location = new System.Drawing.Point(432, 13);
             this.btn_Home.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(160, 40);
@@ -69,7 +70,7 @@
             // 
             // pnl_ItemSelect
             // 
-            this.pnl_ItemSelect.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnl_ItemSelect.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnl_ItemSelect.Controls.Add(this.liv_MenuItems);
             this.pnl_ItemSelect.Controls.Add(this.btn_AddItem);
             this.pnl_ItemSelect.Controls.Add(this.lbl_ItemSelect);
@@ -78,7 +79,7 @@
             this.pnl_ItemSelect.Controls.Add(this.liv_CurrentOrder);
             this.pnl_ItemSelect.Controls.Add(this.btn_Submit);
             this.pnl_ItemSelect.Controls.Add(this.btn_Menus);
-            this.pnl_ItemSelect.Location = new System.Drawing.Point(62, 98);
+            this.pnl_ItemSelect.Location = new System.Drawing.Point(62, 87);
             this.pnl_ItemSelect.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_ItemSelect.Name = "pnl_ItemSelect";
             this.pnl_ItemSelect.Size = new System.Drawing.Size(900, 650);
@@ -86,6 +87,7 @@
             // 
             // liv_MenuItems
             // 
+            this.liv_MenuItems.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liv_MenuItems.FullRowSelect = true;
             this.liv_MenuItems.GridLines = true;
             this.liv_MenuItems.HideSelection = false;
@@ -99,7 +101,8 @@
             // 
             // btn_AddItem
             // 
-            this.btn_AddItem.BackColor = System.Drawing.Color.Gold;
+            this.btn_AddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(226)))), ((int)(((byte)(133)))));
+            this.btn_AddItem.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddItem.Location = new System.Drawing.Point(274, 569);
             this.btn_AddItem.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddItem.Name = "btn_AddItem";
@@ -112,12 +115,12 @@
             // lbl_ItemSelect
             // 
             this.lbl_ItemSelect.AutoSize = true;
-            this.lbl_ItemSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ItemSelect.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lbl_ItemSelect.Location = new System.Drawing.Point(300, 6);
+            this.lbl_ItemSelect.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ItemSelect.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lbl_ItemSelect.Location = new System.Drawing.Point(305, 1);
             this.lbl_ItemSelect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ItemSelect.Name = "lbl_ItemSelect";
-            this.lbl_ItemSelect.Size = new System.Drawing.Size(308, 63);
+            this.lbl_ItemSelect.Size = new System.Drawing.Size(311, 71);
             this.lbl_ItemSelect.TabIndex = 10;
             this.lbl_ItemSelect.Text = "Item Select";
             this.lbl_ItemSelect.Click += new System.EventHandler(this.lbl_ItemSelect_Click);
@@ -125,25 +128,26 @@
             // lbl_Menu_Category
             // 
             this.lbl_Menu_Category.AutoSize = true;
-            this.lbl_Menu_Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Menu_Category.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Menu_Category.Location = new System.Drawing.Point(4, 6);
             this.lbl_Menu_Category.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Menu_Category.Name = "lbl_Menu_Category";
-            this.lbl_Menu_Category.Size = new System.Drawing.Size(265, 25);
+            this.lbl_Menu_Category.Size = new System.Drawing.Size(293, 34);
             this.lbl_Menu_Category.TabIndex = 9;
             this.lbl_Menu_Category.Text = "CHANGE THIS IN CODE";
             // 
             // nud_ItemCount
             // 
-            this.nud_ItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_ItemCount.Location = new System.Drawing.Point(48, 577);
+            this.nud_ItemCount.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_ItemCount.Location = new System.Drawing.Point(34, 575);
             this.nud_ItemCount.Margin = new System.Windows.Forms.Padding(4);
             this.nud_ItemCount.Name = "nud_ItemCount";
-            this.nud_ItemCount.Size = new System.Drawing.Size(120, 44);
+            this.nud_ItemCount.Size = new System.Drawing.Size(120, 34);
             this.nud_ItemCount.TabIndex = 1;
             // 
             // liv_CurrentOrder
             // 
+            this.liv_CurrentOrder.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liv_CurrentOrder.FullRowSelect = true;
             this.liv_CurrentOrder.GridLines = true;
             this.liv_CurrentOrder.HideSelection = false;
@@ -157,7 +161,8 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.BackColor = System.Drawing.Color.Gold;
+            this.btn_Submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(226)))), ((int)(((byte)(133)))));
+            this.btn_Submit.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Submit.Location = new System.Drawing.Point(690, 569);
             this.btn_Submit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Submit.Name = "btn_Submit";
@@ -169,7 +174,8 @@
             // 
             // btn_Menus
             // 
-            this.btn_Menus.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_Menus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.btn_Menus.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Menus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Menus.Location = new System.Drawing.Point(464, 569);
             this.btn_Menus.Margin = new System.Windows.Forms.Padding(4);
@@ -184,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(215)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1024, 769);
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.btn_Home);

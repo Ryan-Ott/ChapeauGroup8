@@ -92,12 +92,12 @@
             // lbl_OrderView
             // 
             this.lbl_OrderView.AutoSize = true;
-            this.lbl_OrderView.Font = new System.Drawing.Font("Microsoft PhagsPa", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_OrderView.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_OrderView.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lbl_OrderView.Location = new System.Drawing.Point(300, 6);
+            this.lbl_OrderView.Location = new System.Drawing.Point(292, 1);
             this.lbl_OrderView.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_OrderView.Name = "lbl_OrderView";
-            this.lbl_OrderView.Size = new System.Drawing.Size(280, 63);
+            this.lbl_OrderView.Size = new System.Drawing.Size(313, 71);
             this.lbl_OrderView.TabIndex = 10;
             this.lbl_OrderView.Text = "Order View";
             // 
@@ -204,7 +204,7 @@
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(160, 40);
             this.btn_Home.TabIndex = 0;
-            this.btn_Home.Text = "Home";
+            this.btn_Home.Text = "Table View";
             this.btn_Home.UseVisualStyleBackColor = false;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
@@ -241,7 +241,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Order_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Order_Home";
+            this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Home_Load);
             this.pnl_OrderHome.ResumeLayout(false);
             this.pnl_OrderHome.PerformLayout();

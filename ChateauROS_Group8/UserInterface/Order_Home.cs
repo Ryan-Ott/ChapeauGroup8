@@ -148,6 +148,7 @@ namespace UserInterface
                     orderOrderItemService.AddOrder(currentOrder);
                     menuItemService.UpdateStock(currentOrder.orderItems);
                     MessageBox.Show("Order has been successfully added! Returning go table view.");
+                    InitNewOrderProcess();
                     Hide();
                     TableView tableView = new TableView(employee);
                     tableView.ShowDialog();
@@ -157,7 +158,6 @@ namespace UserInterface
             {
                 MessageBox.Show("An error occured when attempting to add the order. " + x.Message);
             }
-            InitNewOrderProcess();
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
