@@ -7,14 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
 
 namespace UserInterface
 {
     public partial class CustomDialogBoxforTableView : Form
     {
-        public CustomDialogBoxforTableView()
+        Table table;
+        Employee employee;
+
+        public CustomDialogBoxforTableView(Table table, Employee employee)
         {
             InitializeComponent();
+            this.table = table;
+            this.employee = employee;
+        }
+
+        private void btn_TakeNewOrder_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Order_Home orderHome = Order_Home.GetInstance();
+            orderHome.SetTableAndEmployee(table, employee);
+            orderHome.ShowDialog();
         }
     }
 }

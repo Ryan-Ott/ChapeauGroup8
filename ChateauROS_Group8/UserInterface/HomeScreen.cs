@@ -16,9 +16,12 @@ namespace UserInterface
     {
         Employee currentEmployee;
 
-        public HomeScreen()
+        public HomeScreen(Employee employee)
         {
             InitializeComponent();
+            currentEmployee = employee;
+            lbl_Username.Text = currentEmployee.Username;
+            lbl_UserType.Text = currentEmployee.Type.ToString();
         }
 
         private void lbl_TableOverview_Click(object sender, EventArgs e)
@@ -33,8 +36,8 @@ namespace UserInterface
 
         private void pnl_TableOverview_Click(object sender, EventArgs e)
         {
-            Close();
-            TableView tableView = new TableView();
+            Hide();
+            TableView tableView = new TableView(currentEmployee);
             tableView.ShowDialog();
         }
 
@@ -82,7 +85,7 @@ namespace UserInterface
 
         private void pnl_Stock_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Group 8 has only got 4 members, therefor stock functionality is currently not present.");
+            MessageBox.Show("Group 8 has only got 4 members, therefore stock functionality is currently not present.");
         }
 
         private void lbl_ReadyOrders_Click(object sender, EventArgs e)
@@ -97,7 +100,7 @@ namespace UserInterface
 
         private void pnl_ReadyOrders_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Group 8 has only got 4 members, therefor notification functionality is currently not present.");
+            MessageBox.Show("Group 8 has only got 4 members, therefore notification functionality is currently not present.");
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
@@ -105,8 +108,15 @@ namespace UserInterface
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Close();
+                Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
             }
+        }
+
+        private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            btn_Logout_Click(sender, e);
         }
     }
 }

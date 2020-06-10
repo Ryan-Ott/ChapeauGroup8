@@ -19,19 +19,22 @@ namespace UserInterface
         MenuItem_Service menuItemService = new MenuItem_Service();
         Table_Service tableService = new Table_Service();
         Employee_Service employeeService = new Employee_Service();
-        Bill_Service billService = new Bill_Service();
 
         Order currentOrder;
         OrderItem currentOrderItem;
+        Employee employee;
+        Table table;
 
         static Order_Home order_Home;
 
-        private Order_Home(/*Employee employee*/)
+        private Order_Home()
         {
             InitializeComponent();
             InitNewOrderProcess();
-            Employee orderTaker = employeeService.GetByID(4); //temporary whilst login is in works
-            currentOrder.Employee = orderTaker/*employee*/;
+            employee = employeeService.GetByID(4); //gets object as placeholder before correct table/employee is set
+            table = tableService.GetByID(1); //^^
+            currentOrder.Employee = employee;
+            currentOrder.Table = table;
         }
 
         public static Order_Home GetInstance()
@@ -39,6 +42,15 @@ namespace UserInterface
             if (order_Home == null)
                 order_Home = new Order_Home();
             return order_Home;
+        }
+
+        public void SetTableAndEmployee(Table table, Employee employee)
+        {
+            this.table = table;
+            this.employee = employee;
+            currentOrder.Table = this.table;
+            currentOrder.Employee = this.employee;
+            lbl_TableNumber.Text = this.table.TableID.ToString();
         }
 
         private void Order_Home_Load(object sender, EventArgs e)
@@ -101,13 +113,6 @@ namespace UserInterface
 
         private void btn_Menus_Click(object sender, EventArgs e)
         {
-            if (nud_TableID.Value == 0)
-            {
-                MessageBox.Show("Please select a table for which you wish to take an order.");
-                return;
-            }
-            currentOrder.Table = tableService.GetByID((int)nud_TableID.Value);
-
             Hide();
             Order_MenuSelect menuSelect = Order_MenuSelect.GetInstance();
             menuSelect.CurrentOrder = currentOrder;
@@ -143,14 +148,16 @@ namespace UserInterface
                     orderOrderItemService.AddOrder(currentOrder);
                     menuItemService.UpdateStock(currentOrder.orderItems);
                     MessageBox.Show("Order has been successfully added! Returning go table view.");
-                    //return to table view HERE
+                    InitNewOrderProcess();
+                    Hide();
+                    TableView tableView = new TableView(employee);
+                    tableView.ShowDialog();
                 }
             }
             catch (Exception x)
             {
                 MessageBox.Show("An error occured when attempting to add the order. " + x.Message);
             }
-            InitNewOrderProcess();
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -197,7 +204,7 @@ namespace UserInterface
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-
+            Hide();
         }
 
         private void Order_Home_Shown(object sender, EventArgs e)
@@ -208,11 +215,6 @@ namespace UserInterface
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             ReloadForm();
-        }
-
-        private void nud_TableID_ValueChanged(object sender, EventArgs e)
-        {
-            //DELETE THIS OBJECT IN DESIGNER
         }
 
         private void nud_ItemCount_ValueChanged(object sender, EventArgs e)

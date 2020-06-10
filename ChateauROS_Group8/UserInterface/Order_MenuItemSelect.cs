@@ -147,7 +147,7 @@ namespace UserInterface
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            //functionality to go back to homescreen here
+            Hide();
         }
     }
 }

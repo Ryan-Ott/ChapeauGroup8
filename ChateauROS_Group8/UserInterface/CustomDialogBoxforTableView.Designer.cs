@@ -32,13 +32,14 @@
             this.availBtn = new System.Windows.Forms.Button();
             this.busyBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_TakeNewOrder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // resBtn
             // 
             this.resBtn.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.resBtn.Location = new System.Drawing.Point(58, 135);
-            this.resBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.resBtn.Margin = new System.Windows.Forms.Padding(6);
             this.resBtn.Name = "resBtn";
             this.resBtn.Size = new System.Drawing.Size(258, 44);
             this.resBtn.TabIndex = 0;
@@ -48,8 +49,8 @@
             // availBtn
             // 
             this.availBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.availBtn.Location = new System.Drawing.Point(182, 246);
-            this.availBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.availBtn.Location = new System.Drawing.Point(192, 209);
+            this.availBtn.Margin = new System.Windows.Forms.Padding(6);
             this.availBtn.Name = "availBtn";
             this.availBtn.Size = new System.Drawing.Size(278, 44);
             this.availBtn.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             this.busyBtn.DialogResult = System.Windows.Forms.DialogResult.No;
             this.busyBtn.Location = new System.Drawing.Point(362, 135);
-            this.busyBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.busyBtn.Margin = new System.Windows.Forms.Padding(6);
             this.busyBtn.Name = "busyBtn";
             this.busyBtn.Size = new System.Drawing.Size(216, 44);
             this.busyBtn.TabIndex = 2;
@@ -78,16 +79,27 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "What would you like to do?";
             // 
+            // btn_TakeNewOrder
+            // 
+            this.btn_TakeNewOrder.Location = new System.Drawing.Point(58, 279);
+            this.btn_TakeNewOrder.Name = "btn_TakeNewOrder";
+            this.btn_TakeNewOrder.Size = new System.Drawing.Size(191, 41);
+            this.btn_TakeNewOrder.TabIndex = 4;
+            this.btn_TakeNewOrder.Text = "Take New Order";
+            this.btn_TakeNewOrder.UseVisualStyleBackColor = true;
+            this.btn_TakeNewOrder.Click += new System.EventHandler(this.btn_TakeNewOrder_Click);
+            // 
             // CustomDialogBoxforTableView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 350);
+            this.Controls.Add(this.btn_TakeNewOrder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.busyBtn);
             this.Controls.Add(this.availBtn);
             this.Controls.Add(this.resBtn);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximumSize = new System.Drawing.Size(696, 421);
             this.MinimumSize = new System.Drawing.Size(696, 421);
             this.Name = "CustomDialogBoxforTableView";
@@ -104,5 +116,6 @@
         private System.Windows.Forms.Button availBtn;
         private System.Windows.Forms.Button busyBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_TakeNewOrder;
     }
 }

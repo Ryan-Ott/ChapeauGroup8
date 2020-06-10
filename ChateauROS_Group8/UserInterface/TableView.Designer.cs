@@ -187,8 +187,9 @@
             // 
             // TableView
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(606, 305);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1024, 769);
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.table10);
@@ -202,7 +203,9 @@
             this.Controls.Add(this.table2);
             this.Controls.Add(this.table1);
             this.Name = "TableView";
-            this.Text = "TableView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Table Overview";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TableView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.ResumeLayout(false);
 

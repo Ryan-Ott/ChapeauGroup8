@@ -15,43 +15,43 @@ namespace UserInterface
 {
     public partial class TableView : Form
     {
-    
-        
         Table_Service table_Service = new Table_Service();
-        Table currentTable;
-
         
-        public TableView()
+        Table table;
+        Employee employee;
+        
+        public TableView(Employee employee)
         {
             InitializeComponent();
-            currentTable = new Table();
+            table = new Table();
+            this.employee = employee;
         }
 
         private void ChangeTableState(int tableID, Label tableLabel)
         {
-            CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView();
-            currentTable.TableID = tableID;
+            CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee);
+            table.TableID = tableID;
+            Hide();
             dialogResult.ShowDialog();
-            //DialogResult dialogResult = MessageBox.Show("Reserve table", "Occupy table", MessageBoxButtons.YesNoCancel);
             if (dialogResult.DialogResult.Equals(DialogResult.No))
             {
                 tableLabel.BackColor = Color.Red;
-                currentTable.TableState = TableState.occupied;
+                table.TableState = TableState.occupied;
             }
             else if (dialogResult.DialogResult.Equals(DialogResult.Yes))
             {
                 tableLabel.BackColor = Color.Yellow;
-                currentTable.TableState = TableState.reserved;
+                table.TableState = TableState.reserved;
             }
             else if (dialogResult.DialogResult.Equals(DialogResult.Cancel))
             {
                 tableLabel.BackColor = Color.Green;
-                currentTable.TableState = TableState.available;
+                table.TableState = TableState.available;
             }
             try
             {
-                table_Service.EditTable(currentTable);
-                MessageBox.Show("Successfully changed table state.");
+                table_Service.EditTable(table);
+                Show();
             }
             catch (Exception e)
             {
@@ -61,7 +61,9 @@ namespace UserInterface
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Close(); //go back to homescreen once built
+            Hide();
+            HomeScreen homeScreen = new HomeScreen(employee);
+            homeScreen.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -112,6 +114,11 @@ namespace UserInterface
         private void table10_Click(object sender, EventArgs e)
         {
             ChangeTableState(10, table10);
+        }
+
+        private void TableView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            exitButton_Click(sender, e);
         }
     }
 }

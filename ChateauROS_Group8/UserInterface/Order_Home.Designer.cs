@@ -34,7 +34,6 @@
             this.lbl_OrderView = new System.Windows.Forms.Label();
             this.lbl_TableID = new System.Windows.Forms.Label();
             this.nud_ItemCount = new System.Windows.Forms.NumericUpDown();
-            this.nud_TableID = new System.Windows.Forms.NumericUpDown();
             this.liv_CurrentOrder = new System.Windows.Forms.ListView();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_AddComment = new System.Windows.Forms.Button();
@@ -42,21 +41,21 @@
             this.btn_Menus = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
+            this.lbl_TableNumber = new System.Windows.Forms.Label();
             this.pnl_OrderHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ItemCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_TableID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_OrderHome
             // 
-            this.pnl_OrderHome.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnl_OrderHome.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_OrderHome.Controls.Add(this.lbl_TableNumber);
             this.pnl_OrderHome.Controls.Add(this.btn_Refresh);
             this.pnl_OrderHome.Controls.Add(this.txtb_Requests);
             this.pnl_OrderHome.Controls.Add(this.lbl_OrderView);
             this.pnl_OrderHome.Controls.Add(this.lbl_TableID);
             this.pnl_OrderHome.Controls.Add(this.nud_ItemCount);
-            this.pnl_OrderHome.Controls.Add(this.nud_TableID);
             this.pnl_OrderHome.Controls.Add(this.liv_CurrentOrder);
             this.pnl_OrderHome.Controls.Add(this.btn_Delete);
             this.pnl_OrderHome.Controls.Add(this.btn_AddComment);
@@ -71,7 +70,8 @@
             // btn_Refresh
             // 
             this.btn_Refresh.BackColor = System.Drawing.Color.Lavender;
-            this.btn_Refresh.Location = new System.Drawing.Point(726, 56);
+            this.btn_Refresh.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Refresh.Location = new System.Drawing.Point(720, 56);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(130, 48);
             this.btn_Refresh.TabIndex = 11;
@@ -81,6 +81,7 @@
             // 
             // txtb_Requests
             // 
+            this.txtb_Requests.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtb_Requests.Location = new System.Drawing.Point(60, 260);
             this.txtb_Requests.Margin = new System.Windows.Forms.Padding(4);
             this.txtb_Requests.Multiline = true;
@@ -91,12 +92,12 @@
             // lbl_OrderView
             // 
             this.lbl_OrderView.AutoSize = true;
-            this.lbl_OrderView.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_OrderView.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lbl_OrderView.Location = new System.Drawing.Point(300, 6);
+            this.lbl_OrderView.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_OrderView.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lbl_OrderView.Location = new System.Drawing.Point(292, 1);
             this.lbl_OrderView.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_OrderView.Name = "lbl_OrderView";
-            this.lbl_OrderView.Size = new System.Drawing.Size(307, 63);
+            this.lbl_OrderView.Size = new System.Drawing.Size(313, 71);
             this.lbl_OrderView.TabIndex = 10;
             this.lbl_OrderView.Text = "Order View";
             // 
@@ -107,37 +108,23 @@
             this.lbl_TableID.Location = new System.Drawing.Point(56, 117);
             this.lbl_TableID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_TableID.Name = "lbl_TableID";
-            this.lbl_TableID.Size = new System.Drawing.Size(144, 25);
+            this.lbl_TableID.Size = new System.Drawing.Size(177, 25);
             this.lbl_TableID.TabIndex = 9;
-            this.lbl_TableID.Text = "Select Table";
+            this.lbl_TableID.Text = "Selected Table:";
             // 
             // nud_ItemCount
             // 
-            this.nud_ItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_ItemCount.Location = new System.Drawing.Point(300, 462);
+            this.nud_ItemCount.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_ItemCount.Location = new System.Drawing.Point(320, 466);
             this.nud_ItemCount.Margin = new System.Windows.Forms.Padding(4);
             this.nud_ItemCount.Name = "nud_ItemCount";
-            this.nud_ItemCount.Size = new System.Drawing.Size(120, 44);
+            this.nud_ItemCount.Size = new System.Drawing.Size(100, 34);
             this.nud_ItemCount.TabIndex = 5;
             this.nud_ItemCount.ValueChanged += new System.EventHandler(this.nud_ItemCount_ValueChanged);
             // 
-            // nud_TableID
-            // 
-            this.nud_TableID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_TableID.Location = new System.Drawing.Point(300, 115);
-            this.nud_TableID.Margin = new System.Windows.Forms.Padding(4);
-            this.nud_TableID.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nud_TableID.Name = "nud_TableID";
-            this.nud_TableID.Size = new System.Drawing.Size(120, 44);
-            this.nud_TableID.TabIndex = 1;
-            this.nud_TableID.ValueChanged += new System.EventHandler(this.nud_TableID_ValueChanged);
-            // 
             // liv_CurrentOrder
             // 
+            this.liv_CurrentOrder.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liv_CurrentOrder.FullRowSelect = true;
             this.liv_CurrentOrder.GridLines = true;
             this.liv_CurrentOrder.HideSelection = false;
@@ -153,6 +140,8 @@
             // btn_Delete
             // 
             this.btn_Delete.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.btn_Delete.Location = new System.Drawing.Point(60, 569);
             this.btn_Delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Delete.Name = "btn_Delete";
@@ -165,8 +154,9 @@
             // btn_AddComment
             // 
             this.btn_AddComment.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_AddComment.BackColor = System.Drawing.Color.Lavender;
-            this.btn_AddComment.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_AddComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.btn_AddComment.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddComment.ForeColor = System.Drawing.Color.White;
             this.btn_AddComment.Location = new System.Drawing.Point(60, 456);
             this.btn_AddComment.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddComment.Name = "btn_AddComment";
@@ -178,7 +168,9 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.BackColor = System.Drawing.Color.Gold;
+            this.btn_Submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(226)))), ((int)(((byte)(133)))));
+            this.btn_Submit.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Submit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.btn_Submit.Location = new System.Drawing.Point(260, 569);
             this.btn_Submit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Submit.Name = "btn_Submit";
@@ -190,7 +182,8 @@
             // 
             // btn_Menus
             // 
-            this.btn_Menus.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_Menus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.btn_Menus.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Menus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Menus.Location = new System.Drawing.Point(148, 177);
             this.btn_Menus.Margin = new System.Windows.Forms.Padding(4);
@@ -203,13 +196,15 @@
             // 
             // btn_Home
             // 
-            this.btn_Home.BackColor = System.Drawing.Color.Gold;
+            this.btn_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(226)))), ((int)(((byte)(133)))));
+            this.btn_Home.Font = new System.Drawing.Font("Microsoft PhagsPa", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.btn_Home.Location = new System.Drawing.Point(432, 19);
             this.btn_Home.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(160, 40);
             this.btn_Home.TabIndex = 0;
-            this.btn_Home.Text = "Home";
+            this.btn_Home.Text = "Table View";
             this.btn_Home.UseVisualStyleBackColor = false;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
@@ -224,11 +219,21 @@
             this.pbox_ChapeauLogo.TabIndex = 3;
             this.pbox_ChapeauLogo.TabStop = false;
             // 
+            // lbl_TableNumber
+            // 
+            this.lbl_TableNumber.AutoSize = true;
+            this.lbl_TableNumber.Font = new System.Drawing.Font("Microsoft PhagsPa", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TableNumber.Location = new System.Drawing.Point(332, 117);
+            this.lbl_TableNumber.Name = "lbl_TableNumber";
+            this.lbl_TableNumber.Size = new System.Drawing.Size(26, 34);
+            this.lbl_TableNumber.TabIndex = 12;
+            this.lbl_TableNumber.Text = "-";
+            // 
             // Order_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(215)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1024, 769);
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.btn_Home);
@@ -236,12 +241,11 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Order_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Order_Home";
+            this.Text = "Order";
             this.Load += new System.EventHandler(this.Order_Home_Load);
             this.pnl_OrderHome.ResumeLayout(false);
             this.pnl_OrderHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ItemCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_TableID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -251,7 +255,6 @@
 
         private System.Windows.Forms.Panel pnl_OrderHome;
         private System.Windows.Forms.NumericUpDown nud_ItemCount;
-        private System.Windows.Forms.NumericUpDown nud_TableID;
         private System.Windows.Forms.ListView liv_CurrentOrder;
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_AddComment;
@@ -263,5 +266,6 @@
         private System.Windows.Forms.TextBox txtb_Requests;
         private System.Windows.Forms.PictureBox pbox_ChapeauLogo;
         private System.Windows.Forms.Button btn_Refresh;
+        private System.Windows.Forms.Label lbl_TableNumber;
     }
 }
