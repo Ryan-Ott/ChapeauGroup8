@@ -301,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(215)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1024, 769);
             this.Controls.Add(this.pnl_ReadyOrders);
             this.Controls.Add(this.pnl_Stock);
@@ -312,7 +312,8 @@
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Name = "HomeScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HomeScreen";
+            this.Text = "Home";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeScreen_FormClosed);
             this.pnl_LoginInfo.ResumeLayout(false);
             this.pnl_LoginInfo.PerformLayout();
             this.pnl_TableOverview.ResumeLayout(false);

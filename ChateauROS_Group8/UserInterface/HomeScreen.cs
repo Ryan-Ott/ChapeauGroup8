@@ -36,7 +36,7 @@ namespace UserInterface
 
         private void pnl_TableOverview_Click(object sender, EventArgs e)
         {
-            Close();
+            Hide();
             TableView tableView = new TableView(currentEmployee);
             tableView.ShowDialog();
         }
@@ -108,8 +108,15 @@ namespace UserInterface
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Close();
+                Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
             }
+        }
+
+        private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            btn_Logout_Click(sender, e);
         }
     }
 }
