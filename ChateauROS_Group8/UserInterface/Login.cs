@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using UserInterface;
 
-namespace LoginApp
+namespace UserInterface
 {
     public partial class LoginForm : Form
     {
@@ -38,7 +38,9 @@ namespace LoginApp
         //}
 
         private void exitButton_Click(object sender, EventArgs e)
-        {
+       
+           
+            HomeScreen home = new HomeScreen();
 
         }
 
