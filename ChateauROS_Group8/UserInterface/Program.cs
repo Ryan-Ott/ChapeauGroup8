@@ -22,7 +22,7 @@ namespace UserInterface
             Application.Run(new TableView());
             Application.Run(Order_Home.GetInstance());
             Application.Run(new Bill_Home());
-            
+
         }
     }
 }
