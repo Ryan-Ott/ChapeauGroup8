@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using UserInterface;
 
 namespace LoginApp
 {
@@ -50,12 +51,13 @@ namespace LoginApp
 
             if (username == currentEmployee.Username && password == currentEmployee.Password)
             {
-                MessageBox.Show("Succesfully logged in as " + currentEmployee.Username);
+                MessageBox.Show("Welcome " + currentEmployee.Username);
+                Close();
+                HomeScreen homeScreen = new HomeScreen(currentEmployee);
+                homeScreen.ShowDialog();
             }
             else
-                MessageBox.Show("Error, check username or password.");
-
-            //open homescreen(currentEmployee)
+                MessageBox.Show("Failure to verify, please check username or password.");
         }
     }
 }

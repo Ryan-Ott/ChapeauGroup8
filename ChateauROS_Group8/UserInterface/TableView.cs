@@ -15,16 +15,16 @@ namespace UserInterface
 {
     public partial class TableView : Form
     {
-    
-        
         Table_Service table_Service = new Table_Service();
-        Table currentTable;
-
         
-        public TableView()
+        Table currentTable;
+        Employee currentEmployee;
+        
+        public TableView(Employee employee)
         {
             InitializeComponent();
             currentTable = new Table();
+            currentEmployee = employee;
         }
 
         private void ChangeTableState(int tableID, Label tableLabel)
