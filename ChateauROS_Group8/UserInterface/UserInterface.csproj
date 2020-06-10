@@ -58,6 +58,12 @@
     <Compile Include="CustomDialogBoxforTableView.Designer.cs">
       <DependentUpon>CustomDialogBoxforTableView.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomDialogBoxforTableView.resx">
       <DependentUpon>CustomDialogBoxforTableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -160,6 +169,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChapeauLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TableOverview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KitchenView.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarView.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\notification.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

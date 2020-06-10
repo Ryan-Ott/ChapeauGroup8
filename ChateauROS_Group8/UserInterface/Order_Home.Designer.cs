@@ -235,7 +235,7 @@
             this.Controls.Add(this.pnl_OrderHome);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Order_Home";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order_Home";
             this.Load += new System.EventHandler(this.Order_Home_Load);
             this.pnl_OrderHome.ResumeLayout(false);
