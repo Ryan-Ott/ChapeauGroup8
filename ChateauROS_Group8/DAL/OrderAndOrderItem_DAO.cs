@@ -140,6 +140,27 @@ namespace DAL
             CloseConnection();
         }
 
+        public void DB_UpdateOrderStatusToPreparing(OrderItem currentOrder)
+        {
+            OpenConnection();
+            SqlCommand queryEditOrderStatus = new SqlCommand("UPDATE [OrderItems] SET [orderState] = @orderState, [lastStateChange] = @lastStateChange WHERE [oderItemID] = @oderItemID", connection);
+            queryEditOrderStatus.Parameters.AddWithValue("@orderState", currentOrder.OrderState);
+            queryEditOrderStatus.Parameters.AddWithValue(@"lastStateChange", currentOrder.LastStateChange);
+            queryEditOrderStatus.Parameters.AddWithValue("@oderItemID", currentOrder.OrderItemID);
+            queryEditOrderStatus.ExecuteNonQuery();
+            CloseConnection();
+        }
+        public void DB_UpdateOrderStatusToReady(OrderItem currentOrder)
+        {
+            OpenConnection();
+            SqlCommand queryEditOrderStatus = new SqlCommand("UPDATE [OrderItems] SET [orderState] = @orderState, [lastStateChange] = @lastStateChange WHERE [oderItemID] = @oderItemID", connection);
+            queryEditOrderStatus.Parameters.AddWithValue("@orderState", currentOrder.OrderState);
+            queryEditOrderStatus.Parameters.AddWithValue(@"lastStateChange", currentOrder.LastStateChange);
+            queryEditOrderStatus.Parameters.AddWithValue("@oderItemID", currentOrder.OrderItemID);
+            queryEditOrderStatus.ExecuteNonQuery();
+            CloseConnection();
+        }
+
         public void DB_EditOrder(Order order)
         {
             OpenConnection();
@@ -174,7 +195,7 @@ namespace DAL
             int quantity = (int)reader["quantity"];
             string requests = (string)reader["requests"];
             OrderState orderState = (OrderState)reader["orderState"];
-            DateTime lastStateChange = (DateTime)reader["lastStateChange"];
+            TimeSpan lastStateChange = (TimeSpan)reader["lastStateChange"];
             Table table = table_DAO.DB_GetTableByID((int)reader["tableID"]);
 
 

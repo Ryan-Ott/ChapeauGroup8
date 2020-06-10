@@ -186,6 +186,8 @@
     <None Include="Resources\Bell.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\CheckMark.png" />
+    <None Include="Resources\CrossMark.png" />
     <Content Include="Resources\notification.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

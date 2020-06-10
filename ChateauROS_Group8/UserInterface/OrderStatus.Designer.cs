@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.kitchenlbl = new System.Windows.Forms.Label();
             this.Corderview = new System.Windows.Forms.ListView();
             this.namedish = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,22 +55,17 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Barlbl = new System.Windows.Forms.Label();
             this.serverlbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).BeginInit();
+            this.Crossmarkpic = new System.Windows.Forms.PictureBox();
+            this.Checkmarkpic = new System.Windows.Forms.PictureBox();
+            this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
+            this.autorefresh = new System.Windows.Forms.Timer(this.components);
             this.rdytablcontrol.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Crossmarkpic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Checkmarkpic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbox_ChapeauLogo
-            // 
-            this.pbox_ChapeauLogo.Image = global::UserInterface.Properties.Resources.ChapeauLogo;
-            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(16, -6);
-            this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(2);
-            this.pbox_ChapeauLogo.Name = "pbox_ChapeauLogo";
-            this.pbox_ChapeauLogo.Size = new System.Drawing.Size(198, 105);
-            this.pbox_ChapeauLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbox_ChapeauLogo.TabIndex = 4;
-            this.pbox_ChapeauLogo.TabStop = false;
             // 
             // kitchenlbl
             // 
@@ -110,7 +105,7 @@
             this.Corderview.TabIndex = 12;
             this.Corderview.UseCompatibleStateImageBehavior = false;
             this.Corderview.View = System.Windows.Forms.View.Details;
-            this.Corderview.SelectedIndexChanged += new System.EventHandler(this.Orderlistlbl_SelectedIndexChanged);
+            this.Corderview.SelectedIndexChanged += new System.EventHandler(this.Corderview_SelectedIndexChanged);
             // 
             // namedish
             // 
@@ -152,6 +147,7 @@
             this.requeststxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requeststxt.Location = new System.Drawing.Point(832, 159);
             this.requeststxt.Name = "requeststxt";
+            this.requeststxt.ReadOnly = true;
             this.requeststxt.Size = new System.Drawing.Size(191, 168);
             this.requeststxt.TabIndex = 14;
             this.requeststxt.Text = "";
@@ -190,6 +186,7 @@
             this.rdybtn.TabIndex = 18;
             this.rdybtn.Text = "Change to Ready";
             this.rdybtn.UseVisualStyleBackColor = false;
+            this.rdybtn.Click += new System.EventHandler(this.rdybtn_Click);
             // 
             // rdytablcontrol
             // 
@@ -238,7 +235,7 @@
             this.Ordersview.TabIndex = 13;
             this.Ordersview.UseCompatibleStateImageBehavior = false;
             this.Ordersview.View = System.Windows.Forms.View.Details;
-            this.Ordersview.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            this.Ordersview.SelectedIndexChanged += new System.EventHandler(this.Ordersview_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -312,12 +309,53 @@
             this.serverlbl.Text = "Orders Status: Waiter";
             this.serverlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Crossmarkpic
+            // 
+            this.Crossmarkpic.Image = global::UserInterface.Properties.Resources.CrossMark;
+            this.Crossmarkpic.Location = new System.Drawing.Point(892, 484);
+            this.Crossmarkpic.Margin = new System.Windows.Forms.Padding(2);
+            this.Crossmarkpic.Name = "Crossmarkpic";
+            this.Crossmarkpic.Size = new System.Drawing.Size(65, 62);
+            this.Crossmarkpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Crossmarkpic.TabIndex = 23;
+            this.Crossmarkpic.TabStop = false;
+            // 
+            // Checkmarkpic
+            // 
+            this.Checkmarkpic.Image = global::UserInterface.Properties.Resources.CheckMark;
+            this.Checkmarkpic.Location = new System.Drawing.Point(892, 484);
+            this.Checkmarkpic.Margin = new System.Windows.Forms.Padding(2);
+            this.Checkmarkpic.Name = "Checkmarkpic";
+            this.Checkmarkpic.Size = new System.Drawing.Size(65, 62);
+            this.Checkmarkpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Checkmarkpic.TabIndex = 22;
+            this.Checkmarkpic.TabStop = false;
+            // 
+            // pbox_ChapeauLogo
+            // 
+            this.pbox_ChapeauLogo.Image = global::UserInterface.Properties.Resources.ChapeauLogo;
+            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(16, -6);
+            this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.pbox_ChapeauLogo.Name = "pbox_ChapeauLogo";
+            this.pbox_ChapeauLogo.Size = new System.Drawing.Size(198, 105);
+            this.pbox_ChapeauLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbox_ChapeauLogo.TabIndex = 4;
+            this.pbox_ChapeauLogo.TabStop = false;
+            // 
+            // autorefresh
+            // 
+            this.autorefresh.Enabled = true;
+            this.autorefresh.Interval = 60000;
+            this.autorefresh.Tick += new System.EventHandler(this.autorefresh_Tick);
+            // 
             // OrderStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1044, 563);
+            this.Controls.Add(this.Crossmarkpic);
+            this.Controls.Add(this.Checkmarkpic);
             this.Controls.Add(this.serverlbl);
             this.Controls.Add(this.Barlbl);
             this.Controls.Add(this.rdybtn);
@@ -330,10 +368,12 @@
             this.Name = "OrderStatus";
             this.Text = "OrderStatus";
             this.Load += new System.EventHandler(this.OrderStatus_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.rdytablcontrol.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Crossmarkpic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Checkmarkpic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,5 +407,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label Barlbl;
         private System.Windows.Forms.Label serverlbl;
+        private System.Windows.Forms.PictureBox Checkmarkpic;
+        private System.Windows.Forms.PictureBox Crossmarkpic;
+        private System.Windows.Forms.Timer autorefresh;
     }
 }

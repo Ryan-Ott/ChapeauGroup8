@@ -15,21 +15,9 @@ namespace Logic
 
         public List<OrderItem> GetOrderItems()
         {
-            try
-            {
+
                 return orderAndOrderItemDAO.DB_GetOrderItems();
-            }
-            catch (Exception)
-            {
-                List<OrderItem> items = new List<OrderItem>();
-                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 3, "Test", 0.00, 0, false), 0, "no onion", OrderState.preparing, new Table(4, TableState.occupied), DateTime.Now);
-                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 10, "Test2", 0.00, 0, true), 0, "none", OrderState.ready, new Table(7, TableState.occupied), DateTime.Now);
 
-                items.Add(orderItem1);
-                items.Add(orderItem2);
-
-                return items;
-            }
         }
 
         public List<OrderItem> GetAllOrderItems(int id)
@@ -42,8 +30,8 @@ namespace Logic
             {
                 string message = e.Message;
                 List<OrderItem> items = new List<OrderItem>();
-                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, new Table(4, TableState.occupied), DateTime.Now);
-                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, new Table(7, TableState.occupied), DateTime.Now);
+                OrderItem orderItem1 = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, new Table(4, TableState.occupied), TimeSpan.Zero);
+                OrderItem orderItem2 = new OrderItem(0, 0, new MenuItem(0, 0, "Test2", 0.00, 0, true), 0, "none", OrderState.ordered, new Table(7, TableState.occupied), TimeSpan.Zero);
 
                 items.Add(orderItem1);
                 items.Add(orderItem2);
@@ -60,7 +48,7 @@ namespace Logic
             }
             catch (Exception)
             {
-                OrderItem orderItem = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, new Table(4, TableState.occupied), DateTime.Now);
+                OrderItem orderItem = new OrderItem(0, 0, new MenuItem(0, 0, "Test", 0.00, 0, false), 0, "none", OrderState.ordered, new Table(4, TableState.occupied), TimeSpan.Zero);
 
                 return orderItem;
             }
@@ -158,6 +146,33 @@ namespace Logic
             catch (Exception e)
             {
                 Console.WriteLine($"Failure to delete order with orderID {order.OrderID}. Error: {e.Message}");
+                throw;
+            }
+        }
+
+        public void Changetoprpred(OrderItem currentorder)
+        {
+            try
+            {
+                orderAndOrderItemDAO.DB_UpdateOrderStatusToPreparing(currentorder);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.Message}");
+                throw;
+            }
+
+        }
+
+        public void Changetordy(OrderItem currentorder)
+        {
+            try
+            {
+                orderAndOrderItemDAO.DB_UpdateOrderStatusToReady(currentorder);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.Message}");
                 throw;
             }
         }
