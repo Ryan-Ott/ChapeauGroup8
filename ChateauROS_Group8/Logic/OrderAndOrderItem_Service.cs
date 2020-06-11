@@ -20,11 +20,11 @@ namespace Logic
 
         }
 
-        public List<OrderItem> GetAllOrderItems(int id)
+        public List<OrderItem> GetAllOrderItems(int orderID)
         {
             try
             {
-                return orderAndOrderItemDAO.DB_GetAllOrderItems(id);
+                return orderAndOrderItemDAO.DB_GetAllOrderItems(orderID);
             }
             catch(Exception e)
             {
@@ -63,7 +63,7 @@ namespace Logic
             catch (Exception e)
             {
                 Console.WriteLine($"Could not retrieve order with tableID: {tableID}. Placeholder data sent. + {e.Message}");
-                return new Order();
+                throw;
             }
         }
 

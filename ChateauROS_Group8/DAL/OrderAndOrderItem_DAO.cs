@@ -29,7 +29,7 @@ namespace DAL
         public List<OrderItem> DB_GetAllOrderItems(int orderID)
         {
             OpenConnection();
-            SqlCommand queryGetAll = new SqlCommand("SELECT oderItemID, orderID, menuItemID, quantity, requests, orderState, lastStateChange FROM [OrderItems] WHERE orderID = @id", connection);
+            SqlCommand queryGetAll = new SqlCommand("SELECT OrderItems.oderItemID, OrderItems.orderID, OrderItems.menuItemID, OrderItems.quantity, OrderItems.requests, OrderItems.orderState, OrderItems.lastStateChange, Orders.TableID FROM[OrderItems] LEFT JOIN[Orders] ON OrderItems.OrderID = Orders.OrderID WHERE OrderItems.OrderID = @id", connection);
             queryGetAll.Parameters.AddWithValue("@id", orderID);
             SqlDataReader reader = queryGetAll.ExecuteReader();
             List<OrderItem> orderItems = new List<OrderItem>();
@@ -198,8 +198,7 @@ namespace DAL
             TimeSpan lastStateChange = (TimeSpan)reader["lastStateChange"];
             Table table = table_DAO.DB_GetTableByID((int)reader["tableID"]);
 
-
-            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, table, lastStateChange);
+            return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, table, lastStateChange); ;
         }
 
         private Order ReadOrder(SqlDataReader reader)

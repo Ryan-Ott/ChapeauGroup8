@@ -21,10 +21,10 @@ namespace UserInterface
         private Bill_Service bill_Service = new Bill_Service();
         private Bill bill;
         private Order order;
-        public Bill_Home()
+        public Bill_Home(Table table)
         {
             InitializeComponent();
-            //this.table = table;
+            this.table = table;
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -40,18 +40,26 @@ namespace UserInterface
             pnl_paymentComplete.Hide();
             complete_btn.Hide();
 
-            //Get bill data from database - from table with running order
-            order = order_Service.GetOrderByTableID(3);
-            bill = new Bill(order.BillID);
+            try
+            {
+                //Get bill data from database - from table with running order
+                order = order_Service.GetOrderByTableID(table.TableID);
+                bill = new Bill(order.BillID);
 
-            //calculate total prices and taxes
-            bill_Service.CalculateTax(order.orderItems, bill);
+                //calculate total prices and taxes
+                bill_Service.CalculateTax(order.orderItems, bill);
 
-            //fill out bill information
-            DisplayBillInformation(order, bill);
+                //fill out bill information
+                DisplayBillInformation(order, bill);
 
-            //fill all ordered items in the bill
-            FillOrderItems(order.orderItems);
+                //fill all ordered items in the bill
+                FillOrderItems(order.orderItems);
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show($"{error.Message}", "Error", MessageBoxButtons.OK);
+                Close();
+            }
         }
         private void DisplayBillInformation(Order order,Bill bill)
         {
@@ -134,8 +142,8 @@ namespace UserInterface
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
+            Close();
         }
-
         private void card_rb_CheckedChanged(object sender, EventArgs e)
         {
             //hide all other panels and labels
@@ -164,7 +172,8 @@ namespace UserInterface
             }
 
             //if there is no comment received from the customer, the comment is set to "none"
-            order.Comment = "none";
+            if(order.Comment == "")
+                order.Comment = "none";
 
             //store data to the database and update order and table status
             bill_Service.EditBill(bill,order);
@@ -203,6 +212,13 @@ namespace UserInterface
         {
             bill.AmountPaid = double.Parse(txt_received.Text);
             lbl_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
+
+            lbl_amountPaid.Text = txt_received.Text;
+            lbl_layout_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
+        }
+        private void lbl_layout_changesAmount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

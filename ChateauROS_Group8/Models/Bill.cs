@@ -34,7 +34,7 @@ namespace Models
 
         public override string ToString()
         {
-            return $"Bill - ID: {BillID} - Payment Method: {PaymentMethod} - 6%Tax: {Tax6} - 21%Tax: {Tax21} - Tip: {Tip} - Total: {Total}";
+            return $"Bill - ID: {BillID} - Payment Method: {PaymentMethod} - 6%Tax: {Tax6} - 21%Tax: {Tax21} - Tip: {Tip} - Total: {Total} - Amount Paid by Customer: {AmountPaid}";
         }
     }
 

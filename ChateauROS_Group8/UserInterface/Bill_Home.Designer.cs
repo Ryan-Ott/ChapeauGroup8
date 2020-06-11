@@ -34,6 +34,13 @@
             this.backToTbView_btn = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.pnl_payment = new System.Windows.Forms.Panel();
+            this.card_grp = new System.Windows.Forms.GroupBox();
+            this.cardType_combo = new System.Windows.Forms.ComboBox();
+            this.lbl_changesAmount = new System.Windows.Forms.Label();
+            this.lbl_changes = new System.Windows.Forms.Label();
+            this.confirm_btn = new System.Windows.Forms.Button();
+            this.txt_received = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txt_tips = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cancel_btn = new System.Windows.Forms.Button();
@@ -54,6 +61,10 @@
             this.txt_comment = new System.Windows.Forms.TextBox();
             this.btn_correct = new System.Windows.Forms.Button();
             this.pnl_layout = new System.Windows.Forms.Panel();
+            this.lbl_layout_changes = new System.Windows.Forms.Label();
+            this.lbl_layout_changesAmount = new System.Windows.Forms.Label();
+            this.lbl_amountPaid = new System.Windows.Forms.Label();
+            this.lbl_paid = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -79,21 +90,14 @@
             this.add_comment_btn = new System.Windows.Forms.Button();
             this.btn_back_to_tbview = new System.Windows.Forms.Button();
             this.lbl_bill = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_received = new System.Windows.Forms.TextBox();
-            this.confirm_btn = new System.Windows.Forms.Button();
-            this.card_grp = new System.Windows.Forms.GroupBox();
-            this.cardType_combo = new System.Windows.Forms.ComboBox();
-            this.lbl_changes = new System.Windows.Forms.Label();
-            this.lbl_changesAmount = new System.Windows.Forms.Label();
             this.main_pnl.SuspendLayout();
             this.pnl_paymentComplete.SuspendLayout();
             this.pnl_payment.SuspendLayout();
+            this.card_grp.SuspendLayout();
             this.pnl_Summary.SuspendLayout();
             this.pnl_comment.SuspendLayout();
             this.pnl_layout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.card_grp.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_pnl
@@ -158,6 +162,73 @@
             this.pnl_payment.Name = "pnl_payment";
             this.pnl_payment.Size = new System.Drawing.Size(277, 222);
             this.pnl_payment.TabIndex = 16;
+            // 
+            // card_grp
+            // 
+            this.card_grp.Controls.Add(this.cardType_combo);
+            this.card_grp.Location = new System.Drawing.Point(3, 2);
+            this.card_grp.Name = "card_grp";
+            this.card_grp.Size = new System.Drawing.Size(263, 73);
+            this.card_grp.TabIndex = 5;
+            this.card_grp.TabStop = false;
+            this.card_grp.Text = "Select Card Type";
+            // 
+            // cardType_combo
+            // 
+            this.cardType_combo.FormattingEnabled = true;
+            this.cardType_combo.Items.AddRange(new object[] {
+            "VISA",
+            "AMEX"});
+            this.cardType_combo.Location = new System.Drawing.Point(13, 28);
+            this.cardType_combo.Name = "cardType_combo";
+            this.cardType_combo.Size = new System.Drawing.Size(235, 28);
+            this.cardType_combo.TabIndex = 0;
+            // 
+            // lbl_changesAmount
+            // 
+            this.lbl_changesAmount.AutoSize = true;
+            this.lbl_changesAmount.Location = new System.Drawing.Point(206, 149);
+            this.lbl_changesAmount.Name = "lbl_changesAmount";
+            this.lbl_changesAmount.Size = new System.Drawing.Size(0, 20);
+            this.lbl_changesAmount.TabIndex = 6;
+            // 
+            // lbl_changes
+            // 
+            this.lbl_changes.AutoSize = true;
+            this.lbl_changes.Location = new System.Drawing.Point(9, 149);
+            this.lbl_changes.Name = "lbl_changes";
+            this.lbl_changes.Size = new System.Drawing.Size(81, 20);
+            this.lbl_changes.TabIndex = 5;
+            this.lbl_changes.Text = "Changes :";
+            // 
+            // confirm_btn
+            // 
+            this.confirm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.confirm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirm_btn.ForeColor = System.Drawing.Color.White;
+            this.confirm_btn.Location = new System.Drawing.Point(177, 114);
+            this.confirm_btn.Name = "confirm_btn";
+            this.confirm_btn.Size = new System.Drawing.Size(89, 30);
+            this.confirm_btn.TabIndex = 4;
+            this.confirm_btn.Text = "CONFIRM";
+            this.confirm_btn.UseVisualStyleBackColor = false;
+            this.confirm_btn.Click += new System.EventHandler(this.confirm_btn_Click);
+            // 
+            // txt_received
+            // 
+            this.txt_received.Location = new System.Drawing.Point(166, 80);
+            this.txt_received.Name = "txt_received";
+            this.txt_received.Size = new System.Drawing.Size(100, 26);
+            this.txt_received.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(143, 20);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Amount Received :";
             // 
             // txt_tips
             // 
@@ -362,6 +433,10 @@
             this.pnl_layout.AutoScroll = true;
             this.pnl_layout.BackColor = System.Drawing.Color.White;
             this.pnl_layout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_layout.Controls.Add(this.lbl_layout_changes);
+            this.pnl_layout.Controls.Add(this.lbl_layout_changesAmount);
+            this.pnl_layout.Controls.Add(this.lbl_amountPaid);
+            this.pnl_layout.Controls.Add(this.lbl_paid);
             this.pnl_layout.Controls.Add(this.label5);
             this.pnl_layout.Controls.Add(this.label7);
             this.pnl_layout.Controls.Add(this.label8);
@@ -384,6 +459,45 @@
             this.pnl_layout.Name = "pnl_layout";
             this.pnl_layout.Size = new System.Drawing.Size(527, 501);
             this.pnl_layout.TabIndex = 1;
+            // 
+            // lbl_layout_changes
+            // 
+            this.lbl_layout_changes.AutoSize = true;
+            this.lbl_layout_changes.Location = new System.Drawing.Point(15, 498);
+            this.lbl_layout_changes.Name = "lbl_layout_changes";
+            this.lbl_layout_changes.Size = new System.Drawing.Size(89, 20);
+            this.lbl_layout_changes.TabIndex = 13;
+            this.lbl_layout_changes.Text = "CHANGES";
+            // 
+            // lbl_layout_changesAmount
+            // 
+            this.lbl_layout_changesAmount.AutoSize = true;
+            this.lbl_layout_changesAmount.Location = new System.Drawing.Point(444, 498);
+            this.lbl_layout_changesAmount.Name = "lbl_layout_changesAmount";
+            this.lbl_layout_changesAmount.Size = new System.Drawing.Size(31, 20);
+            this.lbl_layout_changesAmount.TabIndex = 14;
+            this.lbl_layout_changesAmount.Text = "0 €";
+            this.lbl_layout_changesAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_layout_changesAmount.Click += new System.EventHandler(this.lbl_layout_changesAmount_Click);
+            // 
+            // lbl_amountPaid
+            // 
+            this.lbl_amountPaid.AutoSize = true;
+            this.lbl_amountPaid.Location = new System.Drawing.Point(444, 478);
+            this.lbl_amountPaid.Name = "lbl_amountPaid";
+            this.lbl_amountPaid.Size = new System.Drawing.Size(31, 20);
+            this.lbl_amountPaid.TabIndex = 13;
+            this.lbl_amountPaid.Text = "0 €";
+            this.lbl_amountPaid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl_paid
+            // 
+            this.lbl_paid.AutoSize = true;
+            this.lbl_paid.Location = new System.Drawing.Point(14, 474);
+            this.lbl_paid.Name = "lbl_paid";
+            this.lbl_paid.Size = new System.Drawing.Size(119, 20);
+            this.lbl_paid.TabIndex = 12;
+            this.lbl_paid.Text = "AMOUNT PAID";
             // 
             // label5
             // 
@@ -415,7 +529,7 @@
             // lbl_totalNoVAT
             // 
             this.lbl_totalNoVAT.AutoSize = true;
-            this.lbl_totalNoVAT.Location = new System.Drawing.Point(475, 396);
+            this.lbl_totalNoVAT.Location = new System.Drawing.Point(444, 396);
             this.lbl_totalNoVAT.Name = "lbl_totalNoVAT";
             this.lbl_totalNoVAT.Size = new System.Drawing.Size(31, 20);
             this.lbl_totalNoVAT.TabIndex = 5;
@@ -425,7 +539,7 @@
             // lbl_VAT
             // 
             this.lbl_VAT.AutoSize = true;
-            this.lbl_VAT.Location = new System.Drawing.Point(475, 422);
+            this.lbl_VAT.Location = new System.Drawing.Point(444, 422);
             this.lbl_VAT.Name = "lbl_VAT";
             this.lbl_VAT.Size = new System.Drawing.Size(31, 20);
             this.lbl_VAT.TabIndex = 6;
@@ -435,7 +549,7 @@
             // lbl_total
             // 
             this.lbl_total.AutoSize = true;
-            this.lbl_total.Location = new System.Drawing.Point(475, 448);
+            this.lbl_total.Location = new System.Drawing.Point(444, 448);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(31, 20);
             this.lbl_total.TabIndex = 7;
@@ -466,7 +580,7 @@
             // dishName
             // 
             this.dishName.Text = "Item";
-            this.dishName.Width = 257;
+            this.dishName.Width = 183;
             // 
             // quatity
             // 
@@ -481,7 +595,7 @@
             // lbl_Date
             // 
             this.lbl_Date.AutoSize = true;
-            this.lbl_Date.Location = new System.Drawing.Point(369, 158);
+            this.lbl_Date.Location = new System.Drawing.Point(357, 158);
             this.lbl_Date.Name = "lbl_Date";
             this.lbl_Date.Size = new System.Drawing.Size(137, 20);
             this.lbl_Date.TabIndex = 10;
@@ -616,73 +730,6 @@
             this.lbl_bill.Text = "BILL";
             this.lbl_bill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 83);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(143, 20);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Amount Received :";
-            // 
-            // txt_received
-            // 
-            this.txt_received.Location = new System.Drawing.Point(166, 80);
-            this.txt_received.Name = "txt_received";
-            this.txt_received.Size = new System.Drawing.Size(100, 26);
-            this.txt_received.TabIndex = 3;
-            // 
-            // confirm_btn
-            // 
-            this.confirm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
-            this.confirm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_btn.ForeColor = System.Drawing.Color.White;
-            this.confirm_btn.Location = new System.Drawing.Point(177, 114);
-            this.confirm_btn.Name = "confirm_btn";
-            this.confirm_btn.Size = new System.Drawing.Size(89, 30);
-            this.confirm_btn.TabIndex = 4;
-            this.confirm_btn.Text = "CONFIRM";
-            this.confirm_btn.UseVisualStyleBackColor = false;
-            this.confirm_btn.Click += new System.EventHandler(this.confirm_btn_Click);
-            // 
-            // card_grp
-            // 
-            this.card_grp.Controls.Add(this.cardType_combo);
-            this.card_grp.Location = new System.Drawing.Point(3, 2);
-            this.card_grp.Name = "card_grp";
-            this.card_grp.Size = new System.Drawing.Size(263, 73);
-            this.card_grp.TabIndex = 5;
-            this.card_grp.TabStop = false;
-            this.card_grp.Text = "Select Card Type";
-            // 
-            // cardType_combo
-            // 
-            this.cardType_combo.FormattingEnabled = true;
-            this.cardType_combo.Items.AddRange(new object[] {
-            "VISA",
-            "AMEX"});
-            this.cardType_combo.Location = new System.Drawing.Point(13, 28);
-            this.cardType_combo.Name = "cardType_combo";
-            this.cardType_combo.Size = new System.Drawing.Size(235, 28);
-            this.cardType_combo.TabIndex = 0;
-            // 
-            // lbl_changes
-            // 
-            this.lbl_changes.AutoSize = true;
-            this.lbl_changes.Location = new System.Drawing.Point(9, 149);
-            this.lbl_changes.Name = "lbl_changes";
-            this.lbl_changes.Size = new System.Drawing.Size(81, 20);
-            this.lbl_changes.TabIndex = 5;
-            this.lbl_changes.Text = "Changes :";
-            // 
-            // lbl_changesAmount
-            // 
-            this.lbl_changesAmount.AutoSize = true;
-            this.lbl_changesAmount.Location = new System.Drawing.Point(206, 149);
-            this.lbl_changesAmount.Name = "lbl_changesAmount";
-            this.lbl_changesAmount.Size = new System.Drawing.Size(0, 20);
-            this.lbl_changesAmount.TabIndex = 6;
-            // 
             // Bill_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -699,6 +746,7 @@
             this.pnl_paymentComplete.ResumeLayout(false);
             this.pnl_payment.ResumeLayout(false);
             this.pnl_payment.PerformLayout();
+            this.card_grp.ResumeLayout(false);
             this.pnl_Summary.ResumeLayout(false);
             this.pnl_Summary.PerformLayout();
             this.pnl_comment.ResumeLayout(false);
@@ -706,7 +754,6 @@
             this.pnl_layout.ResumeLayout(false);
             this.pnl_layout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.card_grp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -770,5 +817,9 @@
         private System.Windows.Forms.ComboBox cardType_combo;
         private System.Windows.Forms.Label lbl_changesAmount;
         private System.Windows.Forms.Label lbl_changes;
+        private System.Windows.Forms.Label lbl_layout_changes;
+        private System.Windows.Forms.Label lbl_layout_changesAmount;
+        private System.Windows.Forms.Label lbl_amountPaid;
+        private System.Windows.Forms.Label lbl_paid;
     }
 }

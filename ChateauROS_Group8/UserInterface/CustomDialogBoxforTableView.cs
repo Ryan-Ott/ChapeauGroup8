@@ -30,5 +30,12 @@ namespace UserInterface
             orderHome.SetTableAndEmployee(table, employee);
             orderHome.ShowDialog();
         }
+
+        private void btn_PayOrder_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Bill_Home bill_Home = new Bill_Home(table);
+            bill_Home.ShowDialog();
+        }
     }
 }
