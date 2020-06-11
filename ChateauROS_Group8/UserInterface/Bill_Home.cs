@@ -55,13 +55,13 @@ namespace UserInterface
                 //fill all ordered items in the bill
                 FillOrderItems(order.orderItems);
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 MessageBox.Show($"{error.Message}", "Error", MessageBoxButtons.OK);
                 Close();
             }
         }
-        private void DisplayBillInformation(Order order,Bill bill)
+        private void DisplayBillInformation(Order order, Bill bill)
         {
             lbl_billID.Text = order.BillID.ToString();
             lbl_orderID.Text = order.OrderID.ToString();
@@ -172,11 +172,11 @@ namespace UserInterface
             }
 
             //if there is no comment received from the customer, the comment is set to "none"
-            if(order.Comment == "")
+            if (order.Comment == "")
                 order.Comment = "none";
 
             //store data to the database and update order and table status
-            bill_Service.EditBill(bill,order);
+            bill_Service.EditBill(bill, order);
 
             pnl_paymentComplete.Show();
         }

@@ -483,7 +483,7 @@
             // lbl_amountPaid
             // 
             this.lbl_amountPaid.AutoSize = true;
-            this.lbl_amountPaid.Location = new System.Drawing.Point(444, 478);
+            this.lbl_amountPaid.Location = new System.Drawing.Point(444, 474);
             this.lbl_amountPaid.Name = "lbl_amountPaid";
             this.lbl_amountPaid.Size = new System.Drawing.Size(31, 20);
             this.lbl_amountPaid.TabIndex = 13;
