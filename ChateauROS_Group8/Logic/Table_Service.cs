@@ -44,6 +44,7 @@ namespace Logic
 
         public void EditTable(Table currentTable)
         {
+
             try
             {
                 tab_DAO.EditTable(currentTable);
@@ -53,6 +54,7 @@ namespace Logic
                 Console.WriteLine("Could not edit table " + e.Message);
                 throw;
             }
+
         }
     }
 }

@@ -22,11 +22,38 @@ namespace UserInterface
         
         public TableView(Employee employee)
         {
-            table_Service.GetAllTables();
+            //table_Service.GetAllTables();
             InitializeComponent();
             
             table = new Table();
             this.employee = employee;
+            IntializeTable();
+        }
+
+        private void IntializeTable()
+        {
+            List<Label> tableLabelList = new List<Label>
+            {
+                table1, table2, table3, table4, table5, table6, table7, table8, table9, table10
+            };
+
+            List<Table> tables = table_Service.GetAllTables();
+            for (int i = 0; i < tables.Count; i++)
+                switch (tables[i].TableState)
+            {
+                    case TableState.available:
+                        tableLabelList[i].BackColor = Color.Green;
+                        break;
+                    case TableState.occupied:
+                        tableLabelList[i].BackColor = Color.Red;
+                        break;
+                    case TableState.reserved:
+                        tableLabelList[i].BackColor = Color.Yellow;
+                        break;
+
+
+                }
+            /// if tablestate.available
         }
 
         private void ChangeTableState(int tableID, Label tableLabel)
@@ -42,6 +69,7 @@ namespace UserInterface
             }
             else if (dialogResult.DialogResult.Equals(DialogResult.Yes))
             {
+                
                 tableLabel.BackColor = Color.Yellow;
                 table.TableState = TableState.reserved;
             }
@@ -125,6 +153,7 @@ namespace UserInterface
 
         private void TableView_Load_1(object sender, EventArgs e)
         {
+
             //table = new Table();
 
             // List<Table> tables = table_Service.GetAllTables();
