@@ -16,13 +16,15 @@ namespace UserInterface
     public partial class TableView : Form
     {
         Table_Service table_Service = new Table_Service();
-        
+       
         Table table;
         Employee employee;
         
         public TableView(Employee employee)
         {
+            table_Service.GetAllTables();
             InitializeComponent();
+            
             table = new Table();
             this.employee = employee;
         }
@@ -123,7 +125,16 @@ namespace UserInterface
 
         private void TableView_Load_1(object sender, EventArgs e)
         {
+            //table = new Table();
+
+            // List<Table> tables = table_Service.GetAllTables();
             table_Service.GetAllTables();
+            
+            
+            
+           
         }
+
+       
     }
 }
