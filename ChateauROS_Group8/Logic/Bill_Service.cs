@@ -12,6 +12,7 @@ namespace Logic
     { 
         private Bill_DAO bill_DAO = new Bill_DAO();
         private OrderAndOrderItem_DAO orderAndOrderItem_DAO = new OrderAndOrderItem_DAO();
+        private Table_DAO table_DAO = new Table_DAO();
 
         public void AddNewBill(Bill bill)
         {
@@ -32,9 +33,11 @@ namespace Logic
             {
                 bill_DAO.DB_EditBill(bill);
 
+                //updating order and table status
                 order.Completed = true;
                 order.Table.TableState = TableState.available;
                 orderAndOrderItem_DAO.DB_EditOrder(order);
+                table_DAO.EditTable(order.Table);
             }
             catch (Exception e)
             {

@@ -21,10 +21,12 @@ namespace UserInterface
         private Bill_Service bill_Service = new Bill_Service();
         private Bill bill;
         private Order order;
-        public Bill_Home(Table table)
+        private Employee currentEmployee;
+        public Bill_Home(Table table,Employee employee)
         {
             InitializeComponent();
             this.table = table;
+            currentEmployee = employee;
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -66,7 +68,7 @@ namespace UserInterface
             lbl_billID.Text = order.BillID.ToString();
             lbl_orderID.Text = order.OrderID.ToString();
             lbl_tableID.Text = order.Table.TableID.ToString();
-            lbl_emID.Text = order.Employee.EmployeeID.ToString();
+            lbl_emID.Text = currentEmployee.EmployeeID.ToString();
             lbl_Date.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             lbl_totalNoVAT.Text = (bill.Total - (bill.Tax21 + bill.Tax6)).ToString("0.00") + " €";
             lbl_VAT.Text = (bill.Tax21 + bill.Tax6).ToString("0.00") + " €";
@@ -83,7 +85,7 @@ namespace UserInterface
                 ListViewItem list = new ListViewItem(item.OrderItemID.ToString());
                 list.SubItems.Add(item.MenuItem.Name);
                 list.SubItems.Add(item.Quantity.ToString());
-                list.SubItems.Add(item.MenuItem.Price.ToString());
+                list.SubItems.Add((item.MenuItem.Price * item.Quantity).ToString());
                 listView_Items.Items.Add(list);
             }
         }
@@ -213,10 +215,30 @@ namespace UserInterface
             bill.AmountPaid = double.Parse(txt_received.Text);
             lbl_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
 
-            lbl_amountPaid.Text = txt_received.Text;
+            lbl_amountPaid.Text = txt_received.Text + " €";
             lbl_layout_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
         }
         private void lbl_layout_changesAmount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_totalNoVAT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_VAT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_total_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_amountPaid_Click(object sender, EventArgs e)
         {
 
         }
