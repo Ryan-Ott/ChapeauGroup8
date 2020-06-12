@@ -79,7 +79,7 @@ namespace UserInterface
             try
             {
                 table_Service.EditTable(table);
-                //Show();
+                Show();
             }
             catch (Exception e)
             {
