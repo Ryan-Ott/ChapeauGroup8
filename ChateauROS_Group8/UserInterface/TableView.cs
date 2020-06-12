@@ -70,7 +70,7 @@ namespace UserInterface
                 tableLabel.BackColor = Color.Yellow;
                 table.TableState = TableState.reserved;
             }
-            else if (dialogResult.DialogResult.Equals(DialogResult.Cancel))
+            else if (dialogResult.DialogResult.Equals(DialogResult.OK))
             {
                 tableLabel.BackColor = Color.Green;
                 table.TableState = TableState.available;
@@ -91,6 +91,9 @@ namespace UserInterface
             Hide();
             HomeScreen homeScreen = new HomeScreen(employee);
             homeScreen.ShowDialog();
+            
+
+          
         }
 
         private void label1_Click(object sender, EventArgs e)
