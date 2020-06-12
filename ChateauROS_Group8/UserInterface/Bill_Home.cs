@@ -22,7 +22,7 @@ namespace UserInterface
         private Bill bill;
         private Order order;
         private Employee currentEmployee;
-        public Bill_Home(Table table,Employee employee)
+        public Bill_Home(Table table, Employee employee)
         {
             InitializeComponent();
             this.table = table;
@@ -207,7 +207,7 @@ namespace UserInterface
         }
         private void backToTbView_btn_Click(object sender, EventArgs e)
         {
-            Close();
+            CloseForm();
         }
 
         private void confirm_btn_Click(object sender, EventArgs e)
@@ -217,6 +217,12 @@ namespace UserInterface
 
             lbl_amountPaid.Text = txt_received.Text + " €";
             lbl_layout_changesAmount.Text = (bill.AmountPaid - bill.Total).ToString("0.00") + " €";
+        }
+        private void CloseForm()
+        {
+            Close();
+            TableView tableView = new TableView(currentEmployee);
+            tableView.Show();
         }
         private void lbl_layout_changesAmount_Click(object sender, EventArgs e)
         {
