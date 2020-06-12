@@ -98,6 +98,7 @@
             this.liv_MenuItems.TabIndex = 12;
             this.liv_MenuItems.UseCompatibleStateImageBehavior = false;
             this.liv_MenuItems.View = System.Windows.Forms.View.Details;
+            this.liv_MenuItems.SelectedIndexChanged += new System.EventHandler(this.liv_MenuItems_SelectedIndexChanged);
             // 
             // btn_AddItem
             // 
