@@ -38,7 +38,7 @@ namespace UserInterface
         {
             Hide();
             TableView tableView = new TableView(currentEmployee);
-            tableView.ShowDialog();
+            tableView.Show();
         }
 
         private void lbl_KitchenView_Click(object sender, EventArgs e)

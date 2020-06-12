@@ -16,15 +16,16 @@ namespace UserInterface
     public partial class TableView : Form
     {
         Table_Service table_Service = new Table_Service();
-       
+
         Table table;
         Employee employee;
+        TableView tableView;
         
         public TableView(Employee employee)
         {
             //table_Service.GetAllTables();
             InitializeComponent();
-            
+
             table = new Table();
             this.employee = employee;
             IntializeTable();
@@ -55,9 +56,9 @@ namespace UserInterface
 
         private void ChangeTableState(int tableID, Label tableLabel)
         {
-            CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee);
-            table.TableID = tableID;
             Hide();
+            CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+            table.TableID = tableID;
             dialogResult.ShowDialog();
             if (dialogResult.DialogResult.Equals(DialogResult.No))
             {
@@ -91,9 +92,6 @@ namespace UserInterface
             Hide();
             HomeScreen homeScreen = new HomeScreen(employee);
             homeScreen.ShowDialog();
-            
-
-          
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -113,7 +111,16 @@ namespace UserInterface
 
         private void table4_Click(object sender, EventArgs e)
         {
-            ChangeTableState(4, table4);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(4, table4);
+            }
+            else
+            {
+                this.Hide();
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table5_Click(object sender, EventArgs e)

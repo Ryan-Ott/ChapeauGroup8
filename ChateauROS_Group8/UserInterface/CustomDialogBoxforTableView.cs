@@ -15,16 +15,19 @@ namespace UserInterface
     {
         Table table;
         Employee employee;
-        public CustomDialogBoxforTableView(Table table, Employee employee)
+        TableView currentForm;
+        public CustomDialogBoxforTableView(Table table, Employee employee, TableView tableView)
         {
             InitializeComponent();
             this.table = table;
             this.employee = employee;
+            currentForm = tableView;
         }
 
         private void btn_TakeNewOrder_Click(object sender, EventArgs e)
         {
-            Hide();
+            this.Hide();
+            currentForm.Hide();
             Order_Home orderHome = Order_Home.GetInstance();
             orderHome.SetTableAndEmployee(table, employee);
             orderHome.ShowDialog();
@@ -32,9 +35,10 @@ namespace UserInterface
 
         private void btn_PayOrder_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            currentForm.Hide();
             Bill_Home bill_Home = new Bill_Home(table,employee);
-            bill_Home.Show();
+            bill_Home.ShowDialog();
         }
 
         private void exit_Click(object sender, EventArgs e)
