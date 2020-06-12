@@ -297,6 +297,7 @@
             this.Controls.Add(this.btn_Order);
             this.Controls.Add(this.pnl_MenuSelect);
             this.Name = "Order_MenuSelect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Select";
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.pnl_MenuSelect.ResumeLayout(false);
