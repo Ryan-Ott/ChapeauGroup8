@@ -15,7 +15,6 @@ namespace UserInterface
     {
         Table table;
         Employee employee;
-
         public CustomDialogBoxforTableView(Table table, Employee employee)
         {
             InitializeComponent();
@@ -33,9 +32,9 @@ namespace UserInterface
 
         private void btn_PayOrder_Click(object sender, EventArgs e)
         {
-            Close();
-            Bill_Home bill_Home = new Bill_Home(table);
-            bill_Home.ShowDialog();
+            this.Close();
+            Bill_Home bill_Home = new Bill_Home(table,employee);
+            bill_Home.Show();
         }
     }
 }
