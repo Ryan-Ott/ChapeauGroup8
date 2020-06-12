@@ -52,6 +52,7 @@ namespace UserInterface
                         break;
 
 
+             
                 }
             /// if tablestate.available
         }

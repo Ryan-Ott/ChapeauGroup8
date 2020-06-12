@@ -53,8 +53,10 @@ namespace UserInterface
 
         private void pnl_KitchenView_Click(object sender, EventArgs e)
         {
-            //Kevin, do what you need to do here
-            //(look at pnl_TableOverview_Click() if you need inspiration)
+            Hide();
+            string kob = "kitchen";
+            OrderStatus orderstatus = new OrderStatus(kob, currentEmployee);
+            orderstatus.ShowDialog();
         }
 
         private void lbl_BarView_Click(object sender, EventArgs e)
@@ -69,8 +71,10 @@ namespace UserInterface
 
         private void pnl_BarView_Click(object sender, EventArgs e)
         {
-            //Kevin, do what you need to do here
-            //(look at pnl_TableOverview_Click() if you need inspiration)
+            Hide();
+            string kob = "bar";
+            OrderStatus orderstatus = new OrderStatus(kob, currentEmployee);
+            orderstatus.ShowDialog();
         }
 
         private void lbl_Stock_Click(object sender, EventArgs e)

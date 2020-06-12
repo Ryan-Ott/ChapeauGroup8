@@ -11,34 +11,31 @@ namespace UserInterface
 
         private OrderAndOrderItem_Service Orderserv = new OrderAndOrderItem_Service();
         Employee_Service employeeserv = new Employee_Service();
+        Employee employee;
         OrderItem currentorder;
-
-        public OrderStatus()
+        string kitchenorbar;
+        public OrderStatus(string kob, Employee ep)
         {
             InitializeComponent();
             currentorder = new OrderItem();
+            employee = ep;
+            kitchenorbar = kob;
             kitchenlbl.Hide();
             Barlbl.Hide();
             serverlbl.Hide();
             Checkmarkpic.Hide();
             Crossmarkpic.Hide();
-            Start();
+            Start(kitchenorbar);
         }
 
-        private void Start()
+        private void Start(string kitchenorbar)
         {
-            Employee orderTaker = employeeserv.GetByID(4);
-            if (orderTaker.Type == Type.waiter)
-            {
-                serverlbl.Show();
-                DisplayAllOrders();
-            }
-            if (orderTaker.Type == Type.kitchen)
+            if (kitchenorbar == "kitchen")
             {
                 kitchenlbl.Show();
                 DisplayKitchenOrders();
             }
-            if (orderTaker.Type == Type.bar)
+            if (kitchenorbar == "bar")
             {
                 Barlbl.Show();
                 DisplayBarOrders();
@@ -219,7 +216,7 @@ namespace UserInterface
             try
             {
                 Orderserv.Changetordy(currentorder);
-                Start();
+                Start(kitchenorbar);
                 Checkmarkpic.Show();
             }
             catch (Exception e)
@@ -238,7 +235,7 @@ namespace UserInterface
             try
             {
                 Orderserv.Changetoprpred(currentorder);
-                Start();
+                Start(kitchenorbar);
                 Checkmarkpic.Show();
             }
             catch (Exception e)
@@ -260,7 +257,14 @@ namespace UserInterface
 
         private void autorefresh_Tick(object sender, EventArgs e)
         {
-            Start();
+            Start(kitchenorbar);
+        }
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            HomeScreen hs = new HomeScreen(employee);
+            hs.ShowDialog();
         }
     }
 }

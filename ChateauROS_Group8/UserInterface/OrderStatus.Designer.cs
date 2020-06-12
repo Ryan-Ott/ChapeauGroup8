@@ -59,6 +59,7 @@
             this.Checkmarkpic = new System.Windows.Forms.PictureBox();
             this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
             this.autorefresh = new System.Windows.Forms.Timer(this.components);
+            this.exitbtn = new System.Windows.Forms.Button();
             this.rdytablcontrol.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -312,7 +313,7 @@
             // Crossmarkpic
             // 
             this.Crossmarkpic.Image = global::UserInterface.Properties.Resources.CrossMark;
-            this.Crossmarkpic.Location = new System.Drawing.Point(892, 484);
+            this.Crossmarkpic.Location = new System.Drawing.Point(832, 484);
             this.Crossmarkpic.Margin = new System.Windows.Forms.Padding(2);
             this.Crossmarkpic.Name = "Crossmarkpic";
             this.Crossmarkpic.Size = new System.Drawing.Size(65, 62);
@@ -323,7 +324,7 @@
             // Checkmarkpic
             // 
             this.Checkmarkpic.Image = global::UserInterface.Properties.Resources.CheckMark;
-            this.Checkmarkpic.Location = new System.Drawing.Point(892, 484);
+            this.Checkmarkpic.Location = new System.Drawing.Point(832, 484);
             this.Checkmarkpic.Margin = new System.Windows.Forms.Padding(2);
             this.Checkmarkpic.Name = "Checkmarkpic";
             this.Checkmarkpic.Size = new System.Drawing.Size(65, 62);
@@ -348,12 +349,24 @@
             this.autorefresh.Interval = 60000;
             this.autorefresh.Tick += new System.EventHandler(this.autorefresh_Tick);
             // 
+            // exitbtn
+            // 
+            this.exitbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.exitbtn.Location = new System.Drawing.Point(949, 517);
+            this.exitbtn.Name = "exitbtn";
+            this.exitbtn.Size = new System.Drawing.Size(74, 29);
+            this.exitbtn.TabIndex = 25;
+            this.exitbtn.Text = "Exit";
+            this.exitbtn.UseVisualStyleBackColor = false;
+            this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
+            // 
             // OrderStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1044, 563);
+            this.ClientSize = new System.Drawing.Size(1044, 559);
+            this.Controls.Add(this.exitbtn);
             this.Controls.Add(this.Crossmarkpic);
             this.Controls.Add(this.Checkmarkpic);
             this.Controls.Add(this.serverlbl);
@@ -410,5 +423,6 @@
         private System.Windows.Forms.PictureBox Checkmarkpic;
         private System.Windows.Forms.PictureBox Crossmarkpic;
         private System.Windows.Forms.Timer autorefresh;
+        private System.Windows.Forms.Button exitbtn;
     }
 }

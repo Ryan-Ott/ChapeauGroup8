@@ -21,7 +21,7 @@ namespace UserInterface
             //Application.Run(new HomeScreen(new Employee()));
             //Application.Run(new TableView());
             //Application.Run(Order_Home.GetInstance());
-            //Application.Run(new Bill_Home());
+            //Application.Run(new OrderStatus());
         }
     }
 }
