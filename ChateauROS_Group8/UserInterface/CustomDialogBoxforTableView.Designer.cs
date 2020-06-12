@@ -36,6 +36,7 @@
             this.btn_PayOrder = new System.Windows.Forms.Button();
             this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
             this.exit = new System.Windows.Forms.Button();
+            this.displayOrderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +91,7 @@
             this.btn_TakeNewOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
             this.btn_TakeNewOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TakeNewOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_TakeNewOrder.Location = new System.Drawing.Point(87, 259);
+            this.btn_TakeNewOrder.Location = new System.Drawing.Point(10, 221);
             this.btn_TakeNewOrder.Margin = new System.Windows.Forms.Padding(1);
             this.btn_TakeNewOrder.Name = "btn_TakeNewOrder";
             this.btn_TakeNewOrder.Size = new System.Drawing.Size(150, 41);
@@ -104,7 +105,7 @@
             this.btn_PayOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
             this.btn_PayOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PayOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_PayOrder.Location = new System.Drawing.Point(254, 259);
+            this.btn_PayOrder.Location = new System.Drawing.Point(163, 222);
             this.btn_PayOrder.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PayOrder.Name = "btn_PayOrder";
             this.btn_PayOrder.Size = new System.Drawing.Size(139, 41);
@@ -134,12 +135,27 @@
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
+            // displayOrderBtn
+            // 
+            this.displayOrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.displayOrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayOrderBtn.ForeColor = System.Drawing.Color.White;
+            this.displayOrderBtn.Location = new System.Drawing.Point(306, 222);
+            this.displayOrderBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.displayOrderBtn.Name = "displayOrderBtn";
+            this.displayOrderBtn.Size = new System.Drawing.Size(177, 52);
+            this.displayOrderBtn.TabIndex = 8;
+            this.displayOrderBtn.Text = "Display Current Order for this Table";
+            this.displayOrderBtn.UseVisualStyleBackColor = false;
+            this.displayOrderBtn.Click += new System.EventHandler(this.displayOrderBtn_Click);
+            // 
             // CustomDialogBoxforTableView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(215)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(512, 389);
+            this.Controls.Add(this.displayOrderBtn);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.btn_PayOrder);
@@ -170,5 +186,6 @@
         private System.Windows.Forms.Button btn_PayOrder;
         private System.Windows.Forms.PictureBox pbox_ChapeauLogo;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button displayOrderBtn;
     }
 }

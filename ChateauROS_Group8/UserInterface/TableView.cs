@@ -230,10 +230,6 @@ namespace UserInterface
         private void TableView_Load_1(object sender, EventArgs e)
         {
 
-            //table = new Table();
-
-            // List<Table> tables = table_Service.GetAllTables();
-            table_Service.GetAllTables();
             
             
             
