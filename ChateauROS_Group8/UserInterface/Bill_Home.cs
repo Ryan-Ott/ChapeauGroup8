@@ -60,7 +60,7 @@ namespace UserInterface
             catch (Exception error)
             {
                 MessageBox.Show($"{error.Message}", "Error", MessageBoxButtons.OK);
-                Close();
+                CloseForm();
             }
         }
         private void DisplayBillInformation(Order order, Bill bill)
@@ -122,11 +122,25 @@ namespace UserInterface
 
         private void CardPayment(Bill bill)
         {
-            string cardType = cardType_combo.SelectedItem.ToString();
-            if (PaymentMethod.VISA.ToString() == cardType)
-                bill.PaymentMethod = PaymentMethod.VISA;
-            else
-                bill.PaymentMethod = PaymentMethod.AMEX;
+            try
+            {
+                if (cardType_combo.SelectedItem == null)
+                {
+                    throw new Exception();
+                }
+
+                string cardType = cardType_combo.SelectedItem.ToString();
+
+                if (PaymentMethod.VISA.ToString() == cardType)
+                    bill.PaymentMethod = PaymentMethod.VISA;
+                else
+                    bill.PaymentMethod = PaymentMethod.AMEX;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select the payment method!", "Error", MessageBoxButtons.OK);
+                return;
+            }
         }
 
         private void PinPayment(Bill bill)
@@ -144,7 +158,7 @@ namespace UserInterface
 
         private void cancel_btn_Click(object sender, EventArgs e)
         {
-            Close();
+            CloseForm();
         }
         private void card_rb_CheckedChanged(object sender, EventArgs e)
         {
@@ -221,11 +235,11 @@ namespace UserInterface
         private void CloseForm()
         {
             //close this bill form
-            Close();
+            Hide();
 
             //generate new table view window with the updated table status
             TableView tableView = new TableView(currentEmployee);
-            tableView.Show();
+            tableView.ShowDialog();
         }
         private void lbl_layout_changesAmount_Click(object sender, EventArgs e)
         {

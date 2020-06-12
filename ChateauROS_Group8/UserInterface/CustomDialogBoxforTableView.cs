@@ -41,7 +41,7 @@ namespace UserInterface
             bill_Home.ShowDialog();
 
             //hide the old table view form and show new one with the updated table status
-            currentForm.Close();
+            currentForm.Hide();
         }
 
         private void exit_Click(object sender, EventArgs e)

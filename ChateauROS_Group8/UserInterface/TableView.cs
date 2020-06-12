@@ -94,17 +94,41 @@ namespace UserInterface
 
         private void label1_Click(object sender, EventArgs e)
         {
-            ChangeTableState(1, table1);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(1, table1);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table2_Click(object sender, EventArgs e)
         {
-            ChangeTableState(2, table2);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(2, table2);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table3_Click(object sender, EventArgs e)
         {
-            ChangeTableState(3, table3);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(3, table3);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table4_Click(object sender, EventArgs e)
@@ -122,32 +146,80 @@ namespace UserInterface
 
         private void table5_Click(object sender, EventArgs e)
         {
-            ChangeTableState(5, table5);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(5, table5);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table6_Click(object sender, EventArgs e)
         {
-            ChangeTableState(6, table6);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(6, table6);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table7_Click(object sender, EventArgs e)
         {
-            ChangeTableState(7, table7);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(7, table7);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table8_Click(object sender, EventArgs e)
         {
-            ChangeTableState(8, table8);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(8, table8);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-            ChangeTableState(9, table9);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(9, table9);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void table10_Click(object sender, EventArgs e)
         {
-            ChangeTableState(10, table10);
+            if (table.TableState != TableState.occupied)
+            {
+                ChangeTableState(10, table10);
+            }
+            else
+            {
+                CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
+                dialogResult.ShowDialog();
+            }
         }
 
         private void TableView_FormClosing(object sender, FormClosingEventArgs e)
