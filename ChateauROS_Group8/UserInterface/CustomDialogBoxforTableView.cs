@@ -36,5 +36,10 @@ namespace UserInterface
             Bill_Home bill_Home = new Bill_Home(table,employee);
             bill_Home.Show();
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
