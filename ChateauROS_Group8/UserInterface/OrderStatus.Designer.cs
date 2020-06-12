@@ -54,7 +54,6 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Barlbl = new System.Windows.Forms.Label();
-            this.serverlbl = new System.Windows.Forms.Label();
             this.Crossmarkpic = new System.Windows.Forms.PictureBox();
             this.Checkmarkpic = new System.Windows.Forms.PictureBox();
             this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
@@ -73,10 +72,10 @@
             this.kitchenlbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
             this.kitchenlbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.kitchenlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kitchenlbl.Location = new System.Drawing.Point(326, 33);
+            this.kitchenlbl.Location = new System.Drawing.Point(34, 43);
             this.kitchenlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.kitchenlbl.Name = "kitchenlbl";
-            this.kitchenlbl.Size = new System.Drawing.Size(479, 48);
+            this.kitchenlbl.Size = new System.Drawing.Size(237, 48);
             this.kitchenlbl.TabIndex = 15;
             this.kitchenlbl.Text = "Orders Status: Kitchen";
             this.kitchenlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -102,7 +101,7 @@
             this.Corderview.HideSelection = false;
             this.Corderview.Location = new System.Drawing.Point(0, 0);
             this.Corderview.Name = "Corderview";
-            this.Corderview.Size = new System.Drawing.Size(768, 431);
+            this.Corderview.Size = new System.Drawing.Size(768, 419);
             this.Corderview.TabIndex = 12;
             this.Corderview.UseCompatibleStateImageBehavior = false;
             this.Corderview.View = System.Windows.Forms.View.Details;
@@ -146,10 +145,10 @@
             // requeststxt
             // 
             this.requeststxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requeststxt.Location = new System.Drawing.Point(832, 159);
+            this.requeststxt.Location = new System.Drawing.Point(32, 315);
             this.requeststxt.Name = "requeststxt";
             this.requeststxt.ReadOnly = true;
-            this.requeststxt.Size = new System.Drawing.Size(191, 168);
+            this.requeststxt.Size = new System.Drawing.Size(216, 73);
             this.requeststxt.TabIndex = 14;
             this.requeststxt.Text = "";
             this.requeststxt.TextChanged += new System.EventHandler(this.requeststxt_TextChanged);
@@ -158,11 +157,11 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(832, 121);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label1.Location = new System.Drawing.Point(32, 271);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 35);
+            this.label1.Size = new System.Drawing.Size(216, 41);
             this.label1.TabIndex = 16;
             this.label1.Text = "Order Comments:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,9 +169,9 @@
             // prepbtn
             // 
             this.prepbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
-            this.prepbtn.Location = new System.Drawing.Point(832, 354);
+            this.prepbtn.Location = new System.Drawing.Point(259, 271);
             this.prepbtn.Name = "prepbtn";
-            this.prepbtn.Size = new System.Drawing.Size(191, 57);
+            this.prepbtn.Size = new System.Drawing.Size(121, 41);
             this.prepbtn.TabIndex = 17;
             this.prepbtn.Text = "Change to Preparing";
             this.prepbtn.UseVisualStyleBackColor = false;
@@ -181,9 +180,9 @@
             // rdybtn
             // 
             this.rdybtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
-            this.rdybtn.Location = new System.Drawing.Point(832, 428);
+            this.rdybtn.Location = new System.Drawing.Point(384, 271);
             this.rdybtn.Name = "rdybtn";
-            this.rdybtn.Size = new System.Drawing.Size(191, 57);
+            this.rdybtn.Size = new System.Drawing.Size(121, 41);
             this.rdybtn.TabIndex = 18;
             this.rdybtn.Text = "Change to Ready";
             this.rdybtn.UseVisualStyleBackColor = false;
@@ -194,11 +193,11 @@
             this.rdytablcontrol.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.rdytablcontrol.Controls.Add(this.tabPage1);
             this.rdytablcontrol.Controls.Add(this.tabPage2);
-            this.rdytablcontrol.Location = new System.Drawing.Point(10, 107);
+            this.rdytablcontrol.Location = new System.Drawing.Point(11, 107);
             this.rdytablcontrol.Multiline = true;
             this.rdytablcontrol.Name = "rdytablcontrol";
             this.rdytablcontrol.SelectedIndex = 0;
-            this.rdytablcontrol.Size = new System.Drawing.Size(795, 439);
+            this.rdytablcontrol.Size = new System.Drawing.Size(498, 155);
             this.rdytablcontrol.TabIndex = 19;
             // 
             // tabPage1
@@ -207,7 +206,7 @@
             this.tabPage1.Location = new System.Drawing.Point(23, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 431);
+            this.tabPage1.Size = new System.Drawing.Size(471, 147);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Orders";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -232,7 +231,7 @@
             this.Ordersview.HideSelection = false;
             this.Ordersview.Location = new System.Drawing.Point(0, 0);
             this.Ordersview.Name = "Ordersview";
-            this.Ordersview.Size = new System.Drawing.Size(768, 431);
+            this.Ordersview.Size = new System.Drawing.Size(471, 147);
             this.Ordersview.TabIndex = 13;
             this.Ordersview.UseCompatibleStateImageBehavior = false;
             this.Ordersview.View = System.Windows.Forms.View.Details;
@@ -250,7 +249,7 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Order ID";
+            this.columnHeader3.Text = "Table";
             this.columnHeader3.Width = 70;
             // 
             // columnHeader4
@@ -270,7 +269,7 @@
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Table ID";
+            this.columnHeader7.Text = "Order ID";
             this.columnHeader7.Width = 177;
             // 
             // tabPage2
@@ -279,7 +278,7 @@
             this.tabPage2.Location = new System.Drawing.Point(23, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 431);
+            this.tabPage2.Size = new System.Drawing.Size(471, 147);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Completed Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -289,34 +288,21 @@
             this.Barlbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
             this.Barlbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Barlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Barlbl.Location = new System.Drawing.Point(326, 33);
+            this.Barlbl.Location = new System.Drawing.Point(34, 43);
             this.Barlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Barlbl.Name = "Barlbl";
-            this.Barlbl.Size = new System.Drawing.Size(479, 48);
+            this.Barlbl.Size = new System.Drawing.Size(197, 48);
             this.Barlbl.TabIndex = 20;
             this.Barlbl.Text = "Orders Status: Bar";
             this.Barlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // serverlbl
-            // 
-            this.serverlbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
-            this.serverlbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.serverlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serverlbl.Location = new System.Drawing.Point(326, 33);
-            this.serverlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.serverlbl.Name = "serverlbl";
-            this.serverlbl.Size = new System.Drawing.Size(479, 48);
-            this.serverlbl.TabIndex = 21;
-            this.serverlbl.Text = "Orders Status: Waiter";
-            this.serverlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Crossmarkpic
             // 
             this.Crossmarkpic.Image = global::UserInterface.Properties.Resources.CrossMark;
-            this.Crossmarkpic.Location = new System.Drawing.Point(832, 484);
+            this.Crossmarkpic.Location = new System.Drawing.Point(366, 317);
             this.Crossmarkpic.Margin = new System.Windows.Forms.Padding(2);
             this.Crossmarkpic.Name = "Crossmarkpic";
-            this.Crossmarkpic.Size = new System.Drawing.Size(65, 62);
+            this.Crossmarkpic.Size = new System.Drawing.Size(32, 28);
             this.Crossmarkpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Crossmarkpic.TabIndex = 23;
             this.Crossmarkpic.TabStop = false;
@@ -324,10 +310,10 @@
             // Checkmarkpic
             // 
             this.Checkmarkpic.Image = global::UserInterface.Properties.Resources.CheckMark;
-            this.Checkmarkpic.Location = new System.Drawing.Point(832, 484);
+            this.Checkmarkpic.Location = new System.Drawing.Point(366, 317);
             this.Checkmarkpic.Margin = new System.Windows.Forms.Padding(2);
             this.Checkmarkpic.Name = "Checkmarkpic";
-            this.Checkmarkpic.Size = new System.Drawing.Size(65, 62);
+            this.Checkmarkpic.Size = new System.Drawing.Size(31, 28);
             this.Checkmarkpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Checkmarkpic.TabIndex = 22;
             this.Checkmarkpic.TabStop = false;
@@ -335,10 +321,10 @@
             // pbox_ChapeauLogo
             // 
             this.pbox_ChapeauLogo.Image = global::UserInterface.Properties.Resources.ChapeauLogo;
-            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(16, -6);
+            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(334, 11);
             this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pbox_ChapeauLogo.Name = "pbox_ChapeauLogo";
-            this.pbox_ChapeauLogo.Size = new System.Drawing.Size(198, 105);
+            this.pbox_ChapeauLogo.Size = new System.Drawing.Size(166, 80);
             this.pbox_ChapeauLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox_ChapeauLogo.TabIndex = 4;
             this.pbox_ChapeauLogo.TabStop = false;
@@ -352,7 +338,7 @@
             // exitbtn
             // 
             this.exitbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
-            this.exitbtn.Location = new System.Drawing.Point(949, 517);
+            this.exitbtn.Location = new System.Drawing.Point(349, 359);
             this.exitbtn.Name = "exitbtn";
             this.exitbtn.Size = new System.Drawing.Size(74, 29);
             this.exitbtn.TabIndex = 25;
@@ -365,11 +351,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1044, 559);
+            this.ClientSize = new System.Drawing.Size(512, 400);
             this.Controls.Add(this.exitbtn);
             this.Controls.Add(this.Crossmarkpic);
             this.Controls.Add(this.Checkmarkpic);
-            this.Controls.Add(this.serverlbl);
             this.Controls.Add(this.Barlbl);
             this.Controls.Add(this.rdybtn);
             this.Controls.Add(this.prepbtn);
@@ -380,6 +365,7 @@
             this.Controls.Add(this.rdytablcontrol);
             this.Name = "OrderStatus";
             this.Text = "OrderStatus";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderStatus_FormClosed);
             this.Load += new System.EventHandler(this.OrderStatus_Load);
             this.rdytablcontrol.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -419,7 +405,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label Barlbl;
-        private System.Windows.Forms.Label serverlbl;
         private System.Windows.Forms.PictureBox Checkmarkpic;
         private System.Windows.Forms.PictureBox Crossmarkpic;
         private System.Windows.Forms.Timer autorefresh;

@@ -8,6 +8,7 @@ namespace Models
 {
     public class OrderItem
     {
+        
         public OrderItem(int orderItemID, int orderID, MenuItem menuItem, int quantity, string requests, OrderState orderState, Table table, TimeSpan lastStateChange)
         {
             OrderItemID = orderItemID;
@@ -20,7 +21,7 @@ namespace Models
             LastStateChange = lastStateChange;
         }
 
-        public OrderItem() : this(0, 0, new MenuItem(), 1, "", OrderState.ordered, new Table(), TimeSpan.Zero)
+        public OrderItem() : this(0, 0, new MenuItem(), 1, "", OrderState.ordered, new Table(), DateTime.Now.TimeOfDay)
         {
         }
 
