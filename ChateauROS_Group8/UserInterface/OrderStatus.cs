@@ -14,6 +14,7 @@ namespace UserInterface
         Employee employee;
         OrderItem currentorder;
         string kitchenorbar;
+
         public OrderStatus(string kob, Employee ep)
         {
             InitializeComponent();
@@ -22,7 +23,6 @@ namespace UserInterface
             kitchenorbar = kob;
             kitchenlbl.Hide();
             Barlbl.Hide();
-            serverlbl.Hide();
             Checkmarkpic.Hide();
             Crossmarkpic.Hide();
             Start(kitchenorbar);
@@ -57,11 +57,11 @@ namespace UserInterface
                     {
                         ListViewItem item = new ListViewItem(order.MenuItem.Name);
                         item.SubItems.Add(order.Quantity.ToString());
-                        item.SubItems.Add(order.OrderID.ToString());
+                        item.SubItems.Add(order.Table.TableID.ToString());
                         item.SubItems.Add(order.OrderState.ToString());
                         item.SubItems.Add(order.LastStateChange.ToString());
                         item.SubItems.Add(order.OrderItemID.ToString());
-                        item.SubItems.Add(order.Table.TableID.ToString());
+                        item.SubItems.Add(order.OrderID.ToString());
                         item.SubItems.Add(order.Requests);
                         Ordersview.Items.Add(item);
                     }
@@ -69,11 +69,11 @@ namespace UserInterface
                     {
                         ListViewItem item = new ListViewItem(order.MenuItem.Name);
                         item.SubItems.Add(order.Quantity.ToString());
-                        item.SubItems.Add(order.OrderID.ToString());
+                        item.SubItems.Add(order.Table.TableID.ToString());
                         item.SubItems.Add(order.OrderState.ToString());
                         item.SubItems.Add(order.LastStateChange.ToString());
                         item.SubItems.Add(order.OrderItemID.ToString());
-                        item.SubItems.Add(order.Table.TableID.ToString());
+                        item.SubItems.Add(order.OrderID.ToString());
                         item.SubItems.Add(order.Requests);
                         Corderview.Items.Add(item);
                     }
@@ -96,11 +96,11 @@ namespace UserInterface
                     {
                         ListViewItem item = new ListViewItem(order.MenuItem.Name);
                         item.SubItems.Add(order.Quantity.ToString());
-                        item.SubItems.Add(order.OrderID.ToString());
+                        item.SubItems.Add(order.Table.TableID.ToString());
                         item.SubItems.Add(order.OrderState.ToString());
                         item.SubItems.Add(order.LastStateChange.ToString());
                         item.SubItems.Add(order.OrderItemID.ToString());
-                        item.SubItems.Add(order.Table.TableID.ToString());
+                        item.SubItems.Add(order.OrderID.ToString());
                         item.SubItems.Add(order.Requests);
                         Ordersview.Items.Add(item);
                     }
@@ -108,11 +108,11 @@ namespace UserInterface
                     {
                         ListViewItem item = new ListViewItem(order.MenuItem.Name);
                         item.SubItems.Add(order.Quantity.ToString());
-                        item.SubItems.Add(order.OrderID.ToString());
+                        item.SubItems.Add(order.Table.TableID.ToString());
                         item.SubItems.Add(order.OrderState.ToString());
                         item.SubItems.Add(order.LastStateChange.ToString());
                         item.SubItems.Add(order.OrderItemID.ToString());
-                        item.SubItems.Add(order.Table.TableID.ToString());
+                        item.SubItems.Add(order.OrderID.ToString());
                         item.SubItems.Add(order.Requests);
                         Corderview.Items.Add(item);
                     }
@@ -120,42 +120,7 @@ namespace UserInterface
             }
         }
 
-        private void DisplayAllOrders()
-        {
-            Corderview.Items.Clear();
-            Ordersview.Items.Clear();
-            
-                foreach (OrderItem order in Orderserv.GetOrderItems())
-                {
-                    OrderState ostate = order.OrderState;
-                    if (ostate == OrderState.ordered || ostate == OrderState.preparing)
-                    {
-                        ListViewItem item = new ListViewItem(order.MenuItem.Name);
-                        item.SubItems.Add(order.Quantity.ToString());
-                        item.SubItems.Add(order.OrderID.ToString());
-                        item.SubItems.Add(order.OrderState.ToString());
-                        item.SubItems.Add(order.LastStateChange.ToString());
-                        item.SubItems.Add(order.OrderItemID.ToString());
-                        item.SubItems.Add(order.Table.TableID.ToString());
-                        item.SubItems.Add(order.Requests);
-                        Ordersview.Items.Add(item);
-                    }
-                    else
-                    {
-                        ListViewItem item = new ListViewItem(order.MenuItem.Name);
-                        item.SubItems.Add(order.Quantity.ToString());
-                        item.SubItems.Add(order.OrderID.ToString());
-                        item.SubItems.Add(order.OrderState.ToString());
-                        item.SubItems.Add(order.LastStateChange.ToString());
-                        item.SubItems.Add(order.OrderItemID.ToString());
-                        item.SubItems.Add(order.Table.TableID.ToString());
-                        item.SubItems.Add(order.Requests);
-                        Corderview.Items.Add(item);
-                    }
-                }
-            
 
-        }
         private void OrderStatus_Load(object sender, EventArgs e)
         {
 
@@ -171,7 +136,6 @@ namespace UserInterface
             foreach (ListViewItem item in Corderview.SelectedItems)
             {
                 requeststxt.Text = item.SubItems[7].Text;
-                currentorder.OrderItemID = Convert.ToInt32(item.SubItems[5].Text);
             }
         }
         private void Ordersview_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,7 +156,7 @@ namespace UserInterface
             {
                 currentorder.OrderItemID = int.Parse(item.SubItems[5].Text);
             }
-             
+
             Preparing(currentorder.OrderItemID, orderstate);
         }
         private void rdybtn_Click(object sender, EventArgs e)
@@ -265,6 +229,10 @@ namespace UserInterface
             Hide();
             HomeScreen hs = new HomeScreen(employee);
             hs.ShowDialog();
+        }
+        private void OrderStatus_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            exitbtn_Click(sender, e);
         }
     }
 }
