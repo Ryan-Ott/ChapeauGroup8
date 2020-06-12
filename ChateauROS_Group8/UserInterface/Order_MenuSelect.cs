@@ -40,32 +40,32 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(1, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Specials_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(2, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Bites_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(3, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Starters_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(4, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Mains_Click(object sender, EventArgs e)
@@ -73,47 +73,47 @@ namespace UserInterface
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(5, CurrentOrder);
             menuItemSelect.Closed += (s, args) => Show();
-            menuItemSelect.Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Desserts_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(6, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_SoftDrinks_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(7, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_HotDrinks_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(8, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Beers_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(9, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Wines_Click(object sender, EventArgs e)
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(10, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.Closed += (s, args) => Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Home_Click(object sender, EventArgs e)

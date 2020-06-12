@@ -51,7 +51,7 @@ namespace Logic
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                throw;
+                return new Employee();
             }
         }
     }
