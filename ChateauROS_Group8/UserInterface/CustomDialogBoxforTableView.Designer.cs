@@ -34,16 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_TakeNewOrder = new System.Windows.Forms.Button();
             this.btn_PayOrder = new System.Windows.Forms.Button();
+            this.pbox_ChapeauLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // resBtn
             // 
             this.resBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
             this.resBtn.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.resBtn.Location = new System.Drawing.Point(44, 108);
-            this.resBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.resBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resBtn.Location = new System.Drawing.Point(46, 167);
             this.resBtn.Name = "resBtn";
-            this.resBtn.Size = new System.Drawing.Size(170, 35);
+            this.resBtn.Size = new System.Drawing.Size(126, 50);
             this.resBtn.TabIndex = 0;
             this.resBtn.Text = "Reserve this table";
             this.resBtn.UseVisualStyleBackColor = false;
@@ -52,10 +54,10 @@
             // 
             this.availBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
             this.availBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.availBtn.Location = new System.Drawing.Point(133, 167);
-            this.availBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.availBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availBtn.Location = new System.Drawing.Point(178, 167);
             this.availBtn.Name = "availBtn";
-            this.availBtn.Size = new System.Drawing.Size(208, 35);
+            this.availBtn.Size = new System.Drawing.Size(149, 50);
             this.availBtn.TabIndex = 1;
             this.availBtn.Text = "Cancel (Make Available)";
             this.availBtn.UseVisualStyleBackColor = false;
@@ -64,10 +66,10 @@
             // 
             this.busyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(226)))), ((int)(((byte)(130)))));
             this.busyBtn.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.busyBtn.Location = new System.Drawing.Point(272, 108);
-            this.busyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.busyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.busyBtn.Location = new System.Drawing.Point(333, 167);
             this.busyBtn.Name = "busyBtn";
-            this.busyBtn.Size = new System.Drawing.Size(170, 35);
+            this.busyBtn.Size = new System.Drawing.Size(126, 50);
             this.busyBtn.TabIndex = 2;
             this.busyBtn.Text = "Occupy this table";
             this.busyBtn.UseVisualStyleBackColor = false;
@@ -76,21 +78,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(62, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(120, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(362, 33);
+            this.label1.Size = new System.Drawing.Size(235, 24);
             this.label1.TabIndex = 3;
             this.label1.Text = "What would you like to do?";
             // 
             // btn_TakeNewOrder
             // 
             this.btn_TakeNewOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.btn_TakeNewOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TakeNewOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_TakeNewOrder.Location = new System.Drawing.Point(44, 223);
-            this.btn_TakeNewOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_TakeNewOrder.Location = new System.Drawing.Point(87, 259);
+            this.btn_TakeNewOrder.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btn_TakeNewOrder.Name = "btn_TakeNewOrder";
-            this.btn_TakeNewOrder.Size = new System.Drawing.Size(170, 33);
+            this.btn_TakeNewOrder.Size = new System.Drawing.Size(150, 41);
             this.btn_TakeNewOrder.TabIndex = 4;
             this.btn_TakeNewOrder.Text = "Take New Order";
             this.btn_TakeNewOrder.UseVisualStyleBackColor = false;
@@ -99,33 +101,48 @@
             // btn_PayOrder
             // 
             this.btn_PayOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(129)))), ((int)(((byte)(153)))));
+            this.btn_PayOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PayOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_PayOrder.Location = new System.Drawing.Point(272, 223);
+            this.btn_PayOrder.Location = new System.Drawing.Point(254, 259);
+            this.btn_PayOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_PayOrder.Name = "btn_PayOrder";
-            this.btn_PayOrder.Size = new System.Drawing.Size(170, 33);
+            this.btn_PayOrder.Size = new System.Drawing.Size(139, 41);
             this.btn_PayOrder.TabIndex = 5;
             this.btn_PayOrder.Text = "Pay Order";
             this.btn_PayOrder.UseVisualStyleBackColor = false;
             this.btn_PayOrder.Click += new System.EventHandler(this.btn_PayOrder_Click);
             // 
+            // pbox_ChapeauLogo
+            // 
+            this.pbox_ChapeauLogo.Image = global::UserInterface.Properties.Resources.ChapeauLogo;
+            this.pbox_ChapeauLogo.Location = new System.Drawing.Point(11, 11);
+            this.pbox_ChapeauLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.pbox_ChapeauLogo.Name = "pbox_ChapeauLogo";
+            this.pbox_ChapeauLogo.Size = new System.Drawing.Size(100, 52);
+            this.pbox_ChapeauLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbox_ChapeauLogo.TabIndex = 6;
+            this.pbox_ChapeauLogo.TabStop = false;
+            // 
             // CustomDialogBoxforTableView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(215)))), ((int)(((byte)(217)))));
-            this.ClientSize = new System.Drawing.Size(506, 292);
+            this.ClientSize = new System.Drawing.Size(512, 389);
+            this.Controls.Add(this.pbox_ChapeauLogo);
             this.Controls.Add(this.btn_PayOrder);
             this.Controls.Add(this.btn_TakeNewOrder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.busyBtn);
             this.Controls.Add(this.availBtn);
             this.Controls.Add(this.resBtn);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximumSize = new System.Drawing.Size(528, 348);
-            this.MinimumSize = new System.Drawing.Size(528, 348);
+            this.MaximumSize = new System.Drawing.Size(528, 428);
+            this.MinimumSize = new System.Drawing.Size(357, 240);
             this.Name = "CustomDialogBoxforTableView";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CustomDialogBoxforTableView";
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +156,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_TakeNewOrder;
         private System.Windows.Forms.Button btn_PayOrder;
+        private System.Windows.Forms.PictureBox pbox_ChapeauLogo;
     }
 }

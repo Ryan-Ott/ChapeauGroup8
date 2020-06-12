@@ -92,7 +92,7 @@ namespace UserInterface
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            this.Close();
             HomeScreen homeScreen = new HomeScreen(employee);
             homeScreen.ShowDialog();
         }
