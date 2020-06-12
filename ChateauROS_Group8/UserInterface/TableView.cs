@@ -16,9 +16,11 @@ namespace UserInterface
     public partial class TableView : Form
     {
         Table_Service table_Service = new Table_Service();
+        OrderAndOrderItem_Service order_Service = new OrderAndOrderItem_Service();
        
         Table table;
         Employee employee;
+
         
         public TableView(Employee employee)
         {
@@ -40,7 +42,7 @@ namespace UserInterface
             List<Table> tables = table_Service.GetAllTables();
             for (int i = 0; i < tables.Count; i++)
                 switch (tables[i].TableState)
-            {
+                {
                     case TableState.available:
                         tableLabelList[i].BackColor = Color.Green;
                         break;
@@ -50,11 +52,28 @@ namespace UserInterface
                     case TableState.reserved:
                         tableLabelList[i].BackColor = Color.Yellow;
                         break;
-
-
              
                 }
-            /// if tablestate.available
+            //List<OrderItem> orderStatus = order_Service.GetOrderItems();
+            //for (int o = 0; o < orderStatus.Count; o++)
+            //    switch (orderStatus[o].OrderState)
+            //    {
+            //        case OrderState.ready:
+            //            tableLabelList[o].BackColor = Color.Red;
+            //            break;
+            //        case OrderState.preparing:
+            //            tableLabelList[o].BackColor = Color.Red;
+            //            break;
+            //        case Order.
+
+            //    }
+
+           
+        }
+
+        private void OrderStatus()
+        {
+
         }
 
         private void ChangeTableState(int tableID, Label tableLabel)
@@ -67,6 +86,7 @@ namespace UserInterface
             {
                 tableLabel.BackColor = Color.Red;
                 table.TableState = TableState.occupied;
+                
             }
             else if (dialogResult.DialogResult.Equals(DialogResult.Yes))
             {
@@ -90,8 +110,11 @@ namespace UserInterface
             }
         }
 
+        //private void AutomaticTableState(int tableID, Label 
+
         private void exitButton_Click(object sender, EventArgs e)
         {
+
             Hide();
             HomeScreen homeScreen = new HomeScreen(employee);
             homeScreen.ShowDialog();
@@ -103,6 +126,7 @@ namespace UserInterface
         private void label1_Click(object sender, EventArgs e)
         {
             ChangeTableState(1, table1);
+          
         }
 
         private void table2_Click(object sender, EventArgs e)
