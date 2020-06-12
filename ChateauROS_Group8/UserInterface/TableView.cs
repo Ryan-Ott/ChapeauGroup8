@@ -40,7 +40,7 @@ namespace UserInterface
             List<Table> tables = table_Service.GetAllTables();
             for (int i = 0; i < tables.Count; i++)
                 switch (tables[i].TableState)
-            {
+                {
                     case TableState.available:
                         tableLabelList[i].BackColor = Color.Green;
                         break;
@@ -50,11 +50,7 @@ namespace UserInterface
                     case TableState.reserved:
                         tableLabelList[i].BackColor = Color.Yellow;
                         break;
-
-
-             
                 }
-            /// if tablestate.available
         }
 
         private void ChangeTableState(int tableID, Label tableLabel)
@@ -82,7 +78,7 @@ namespace UserInterface
             try
             {
                 table_Service.EditTable(table);
-                Show();
+                //Show();
             }
             catch (Exception e)
             {

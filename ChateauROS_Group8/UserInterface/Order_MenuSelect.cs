@@ -40,7 +40,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(1, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -48,7 +48,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(2, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -56,7 +56,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(3, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -64,7 +64,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(4, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -80,7 +80,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(6, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -88,7 +88,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(7, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -96,7 +96,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(8, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -104,7 +104,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(9, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 
@@ -112,7 +112,7 @@ namespace UserInterface
         {
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(10, CurrentOrder);
-            menuItemSelect.Closed += (s, args) => Close();
+            menuItemSelect.Closed += (s, args) => Show();
             menuItemSelect.Show();
         }
 

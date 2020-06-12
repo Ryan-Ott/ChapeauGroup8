@@ -123,7 +123,6 @@
             this.lbl_ItemSelect.Size = new System.Drawing.Size(311, 71);
             this.lbl_ItemSelect.TabIndex = 10;
             this.lbl_ItemSelect.Text = "Item Select";
-            this.lbl_ItemSelect.Click += new System.EventHandler(this.lbl_ItemSelect_Click);
             // 
             // lbl_Menu_Category
             // 
@@ -197,9 +196,8 @@
             this.Controls.Add(this.pnl_ItemSelect);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Order_MenuItemSelect";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order_MenuItemSelect";
-            this.Load += new System.EventHandler(this.Order_MenuItemSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_ChapeauLogo)).EndInit();
             this.pnl_ItemSelect.ResumeLayout(false);
             this.pnl_ItemSelect.PerformLayout();

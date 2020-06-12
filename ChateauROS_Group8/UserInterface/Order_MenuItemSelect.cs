@@ -16,7 +16,6 @@ namespace UserInterface
     {
         Category_Service categoryService = new Category_Service();
         MenuItem_Service menuItemService = new MenuItem_Service();
-        OrderAndOrderItem_Service orderAndOrderItemService = new OrderAndOrderItem_Service();
  
         Order currentOrder;
         int categoryID;
@@ -31,9 +30,14 @@ namespace UserInterface
             DisplayCurrentOrder();
         }
 
-        private void Order_MenuItemSelect_Load(object sender, EventArgs e)
+        private void CloseOtherWindows()
         {
-
+            List<Form> openForms = new List<Form>();
+            foreach (Form form in Application.OpenForms)
+                openForms.Add(form);
+            foreach (Form form in openForms)
+                if (this != form)
+                    form.Hide();
         }
 
         private void SetCategoryLabel()
@@ -71,11 +75,6 @@ namespace UserInterface
                 li.SubItems.Add(orderItem.Quantity.ToString());
                 liv_CurrentOrder.Items.Add(li);
             }
-        }
-
-        private void lbl_ItemSelect_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_Menus_Click(object sender, EventArgs e)
