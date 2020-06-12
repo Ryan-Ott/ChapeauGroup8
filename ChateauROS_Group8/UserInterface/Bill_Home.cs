@@ -220,7 +220,10 @@ namespace UserInterface
         }
         private void CloseForm()
         {
+            //close this bill form
             Close();
+
+            //generate new table view window with the updated table status
             TableView tableView = new TableView(currentEmployee);
             tableView.Show();
         }

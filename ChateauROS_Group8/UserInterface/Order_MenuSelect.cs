@@ -57,7 +57,7 @@ namespace UserInterface
             Hide();
             Order_MenuItemSelect menuItemSelect = new Order_MenuItemSelect(3, CurrentOrder);
             menuItemSelect.Closed += (s, args) => Close();
-            menuItemSelect.Show();
+            menuItemSelect.ShowDialog();
         }
 
         private void btn_Starters_Click(object sender, EventArgs e)

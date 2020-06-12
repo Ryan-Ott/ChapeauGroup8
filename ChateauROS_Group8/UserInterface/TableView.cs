@@ -19,7 +19,7 @@ namespace UserInterface
 
         Table table;
         Employee employee;
-        TableView tableView;
+
         
         public TableView(Employee employee)
         {
@@ -60,7 +60,6 @@ namespace UserInterface
 
         private void ChangeTableState(int tableID, Label tableLabel)
         {
-            Hide();
             CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
             table.TableID = tableID;
             dialogResult.ShowDialog();
@@ -83,7 +82,6 @@ namespace UserInterface
             try
             {
                 table_Service.EditTable(table);
-                Show();
             }
             catch (Exception e)
             {
@@ -121,7 +119,6 @@ namespace UserInterface
             }
             else
             {
-                this.Hide();
                 CustomDialogBoxforTableView dialogResult = new CustomDialogBoxforTableView(table, employee, this);
                 dialogResult.ShowDialog();
             }

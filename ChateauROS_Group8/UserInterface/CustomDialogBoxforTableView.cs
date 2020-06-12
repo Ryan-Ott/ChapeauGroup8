@@ -39,6 +39,9 @@ namespace UserInterface
             currentForm.Hide();
             Bill_Home bill_Home = new Bill_Home(table,employee);
             bill_Home.ShowDialog();
+
+            //hide the old table view form and show new one with the updated table status
+            currentForm.Close();
         }
 
         private void exit_Click(object sender, EventArgs e)
