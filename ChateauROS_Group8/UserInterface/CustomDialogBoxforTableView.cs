@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Models;
+using Logic;
 
 namespace UserInterface
 {
@@ -16,6 +17,11 @@ namespace UserInterface
         Table table;
         Employee employee;
         TableView currentForm;
+        string kb;
+        
+        OrderAndOrderItem_Service orderServ = new OrderAndOrderItem_Service();
+        
+
         public CustomDialogBoxforTableView(Table table, Employee employee, TableView tableView)
         {
             InitializeComponent();
@@ -39,11 +45,27 @@ namespace UserInterface
             currentForm.Hide();
             Bill_Home bill_Home = new Bill_Home(table,employee);
             bill_Home.ShowDialog();
+
+            //hide the old table view form and show new one with the updated table status
+            currentForm.Hide();
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void displayOrderBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            currentForm.Hide();
+            orderServ.GetOrderByTableID(table.TableID);
+            OrderStatus orderstat = new OrderStatus(kb, employee);
+            orderstat.ShowDialog();
+
+
+        }
+
+        
     }
 }
