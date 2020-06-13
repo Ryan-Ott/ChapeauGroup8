@@ -149,12 +149,20 @@ namespace UserInterface
             Hide();
         }
 
-        private void liv_MenuItems_SelectedIndexChanged(object sender, EventArgs e)
+        private void liv_MenuItems_SelectedIndexChanged(object sender, EventArgs e) //FIX THISSSS 
         {
-            string selectedLVIname = liv_MenuItems.SelectedItems[0].SubItems[0].Text;
-            Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(selectedLVIname);
-            if (selectedMenuItem.Stock == 0)
-                MessageBox.Show("Selected item is currently out of stock.");
+            try
+            {
+                ListViewItem selectedLVI = liv_MenuItems.SelectedItems[0];
+                string selectedLVIname = selectedLVI.SubItems[0].Text;
+                Models.MenuItem selectedMenuItem = menuItemService.GetMenuItemByName(selectedLVIname);
+                if (selectedMenuItem.Stock == 0)
+                    MessageBox.Show("Selected item is currently out of stock.");
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }
