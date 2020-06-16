@@ -30,16 +30,6 @@ namespace UserInterface
             DisplayCurrentOrder();
         }
 
-        private void CloseOtherWindows()
-        {
-            List<Form> openForms = new List<Form>();
-            foreach (Form form in Application.OpenForms)
-                openForms.Add(form);
-            foreach (Form form in openForms)
-                if (this != form)
-                    form.Hide();
-        }
-
         private void SetCategoryLabel()
         {
             Category selectedCat = categoryService.GetCategoryByID(categoryID);

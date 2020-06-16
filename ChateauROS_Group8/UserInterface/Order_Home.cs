@@ -71,7 +71,7 @@ namespace UserInterface
             if (lastOrder == null)
                 currentOrder.OrderID = 1;
             else
-                currentOrder.OrderID = lastOrder.OrderID + 1;
+                currentOrder.OrderID = lastOrder.OrderID + 1; //chance for bug
             ReloadForm();
         }
 
@@ -145,8 +145,8 @@ namespace UserInterface
                     MessageBox.Show("Please add items to an order to be submitted.");
                 else
                 {
-                    orderOrderItemService.AddOrder(currentOrder);
-                    menuItemService.UpdateStock(currentOrder.orderItems);
+                    orderOrderItemService.AddOrder(currentOrder); //together in service layer
+                    menuItemService.UpdateStock(currentOrder.orderItems);//^^
                     MessageBox.Show("Order has been successfully added! Returning go table view.");
                     InitNewOrderProcess();
                     Hide();
