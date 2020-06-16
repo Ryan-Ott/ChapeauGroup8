@@ -101,7 +101,7 @@
             this.Corderview.HideSelection = false;
             this.Corderview.Location = new System.Drawing.Point(0, 0);
             this.Corderview.Name = "Corderview";
-            this.Corderview.Size = new System.Drawing.Size(768, 419);
+            this.Corderview.Size = new System.Drawing.Size(475, 151);
             this.Corderview.TabIndex = 12;
             this.Corderview.UseCompatibleStateImageBehavior = false;
             this.Corderview.View = System.Windows.Forms.View.Details;

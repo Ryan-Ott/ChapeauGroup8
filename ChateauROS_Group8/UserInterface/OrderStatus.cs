@@ -10,7 +10,6 @@ namespace UserInterface
     {
 
         private OrderAndOrderItem_Service Orderserv = new OrderAndOrderItem_Service();
-        Employee_Service employeeserv = new Employee_Service();
         Employee employee;
         OrderItem currentorder;
         string kitchenorbar;
