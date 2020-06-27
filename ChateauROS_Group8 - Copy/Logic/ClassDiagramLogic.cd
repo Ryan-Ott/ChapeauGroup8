@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Logic.Bill_Service" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Bill_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Category_Service" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Category_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Employee_Service" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Employee_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Menu_Service" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.MenuItem_Service" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAA=</HashCode>
+      <FileName>MenuItem_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.OrderAndOrderItem_Service" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAEAAAAg=</HashCode>
+      <FileName>OrderAndOrderItem_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Table_Service" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Table_Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
