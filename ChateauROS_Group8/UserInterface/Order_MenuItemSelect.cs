@@ -121,7 +121,7 @@ namespace UserInterface
             }
             if (!itemPresent) //if menuItem not present in order already, create a new order item for it and add to orderItems of current order
             {
-                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, new Table(), DateTime.Now.TimeOfDay);
+                OrderItem newOrderItem = new OrderItem(0, currentOrder.OrderID, selectedMenuItem, (int)nud_ItemCount.Value, "", OrderState.ordered, new Table(), DateTime.Now);
                 currentOrder.orderItems.Add(newOrderItem);
             }
         }

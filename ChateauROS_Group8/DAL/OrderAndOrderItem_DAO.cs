@@ -43,6 +43,38 @@ namespace DAL
             return orderItems;
         }
 
+        public List<OrderItem> DB_GetKicthenItems()
+        {
+            OpenConnection();
+            SqlCommand queryGetAll = new SqlCommand("SELECT OrderItems.oderItemID, OrderItems.orderID, OrderItems.menuItemID, OrderItems.quantity, OrderItems.requests, OrderItems.orderState, OrderItems.lastStateChange, Orders.TableID FROM [OrderItems] LEFT JOIN [Orders] ON OrderItems.OrderID = Orders.OrderID LEFT JOIN [MenuItems] ON OrderItems.menuItemID = MenuItems.menuItemID WHERE MenuItems.categoryID BETWEEN 1 AND 6 AND CAST(OrderItems.lastStateChange AS DATE) = CAST(GETDATE() AS DATE)", connection);
+            SqlDataReader reader = queryGetAll.ExecuteReader();
+            List<OrderItem> orderItems = new List<OrderItem>();
+            while (reader.Read())
+            {
+                OrderItem orderItem = ReadOrderItem(reader);
+                orderItems.Add(orderItem);
+            }
+            reader.Close();
+            CloseConnection();
+            return orderItems;
+        }
+
+        public List<OrderItem> DB_GetBarItems()
+        {
+            OpenConnection();
+            SqlCommand queryGetAll = new SqlCommand("SELECT OrderItems.oderItemID, OrderItems.orderID, OrderItems.menuItemID, OrderItems.quantity, OrderItems.requests, OrderItems.orderState, OrderItems.lastStateChange, Orders.TableID FROM [OrderItems] LEFT JOIN [Orders] ON OrderItems.OrderID = Orders.OrderID LEFT JOIN [MenuItems] ON OrderItems.menuItemID = MenuItems.menuItemID WHERE MenuItems.categoryID BETWEEN 7 AND 10 AND CAST(OrderItems.lastStateChange AS DATE) = CAST(GETDATE() AS DATE)", connection);
+            SqlDataReader reader = queryGetAll.ExecuteReader();
+            List<OrderItem> orderItems = new List<OrderItem>();
+            while (reader.Read())
+            {
+                OrderItem orderItem = ReadOrderItem(reader);
+                orderItems.Add(orderItem);
+            }
+            reader.Close();
+            CloseConnection();
+            return orderItems;
+        }
+
         public OrderItem DB_GetOrderItemByID(int id)
         {
             OpenConnection();
@@ -195,7 +227,7 @@ namespace DAL
             int quantity = (int)reader["quantity"];
             string requests = (string)reader["requests"];
             OrderState orderState = (OrderState)reader["orderState"];
-            TimeSpan lastStateChange = (TimeSpan)reader["lastStateChange"];
+            DateTime lastStateChange = (DateTime)reader["lastStateChange"];
             Table table = table_DAO.DB_GetTableByID((int)reader["tableID"]);
 
             return new OrderItem(orderItemID, orderID, menuItem, quantity, requests, orderState, table, lastStateChange); ;
