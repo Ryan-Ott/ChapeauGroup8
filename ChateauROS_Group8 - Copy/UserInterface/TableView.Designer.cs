@@ -258,9 +258,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(319, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 26;
-            this.label6.Text = "reserved";
+            this.label6.Text = "occupied";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // TableView
